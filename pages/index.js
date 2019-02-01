@@ -62,6 +62,16 @@ class Index extends React.Component {
           getting custom sales analytics and reports on demand and on schedule.
           We developed customer rewards management systems, as well as risk, and
           innovation management systems.
+          <br />
+          Read more about{" "}
+          <Link href="/work">
+            <a className="hi">our work</a>
+          </Link>{" "}
+          and view some of{" "}
+          <Link href="/work#projects">
+            <a className="hi">our projects</a>
+          </Link>
+          .
         </Typography>
         <div className={classnames("title", classes.title)}>Stack</div>
         <Typography className={classes.text1}>
