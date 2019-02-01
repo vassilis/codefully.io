@@ -11,6 +11,7 @@ import LogoAws from "../images/logo-aws.svg";
 import LogoHeroku from "../images/logo-heroku.svg";
 import LogoMaterial from "../images/logo-material-ui.svg";
 import LogoBootstrap from "../images/logo-bootstrap.svg";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const styles = () => ({
   root: {
@@ -29,68 +30,86 @@ const styles = () => ({
 
 const Stack = ({ classes }) => (
   <div className={classes.root}>
-    <Link href="/services">
+    <Tooltip title="AWS / Amazon Web Services" placement="top">
       <img
         className={classes.img}
-        style={{ width: 110, cursor: "pointer" }}
+        style={{ width: 110 }}
         src={LogoAws}
-        alt="AWS"
+        alt="AWS / Amazon Web Services"
       />
-    </Link>
-    <img
-      className={classes.img}
-      style={{ width: 60 }}
-      src={LogoHeroku}
-      alt="Heroku"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 140 }}
-      src={LogoNode}
-      alt="Node"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 90 }}
-      src={LogoReact}
-      alt="React"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 80 }}
-      src={LogoRedux}
-      alt="Redux"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 160 }}
-      src={LogoRails}
-      alt="Ruby on Rails"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 80 }}
-      src={LogoPostgres}
-      alt="PostgreSQL"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 90 }}
-      src={LogoMaterial}
-      alt="Material UI"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 80 }}
-      src={LogoBootstrap}
-      alt="Bootstrap"
-    />
-    <img
-      className={classes.img}
-      style={{ width: 90 }}
-      src={LogoHighcharts}
-      alt="Highcharts"
-    />
+    </Tooltip>
+    <Tooltip title="Heroku" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 60 }}
+        src={LogoHeroku}
+        alt="Heroku"
+      />
+    </Tooltip>
+    <Tooltip title="Node.js" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 140 }}
+        src={LogoNode}
+        alt="Node.js"
+      />
+    </Tooltip>
+    <Tooltip title="React" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 90 }}
+        src={LogoReact}
+        alt="React"
+      />
+    </Tooltip>
+    <Tooltip title="Redux" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 80 }}
+        src={LogoRedux}
+        alt="Redux"
+      />
+    </Tooltip>
+    <Tooltip title="Ruby on Rails" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 160 }}
+        src={LogoRails}
+        alt="Ruby on Rails"
+      />
+    </Tooltip>
+    <Tooltip title="PostgreSQL" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 80 }}
+        src={LogoPostgres}
+        alt="PostgreSQL"
+      />
+    </Tooltip>
+    <Tooltip title="Material UI" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 90 }}
+        src={LogoMaterial}
+        alt="Material UI"
+      />
+    </Tooltip>
+    <Tooltip title="Bootstrap" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 80 }}
+        src={LogoBootstrap}
+        alt="Bootstrap"
+      />
+    </Tooltip>
+    <Tooltip title="Highcharts" placement="top">
+      <img
+        className={classes.img}
+        style={{ width: 90 }}
+        src={LogoHighcharts}
+        alt="Highcharts"
+      />
+    </Tooltip>
   </div>
 );
 
