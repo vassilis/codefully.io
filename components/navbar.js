@@ -35,9 +35,6 @@ function ButtonAppBar(props) {
       <Link prefetch href="/services">
         <Button style={{ marginLeft: 10 }}>Services</Button>
       </Link>
-      <Link prefetch href="/products">
-        <Button style={{ marginLeft: 10 }}>Products</Button>
-      </Link>
       <Link prefetch href="/work">
         <Button style={{ marginLeft: 10 }}>Work</Button>
       </Link>
