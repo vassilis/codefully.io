@@ -21,8 +21,8 @@ class ContactPage extends React.Component {
         <div className="container" style={{ padding: "50px 24px" }}>
           <Typography variant="h2" className="hero" gutterBottom>
             <strong>
-              We love to discuss and analyse business stories! Let's get some
-              real work done!
+              We love to discuss and analyse business stories! Fill out the form
+              and let's get started!
             </strong>
           </Typography>
           <br />
