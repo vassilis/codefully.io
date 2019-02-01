@@ -1,81 +1,85 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Navbar from "../components/navbar";
-import Card from "../components/card";
-import { Grid } from "@material-ui/core";
 import Stack from "../components/stack";
+import classnames from "classnames";
+// import { Grid } from "@material-ui/core";
+import Link from "next/link";
 
-const styles = theme => ({});
+const styles = theme => ({
+  title: {
+    color: theme.palette.primary.main
+  },
+  text1: {
+    fontSize: "1.2rem",
+    marginTop: 5,
+    maxWidth: 1000
+  }
+});
 
 class Index extends React.Component {
   state = {};
 
   render() {
-    // const { classes } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className="container-md" style={{ marginTop: 50 }}>
         <Navbar />
-        <Typography
-          className="hero"
-          style={{ fontSize: "5rem", lineHeight: 1 }}
-        >
+        <div className="hero">
           Bring your ideas and let’s work together to build something beautiful
-        </Typography>
-        <Typography
-          color="primary"
-          style={{
-            fontSize: "1.6rem",
-            fontWeight: 300,
-            marginTop: 40,
-            maxWidth: 1000
-          }}
-        >
-          Get in touch and book a seat to the digital transformation journey!
-        </Typography>
-        <Typography
-          style={{ fontSize: "1.2rem", marginTop: 5, maxWidth: 1000 }}
-        >
+        </div>
+        <div className={classnames("title", classes.title)}>
+          {/* Get in touch and book a seat to the digital transformation journey! */}
+          Reason
+        </div>
+        <Typography className={classes.text1}>
           Codefully is an agile team of software engineers who love to analyze
           business stories and know how to deliver optimal solutions. Some of
-          our key services include custom application development, data
+          our key services include web and mobile application development, data
           analytics and reporting, business process management, cloud
-          infrastructure implementation, and front-end design.
+          infrastructure implementation, and UI / UX design.
+          <br />
+          Read more about the{" "}
+          <Link href="/services">
+            <a className="hi">services we offer</a>
+          </Link>{" "}
+          and{" "}
+          <Link href="/services#methodology">
+            <a className="hi">our methodology</a>
+          </Link>
+          .
+        </Typography>
+        <div className={classnames("title", classes.title)}>Work</div>
+        <Typography className={classes.text1}>
+          Since 2010 we design and implement solutions for companies of all
+          sizes and from different industries. We produced applications that
+          dramatically improved aspects of business processes. We helped
+          companies turn their data into insights. We solved problems like
+          managing complicated sales contracts for distributor networks or
+          getting custom sales analytics and reports on demand and on schedule.
+          We developed customer rewards management systems, as well as risk, and
+          innovation management systems.
+        </Typography>
+        <div className={classnames("title", classes.title)}>Stack</div>
+        <Typography className={classes.text1}>
+          A few words about our stack... how we choose technologies... maybe
+          some links to articles about choosing the right technologie for your
+          bussiness...{" "}
+          <a
+            href="https://www.google.com/search?q=how+we+choose+technologies"
+            target="_blank"
+            className="hi"
+          >
+            Google
+          </a>{" "}
+          <Link href="/services#stack">
+            <a className="hi">read more about our stack</a>
+          </Link>
         </Typography>
         <Stack />
-        <Grid container alignItems="stretch" spacing={16}>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-          <Grid item sm={4}>
-            <Card />
-          </Grid>
-        </Grid>
-        <br />
-        <br />
         <div style={{ padding: "100px 0" }} />
       </div>
     );
@@ -83,7 +87,7 @@ class Index extends React.Component {
 }
 
 Index.propTypes = {
-  // classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Index);

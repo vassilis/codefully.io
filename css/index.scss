@@ -28,6 +28,14 @@ h6,
 
 .hero {
   font-size: 5rem;
+  line-height: 1;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-top: 40px;
+  max-width: 1000px;
 }
 
 .container-lg {
@@ -43,6 +51,19 @@ h6,
 .container {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+a.hi {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #e8eaf6;
+  padding: 0 5px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 200ms background-color;
+  &:hover {
+    background-color: #c5cae9;
+  }
 }
 
 strong {

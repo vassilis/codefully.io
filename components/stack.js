@@ -18,7 +18,9 @@ const styles = () => ({
     alignItems: "center",
     justifyContent: "center",
     flexWrap: "wrap",
-    padding: 50
+    padding: "50px 0",
+    maxWidth: 1000,
+    margin: "0 auto"
   },
   img: {
     margin: 20

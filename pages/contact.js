@@ -19,9 +19,10 @@ class ContactPage extends React.Component {
       <div className="container-md" style={{ marginTop: 50 }}>
         <Navbar />
         <div className="container" style={{ padding: "50px 24px" }}>
-          <Typography variant="h2" className="hero" gutterBottom>
+          <Typography variant="h3" className="hero" gutterBottom>
             <strong>
-              We love to discuss and analyse business stories! Fill out the form
+              We love to discuss and analyse business stories! Let's talk and
+              find out if we are a good fit for your project. Fill out the form
               and let's get started!
             </strong>
           </Typography>
