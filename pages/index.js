@@ -75,19 +75,19 @@ class Index extends React.Component {
         </Typography>
         <div className={classnames("title", classes.title)}>Stack</div>
         <Typography className={classes.text1}>
-          A few words about our stack... how we choose technologies... maybe
+          {/* A few words about our stack... how we choose technologies... maybe
           some links to articles about choosing the right technologie for your
-          bussiness...{" "}
-          <a
+          bussiness... */}{" "}
+          {/* <a
             href="https://www.google.com/search?q=how+we+choose+technologies"
             target="_blank"
             className="hi"
           >
             Google
-          </a>{" "}
-          <Link href="/services#stack">
+          </a> */}{" "}
+          {/* <Link href="/services#stack">
             <a className="hi">read more about our stack</a>
-          </Link>
+          </Link> */}
         </Typography>
         <Stack />
         <div style={{ padding: "100px 0" }} />
