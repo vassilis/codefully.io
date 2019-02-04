@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css?family=Teko:700");
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro:300");
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   background-color: white !important;
   font-family: "Roboto", "Franklin Gothic Medium", Arial, sans-serif;
@@ -14,6 +19,22 @@ body {
   font-size: 36px;
   color: #303030;
   white-space: nowrap;
+}
+
+.landing1 {
+  color: #fff;
+  font-family: "Advent Pro", sans-serif !important;
+  font-weight: 300;
+  font-size: 2rem;
+  height: 100vh;
+  background-image: url("../images/code-art-2.jpg");
+  background-size: cover;
+  background-position: 50%;
+  background-attachment: fixed;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 3rem;
 }
 
 h1,
