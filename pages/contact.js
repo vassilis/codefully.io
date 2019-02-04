@@ -16,9 +16,12 @@ class ContactPage extends React.Component {
   render() {
     const { firstName, lastName, email, phone, message } = this.state;
     return (
-      <div className="container-md" style={{ marginTop: 50 }}>
+      <div
+        className="container-md"
+        style={{ marginTop: 50, padding: "0 24px" }}
+      >
         <Navbar />
-        <div className="container" style={{ padding: "50px 24px" }}>
+        <div className="container" style={{ padding: "50px 0" }}>
           <Typography variant="h3" className="hero" gutterBottom>
             <strong>
               We love to discuss and analyse business stories! Let's talk and

@@ -11,6 +11,10 @@ const styles = theme => ({
   root: {
     textAlign: "center",
     paddingTop: theme.spacing.unit * 20
+  },
+  title: {
+    color: theme.palette.primary.main,
+    marginTop: 40
   }
 });
 
@@ -27,23 +31,11 @@ function About(props) {
         Expertise... experience / since 2010, rapid prototyping, MVPs, SAAS,
         proof of concepts, customer engagement, sales analytics
       </Typography>
-      <Typography variant="h4" style={{ marginTop: 40 }}>
-        Clients / Industries
-      </Typography>
-      <Typography style={{ fontSize: "1.2rem", marginTop: 5, maxWidth: 1000 }}>
-        Siemens, Wesco, Rittal, Osram, Eaton, SupplyForce, ...
-      </Typography>
-      <Typography variant="h4" style={{ marginTop: 40 }}>
-        Attitude
-      </Typography>
-      <Typography style={{ fontSize: "1.2rem", marginTop: 5, maxWidth: 1000 }}>
-        Friendly, ethical, constant communication...
-      </Typography>
-      <Typography id="methodology" variant="h4" style={{ marginTop: 40 }}>
+      <Typography variant="h4" className={classes.title}>
         Methodology
       </Typography>
-      <Typography style={{ fontSize: "1.2rem", marginTop: 5, maxWidth: 1000 }}>
-        Agile, Scrum, TDD, Git
+      <div style={{ fontSize: "1.2rem", marginTop: 5, maxWidth: 1000 }}>
+        {/* Agile, Scrum, TDD, Git */}
         <p>
           Developing software requires a combination of problem-solving as well
           as technical skills. Figuring out how to tackle a complex problem
@@ -76,15 +68,7 @@ function About(props) {
             Together we will then ramp this up to a full release.
           </li>
         </ol>
-      </Typography>
-      <Typography id="stack" variant="h4" style={{ marginTop: 40 }}>
-        Our Stack
-      </Typography>
-      <Typography style={{ fontSize: "1.2rem", marginTop: 5, maxWidth: 1000 }}>
-        Modern, edge technologies, community best practices, security, tested,
-        active development
-      </Typography>
-      <Stack />
+      </div>
     </div>
   );
 }
