@@ -27,10 +27,12 @@ body {
   font-weight: 300;
   font-size: 2rem;
   height: 100vh;
-  background-image: url("../images/code-art-2.jpg");
+  background-image: url("../images/code-art-3.jpg");
   background-size: cover;
   background-position: 50%;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #000;
   display: flex;
   align-items: flex-end;
   justify-content: center;

@@ -7,6 +7,7 @@ import Stack from "../components/stack";
 import classnames from "classnames";
 // import { Grid } from "@material-ui/core";
 import Link from "next/link";
+import { animateScroll as scroll } from "react-scroll";
 
 const styles = theme => ({
   title: {
@@ -20,19 +21,28 @@ const styles = theme => ({
 });
 
 class Index extends React.Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.main = React.createRef();
+    this.state = {};
+  }
+
+  handleScrollToMain = event => {
+    scroll.scrollTo(this.main.current.offsetTop);
+  };
 
   render() {
     const { classes } = this.props;
 
     return (
       <React.Fragment>
-        <div className="landing1">
-          Software engineering is art and logic in balance...
+        <div className="landing1" onClick={this.handleScrollToMain}>
+          {/* Software engineering is art and logic in balance... */}
         </div>
         <div
+          ref={this.main}
           className="container-md"
-          style={{ marginTop: "20px", padding: "0 24px" }}
+          style={{ padding: "20px 24px 0" }}
         >
           <Navbar />
           <div className="hero">
