@@ -27,9 +27,9 @@ body {
   font-weight: 300;
   font-size: 2rem;
   height: 100vh;
-  background-image: url("../images/code-art-3.jpg");
+  background-image: url("../images/code-art-3.gif");
   background-size: cover;
-  background-position: 50%;
+  background-position: 33% 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: #000;
@@ -51,7 +51,8 @@ h6,
 }
 
 .hero {
-  font-size: 5rem;
+  padding: 5rem 0 6rem;
+  font-size: 6rem;
   line-height: 1;
 }
 

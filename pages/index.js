@@ -17,6 +17,9 @@ const styles = theme => ({
     fontSize: "1.2rem",
     marginTop: 5,
     maxWidth: 1000
+  },
+  textWhite: {
+    color: "white"
   }
 });
 
@@ -28,7 +31,7 @@ class Index extends React.Component {
   }
 
   handleScrollToMain = event => {
-    scroll.scrollTo(this.main.current.offsetTop);
+    scroll.scrollTo(this.main.current.offsetTop - 180);
   };
 
   render() {
@@ -39,59 +42,59 @@ class Index extends React.Component {
         <div className="landing1" onClick={this.handleScrollToMain}>
           {/* Software engineering is art and logic in balance... */}
         </div>
-        <div
-          ref={this.main}
-          className="container-md"
-          style={{ padding: "20px 24px 0" }}
-        >
-          <Navbar />
-          <div className="hero">
-            Bring your ideas and let’s work together to build something
-            beautiful
+
+        {/* <Navbar /> */}
+        <div className="hero" ref={this.main}>
+          <div className="container-md">
+            {/* Bring your ideas and let’s work together to build something beautiful */}
+            Let us turn your ideas into inspiring software
+            <Typography className={classes.text1} style={{ marginTop: 50 }}>
+              Codefully is an agile team of software engineers who love to
+              analyze business stories and know how to deliver optimal
+              solutions. Some of our key services include web and mobile
+              application development, data analytics and reporting, business
+              process management, cloud infrastructure implementation, and UI /
+              UX design.
+              <br />
+              Read more about the{" "}
+              <Link href="/services">
+                <a className="hi">services we offer</a>
+              </Link>{" "}
+              and{" "}
+              <Link href="/services#methodology">
+                <a className="hi">our methodology</a>
+              </Link>
+              .
+            </Typography>
           </div>
-          <div className={classnames("title", classes.title)}>
-            {/* Get in touch and book a seat to the digital transformation journey! */}
-            Reason
+        </div>
+        <div style={{ backgroundColor: "#000", padding: "5rem 0" }}>
+          <div className="container-md">
+            <Typography
+              className={classnames(classes.text1, classes.textWhite)}
+            >
+              Since 2010 we design and implement solutions for companies of all
+              sizes and from different industries. We produced applications that
+              dramatically improved aspects of business processes. We helped
+              companies turn their data into insights. We solved problems like
+              managing complicated sales contracts for distributor networks or
+              getting custom sales analytics and reports on demand and on
+              schedule. We developed customer rewards management systems, as
+              well as risk, and innovation management systems.
+              <br />
+              Read more about{" "}
+              <Link href="/work">
+                <a className="hi">our work</a>
+              </Link>{" "}
+              and view some of{" "}
+              <Link href="/work#projects">
+                <a className="hi">our projects</a>
+              </Link>
+              .
+            </Typography>
           </div>
-          <Typography className={classes.text1}>
-            Codefully is an agile team of software engineers who love to analyze
-            business stories and know how to deliver optimal solutions. Some of
-            our key services include web and mobile application development,
-            data analytics and reporting, business process management, cloud
-            infrastructure implementation, and UI / UX design.
-            <br />
-            Read more about the{" "}
-            <Link href="/services">
-              <a className="hi">services we offer</a>
-            </Link>{" "}
-            and{" "}
-            <Link href="/services#methodology">
-              <a className="hi">our methodology</a>
-            </Link>
-            .
-          </Typography>
-          <div className={classnames("title", classes.title)}>Work</div>
-          <Typography className={classes.text1}>
-            Since 2010 we design and implement solutions for companies of all
-            sizes and from different industries. We produced applications that
-            dramatically improved aspects of business processes. We helped
-            companies turn their data into insights. We solved problems like
-            managing complicated sales contracts for distributor networks or
-            getting custom sales analytics and reports on demand and on
-            schedule. We developed customer rewards management systems, as well
-            as risk, and innovation management systems.
-            <br />
-            Read more about{" "}
-            <Link href="/work">
-              <a className="hi">our work</a>
-            </Link>{" "}
-            and view some of{" "}
-            <Link href="/work#projects">
-              <a className="hi">our projects</a>
-            </Link>
-            .
-          </Typography>
-          <div className={classnames("title", classes.title)}>Stack</div>
+        </div>
+        <div className="container-md" style={{ padding: "5rem 0" }}>
           <Typography className={classes.text1}>
             Our software stack is based on the following technologies and
             frameworks: Ruby on Rails, React, Redux, Node.js, PostgreSQL, Amazon
@@ -103,8 +106,8 @@ class Index extends React.Component {
             .
           </Typography>
           <Stack />
-          <div style={{ padding: "100px 0" }} />
         </div>
+        <div style={{ padding: "100px 0" }} />
       </React.Fragment>
     );
   }
