@@ -21,7 +21,8 @@ const styles = theme => ({
     backgroundSize: "auto 100%",
     backgroundRepeat: "no-repeat",
     backgroundColor: "black",
-    backgroundPosition: "50%"
+    backgroundPosition: "50% 0",
+    backgroundAttachment: "fixed"
   },
   title: {
     color: theme.palette.primary.main
