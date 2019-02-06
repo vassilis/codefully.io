@@ -41,13 +41,13 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
-        {/* <div className="landing1" onClick={this.handleScrollToMain}> */}
-        <img
-          src={landing1}
-          alt="Codefully | The art of software engineering"
-          className="landing1"
-        />
-        {/* </div> */}
+        <div className="landing1-bg">
+          <img
+            src={landing1}
+            alt="Codefully | The art of software engineering"
+            className="landing1"
+          />
+        </div>
 
         {/* <Navbar /> */}
         <div className="hero" ref={this.main}>
