@@ -8,6 +8,7 @@ import classnames from "classnames";
 // import { Grid } from "@material-ui/core";
 import Link from "next/link";
 import { animateScroll as scroll } from "react-scroll";
+import landing1 from "../images/code-art-3.jpg";
 
 const styles = theme => ({
   title: {
@@ -40,9 +41,13 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="landing1" onClick={this.handleScrollToMain}>
-          {/* Software engineering is art and logic in balance... */}
-        </div>
+        {/* <div className="landing1" onClick={this.handleScrollToMain}> */}
+        <img
+          src={landing1}
+          alt="Codefully | The art of software engineering"
+          className="landing1"
+        />
+        {/* </div> */}
 
         {/* <Navbar /> */}
         <div className="hero" ref={this.main}>
