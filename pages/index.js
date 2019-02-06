@@ -2,11 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import Navbar from "../components/navbar";
 import Stack from "../components/stack";
 import classnames from "classnames";
 import Link from "next/link";
-import { animateScroll as scroll } from "react-scroll";
 import landing1 from "../images/code-art-3.jpg";
 import loading from "../images/loading.gif";
 import { Grid, Button } from "@material-ui/core";
@@ -74,8 +72,7 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.landing = React.createRef();
-    this.main = React.createRef();
-    this.state = { imageStatus: "loading" };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -85,17 +82,8 @@ class Index extends React.Component {
     }
   }
 
-  handleScrollToMain = event => {
-    scroll.scrollTo(this.main.current.offsetTop - 180);
-  };
-
-  handleImageLoaded = () => {
-    this.setState({ imageStatus: "loaded" });
-  };
-
   render() {
     const { classes } = this.props;
-    const { imageStatus } = this.state;
 
     return (
       <React.Fragment>
@@ -115,11 +103,27 @@ class Index extends React.Component {
             </Typography>
           </div>
         </div>
-        <div style={{ backgroundColor: "#000" }}>
-          <div className="container-md">
-            <Grid container spacing={24}>
-              <Grid item md={6} style={{ borderRight: "3px white solid" }}>
-                <div style={{ padding: "5rem 5rem 5rem 0" }}>
+        <div style={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={0}
+            alignItems="stretch"
+            // style={{ margin: "0 auto" }}
+          >
+            <Grid item md={6} style={{ width: "100%" }}>
+              <div
+                style={{
+                  backgroundColor: "black",
+                  height: "100%"
+                }}
+              >
+                <div
+                  style={{
+                    maxWidth: 600,
+                    marginLeft: "auto",
+                    padding: "5rem 5rem 5rem 0"
+                  }}
+                >
                   <Typography
                     className={classnames(classes.text0, classes.textWhite)}
                   >
@@ -141,9 +145,22 @@ class Index extends React.Component {
                     well as risk, and innovation management systems.
                   </Typography>
                 </div>
-              </Grid>
-              <Grid item md={6} style={{ borderLeft: "3px white solid" }}>
-                <div style={{ padding: "5rem 0 5rem 5rem" }}>
+              </div>
+            </Grid>
+            <Grid item md={6} style={{ width: "100%" }}>
+              <div
+                style={{
+                  backgroundColor: "#333",
+                  height: "100%"
+                }}
+              >
+                <div
+                  style={{
+                    maxWidth: 600,
+                    marginRight: "auto",
+                    padding: "5rem 0 5rem 5rem"
+                  }}
+                >
                   <Typography
                     className={classnames(classes.text1, classes.textWhite)}
                   >
@@ -195,9 +212,9 @@ class Index extends React.Component {
                     </Link>
                   </Typography>
                 </div>
-              </Grid>
+              </div>
             </Grid>
-          </div>
+          </Grid>
         </div>
         <div className="container-md" style={{ padding: "5rem 0" }}>
           <Stack />
@@ -236,7 +253,7 @@ class Index extends React.Component {
 }
 
 Index.propTypes = {
-  classes: PropTypes.object.isRequideepOrange
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Index);
