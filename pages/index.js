@@ -210,7 +210,13 @@ class Index extends React.Component {
             .
           </Typography>
         </div>
-        <div style={{ padding: "100px 0", textAlign: "center" }}>
+        <div
+          style={{
+            padding: "100px 0",
+            textAlign: "center",
+            backgroundColor: "#eee"
+          }}
+        >
           <a className="logo-v">
             <img src={LogoIcon} style={{ height: 120 }} alt="codefully" />
             codefully

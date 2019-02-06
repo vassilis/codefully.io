@@ -45,8 +45,9 @@ body {
   display: flex;
   background-color: #000;
   justify-content: center;
-  transition: height 1.3s;
+  transition: height 1.3s ease-out;
   height: 0;
+  overflow: hidden;
   img {
     object-fit: cover;
     display: none;
