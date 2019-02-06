@@ -33,27 +33,42 @@ const styles = theme => ({
 class Index extends React.Component {
   constructor(props) {
     super(props);
+    this.landing = React.createRef();
     this.main = React.createRef();
-    this.state = {};
+    this.state = { imageStatus: "loading" };
+  }
+
+  componentDidMount() {
+    const image = this.landing.current;
+    if (image && image.complete) {
+      this.handleImageLoaded();
+    }
   }
 
   handleScrollToMain = event => {
     scroll.scrollTo(this.main.current.offsetTop - 180);
   };
 
+  handleImageLoaded = () => {
+    this.setState({ imageStatus: "loaded" });
+  };
+
   render() {
     const { classes } = this.props;
+    const { imageStatus } = this.state;
 
     return (
       <React.Fragment>
-        <div className="landing1-bg">
-          <img
-            src={landing1}
-            alt="Codefully | The art of software engineering"
-            className="landing1"
-          />
+        <div className={classnames("landing1-bg", imageStatus)}>
+          {
+            <img
+              ref={this.landing}
+              src={landing1}
+              alt="Codefully | The art of software engineering"
+              className="landing1"
+            />
+          }
         </div>
-
         {/* <Navbar /> */}
         <div className="hero" ref={this.main}>
           <div className="container-md">
