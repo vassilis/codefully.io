@@ -8,14 +8,23 @@ import classnames from "classnames";
 import Link from "next/link";
 import { animateScroll as scroll } from "react-scroll";
 import landing1 from "../images/code-art-3.jpg";
+import loading from "../images/loading.gif";
 import { Grid, Button } from "@material-ui/core";
 import blue from "@material-ui/core/colors/blue";
 import lime from "@material-ui/core/colors/lime";
 import teal from "@material-ui/core/colors/teal";
 import deepOrange from "@material-ui/core/colors/deepOrange";
 import LogoIcon from "../images/logo-icon-4.svg";
+import BackgroundImage from "react-background-image-loader";
 
 const styles = theme => ({
+  landing: {
+    height: "100vh",
+    backgroundSize: "auto 100%",
+    backgroundRepeat: "no-repeat",
+    backgroundColor: "black",
+    backgroundPosition: "50%"
+  },
   title: {
     color: theme.palette.primary.main
   },
@@ -90,17 +99,11 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
-        <div className={classnames("landing1-bg", imageStatus)}>
-          {
-            <img
-              ref={this.landing}
-              src={landing1}
-              alt="Codefully | The art of software engineering"
-              className="landing1"
-            />
-          }
-        </div>
-        {/* <Navbar /> */}
+        <BackgroundImage
+          src={landing1}
+          placeholder={loading}
+          className={classes.landing}
+        />
         <div className="hero" ref={this.main}>
           <div className="container-md">
             {/* Bring your ideas and let’s work together to build something beautiful */}
