@@ -5,28 +5,59 @@ import { withStyles } from "@material-ui/core/styles";
 import Navbar from "../components/navbar";
 import Stack from "../components/stack";
 import classnames from "classnames";
-// import { Grid } from "@material-ui/core";
 import Link from "next/link";
 import { animateScroll as scroll } from "react-scroll";
 import landing1 from "../images/code-art-3.jpg";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
+import blue from "@material-ui/core/colors/blue";
+import lime from "@material-ui/core/colors/lime";
+import teal from "@material-ui/core/colors/teal";
+import deepOrange from "@material-ui/core/colors/deepOrange";
+import LogoIcon from "../images/logo-icon-4.svg";
 
 const styles = theme => ({
   title: {
     color: theme.palette.primary.main
   },
+  text0: {
+    fontSize: "1.6rem"
+  },
   text1: {
-    fontSize: "1.4rem",
-    marginTop: 5,
-    maxWidth: 900
+    fontSize: "1.4rem"
   },
   text2: {
-    fontSize: "1.2rem",
-    marginTop: 5,
-    maxWidth: 900
+    fontSize: "1.2rem"
   },
   textWhite: {
     color: "white"
+  },
+  blue: {
+    color: theme.palette.getContrastText(blue[100]),
+    backgroundColor: blue[500],
+    "&:hover": {
+      backgroundColor: blue[700]
+    }
+  },
+  lime: {
+    color: theme.palette.getContrastText(lime[100]),
+    backgroundColor: lime[500],
+    "&:hover": {
+      backgroundColor: lime[700]
+    }
+  },
+  teal: {
+    color: theme.palette.getContrastText(teal[100]),
+    backgroundColor: teal[500],
+    "&:hover": {
+      backgroundColor: teal[700]
+    }
+  },
+  deepOrange: {
+    color: theme.palette.getContrastText(deepOrange[100]),
+    backgroundColor: deepOrange[500],
+    "&:hover": {
+      backgroundColor: deepOrange[700]
+    }
   }
 });
 
@@ -87,7 +118,7 @@ class Index extends React.Component {
               <Grid item md={6} style={{ borderRight: "3px white solid" }}>
                 <div style={{ padding: "5rem 5rem 5rem 0" }}>
                   <Typography
-                    className={classnames(classes.text1, classes.textWhite)}
+                    className={classnames(classes.text0, classes.textWhite)}
                   >
                     Since 2010 we design and implement solutions for companies
                     of all sizes and from different industries.
@@ -121,22 +152,43 @@ class Index extends React.Component {
                     <br />
                     <br />
                     <Link href="/services">
-                      <a className="hi">Services</a>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.deepOrange}
+                      >
+                        Services
+                      </Button>
                     </Link>
                     <Link href="/services#methodology">
-                      <a className="hi" style={{ marginLeft: 10 }}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.blue}
+                        style={{ marginLeft: 10 }}
+                      >
                         Methodology
-                      </a>
+                      </Button>
                     </Link>
                     <Link href="/work">
-                      <a className="hi" style={{ marginLeft: 10 }}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.lime}
+                        style={{ marginLeft: 10 }}
+                      >
                         Work
-                      </a>
+                      </Button>
                     </Link>
                     <Link href="/work#projects">
-                      <a className="hi" style={{ marginLeft: 10 }}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.teal}
+                        style={{ marginLeft: 10 }}
+                      >
                         Projects
-                      </a>
+                      </Button>
                     </Link>
                   </Typography>
                 </div>
@@ -145,26 +197,37 @@ class Index extends React.Component {
           </div>
         </div>
         <div className="container-md" style={{ padding: "5rem 0" }}>
+          <Stack />
           <Typography className={classes.text1}>
             Our software stack is based on the following technologies and
-            frameworks: Ruby on Rails, React, Redux, Node.js, PostgreSQL, Amazon
-            Web Services, Heroku.
+            frameworks: Ruby on Rails, React, deepOrangeux, Node.js, PostgreSQL,
+            Amazon Web Services, Heroku.
+            <br />
             <br /> Read more about{" "}
             <Link href="/stack">
               <a className="hi">our stack</a>
             </Link>
             .
           </Typography>
-          <Stack />
         </div>
-        <div style={{ padding: "100px 0" }} />
+        <div style={{ padding: "100px 0", textAlign: "center" }}>
+          <a className="logo-v">
+            <img src={LogoIcon} style={{ height: 120 }} alt="codefully" />
+            codefully
+          </a>
+          <br />
+          <br />
+          <Link href="/contact">
+            <Button>get in touch</Button>
+          </Link>
+        </div>
       </React.Fragment>
     );
   }
 }
 
 Index.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequideepOrange
 };
 
 export default withStyles(styles)(Index);

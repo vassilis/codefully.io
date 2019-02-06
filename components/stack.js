@@ -13,7 +13,7 @@ import LogoMaterial from "../images/logo-material-ui.svg";
 import LogoBootstrap from "../images/logo-bootstrap.svg";
 import Tooltip from "@material-ui/core/Tooltip";
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     display: "flex",
     alignItems: "center",

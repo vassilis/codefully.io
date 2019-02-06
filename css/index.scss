@@ -21,6 +21,21 @@ body {
   white-space: nowrap;
 }
 
+.logo-v {
+  font-family: "Teko", "Roboto", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 36px;
+  color: #303030;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  img {
+    margin-bottom: 10px;
+  }
+}
+
 .landing1 {
   width: 100%;
   max-width: 1600px;
