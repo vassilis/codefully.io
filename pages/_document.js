@@ -52,7 +52,6 @@ class MyDocument extends Document {
             name="msapplication-config"
             content="/static/browserconfig.xml"
           />
-          <meta name="theme-color" content="#3f51b5" />
         </Head>
         <body>
           <Main />

@@ -16,7 +16,8 @@ const styles = theme => ({
   text1: {
     fontSize: "1.2rem",
     marginTop: 5,
-    maxWidth: 1000
+    maxWidth: 1000,
+    lineHeight: 1.7
   },
   textWhite: {
     color: "white"

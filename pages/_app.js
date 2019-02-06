@@ -26,7 +26,7 @@ class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>codefully.io</title>
+          <title>Codefully | The art of software engineering</title>
         </Head>
         {/* Wrap every page in Jss and Theme providers */}
         <JssProvider
