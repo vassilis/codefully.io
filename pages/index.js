@@ -14,6 +14,8 @@ import teal from "@material-ui/core/colors/teal";
 import deepOrange from "@material-ui/core/colors/deepOrange";
 import LogoIcon from "../images/logo-icon-4.svg";
 import BackgroundImage from "react-background-image-loader";
+import { pages } from "../src/content";
+import Divider from "@material-ui/core/Divider";
 
 const styles = theme => ({
   landing: {
@@ -31,7 +33,10 @@ const styles = theme => ({
     fontSize: "1.6rem"
   },
   text1: {
-    fontSize: "1.4rem"
+    fontSize: "1.1rem",
+    columnCount: 2,
+    columnGap: 80,
+    columnRule: "1px solid rgba(0, 0, 0, 0.12)"
   },
   text2: {
     fontSize: "1.2rem"
@@ -41,31 +46,40 @@ const styles = theme => ({
   },
   blue: {
     color: theme.palette.getContrastText(blue[100]),
-    backgroundColor: blue[500],
     "&:hover": {
-      backgroundColor: blue[700]
+      borderColor: blue[500],
+      backgroundColor: blue[300]
     }
   },
   lime: {
     color: theme.palette.getContrastText(lime[100]),
-    backgroundColor: lime[500],
     "&:hover": {
-      backgroundColor: lime[700]
+      borderColor: lime[500],
+      backgroundColor: lime[300]
     }
   },
   teal: {
     color: theme.palette.getContrastText(teal[100]),
-    backgroundColor: teal[500],
     "&:hover": {
-      backgroundColor: teal[700]
+      borderColor: teal[500],
+      backgroundColor: teal[300]
     }
   },
   deepOrange: {
     color: theme.palette.getContrastText(deepOrange[100]),
-    backgroundColor: deepOrange[500],
     "&:hover": {
-      backgroundColor: deepOrange[700]
+      borderColor: deepOrange[500],
+      backgroundColor: deepOrange[300]
     }
+  },
+  btn: {
+    borderColor: "rgba(0, 0, 0, 0.12)",
+    fontFamily: "Advent Pro",
+    padding: "3rem",
+    fontSize: "1.5rem"
+  },
+  link: {
+    color: "#333 !important"
   }
 });
 
@@ -95,134 +109,75 @@ class Index extends React.Component {
         />
         <div className="hero" ref={this.main}>
           <div className="container-md">
-            {/* Bring your ideas and let’s work together to build something beautiful */}
-            Let us turn your ideas into inspiring software
+            {pages.index.title2}
             <Typography className={classes.text1} style={{ marginTop: 50 }}>
-              Codefully is an agile team of software engineers who love to
-              analyze business stories and know how to deliver optimal
-              solutions.
+              {pages.index.text1}
             </Typography>
+            <Grid
+              container
+              spacing={24}
+              style={{ textAlign: "center", marginTop: 100 }}
+            >
+              <Grid item xs={12} md={3}>
+                <Link href="/services">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    className={classnames(classes.deepOrange, classes.btn)}
+                    fullWidth
+                  >
+                    Services
+                  </Button>
+                </Link>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Link href="/services#methodology">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    className={classnames(classes.blue, classes.btn)}
+                    fullWidth
+                  >
+                    Methodology
+                  </Button>
+                </Link>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Link href="/work">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    className={classnames(classes.lime, classes.btn)}
+                    fullWidth
+                  >
+                    Work
+                  </Button>
+                </Link>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Link href="/work#projects">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    className={classnames(classes.teal, classes.btn)}
+                    fullWidth
+                  >
+                    Projects
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
           </div>
         </div>
-        <div style={{ flexGrow: 1 }}>
-          <Grid
-            container
-            spacing={0}
-            alignItems="stretch"
-            // style={{ margin: "0 auto" }}
-          >
-            <Grid item md={6} style={{ width: "100%" }}>
-              <div
-                style={{
-                  backgroundColor: "black",
-                  height: "100%"
-                }}
-              >
-                <div
-                  style={{
-                    maxWidth: 600,
-                    marginLeft: "auto",
-                    padding: "5rem 5rem 5rem 0"
-                  }}
-                >
-                  <Typography
-                    className={classnames(classes.text0, classes.textWhite)}
-                  >
-                    Since 2010 we design and implement solutions for companies
-                    of all sizes and from different industries.
-                    <br />
-                    <br />
-                  </Typography>
-                  <Typography
-                    className={classnames(classes.text2, classes.textWhite)}
-                  >
-                    - We produced applications that dramatically improved
-                    aspects of business processes.
-                    <br />- We helped companies turn their data into insights.
-                    <br />- We solved problems like managing complicated sales
-                    contracts for distributor networks or getting custom sales
-                    analytics and reports on demand and on schedule.
-                    <br />- We developed customer rewards management systems, as
-                    well as risk, and innovation management systems.
-                  </Typography>
-                </div>
-              </div>
-            </Grid>
-            <Grid item md={6} style={{ width: "100%" }}>
-              <div
-                style={{
-                  backgroundColor: "#333",
-                  height: "100%"
-                }}
-              >
-                <div
-                  style={{
-                    maxWidth: 600,
-                    marginRight: "auto",
-                    padding: "5rem 0 5rem 5rem"
-                  }}
-                >
-                  <Typography
-                    className={classnames(classes.text1, classes.textWhite)}
-                  >
-                    Some of our key services include web and mobile application
-                    development, data analytics and reporting, business process
-                    management, cloud infrastructure implementation, and UI / UX
-                    design.
-                    <br />
-                    <br />
-                    <br />
-                    <Link href="/services">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.deepOrange}
-                      >
-                        Services
-                      </Button>
-                    </Link>
-                    <Link href="/services#methodology">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.blue}
-                        style={{ marginLeft: 10 }}
-                      >
-                        Methodology
-                      </Button>
-                    </Link>
-                    <Link href="/work">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.lime}
-                        style={{ marginLeft: 10 }}
-                      >
-                        Work
-                      </Button>
-                    </Link>
-                    <Link href="/work#projects">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.teal}
-                        style={{ marginLeft: 10 }}
-                      >
-                        Projects
-                      </Button>
-                    </Link>
-                  </Typography>
-                </div>
-              </div>
-            </Grid>
-          </Grid>
-        </div>
+        <Divider />
         <div className="container-md" style={{ padding: "5rem 0" }}>
           <Stack />
-          <Typography className={classes.text1}>
-            Our software stack is based on the following technologies and
-            frameworks: Ruby on Rails, React, deepOrangeux, Node.js, PostgreSQL,
-            Amazon Web Services, Heroku.
+          <Typography className={classes.text2}>
+            {pages.stack.text}
             <br />
             <br /> Read more about{" "}
             <Link href="/stack">
@@ -238,15 +193,17 @@ class Index extends React.Component {
             backgroundColor: "#eee"
           }}
         >
-          <a className="logo-v">
-            <img src={LogoIcon} style={{ height: 120 }} alt="codefully" />
-            codefully
+          <a className="logo">
+            <img
+              src={LogoIcon}
+              style={{ height: 35, marginRight: 10 }}
+              alt="codefully"
+            />
+            codefully <br />
+            <Link href="/contact">
+              <a className={classes.link}>#get in touch</a>
+            </Link>
           </a>
-          <br />
-          <br />
-          <Link href="/contact">
-            <Button>get in touch</Button>
-          </Link>
         </div>
       </React.Fragment>
     );

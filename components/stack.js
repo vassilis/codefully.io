@@ -24,7 +24,9 @@ const styles = theme => ({
     margin: "0 auto"
   },
   img: {
-    margin: 20
+    margin: 20,
+    border: "1px white solid",
+    height: 100
   }
 });
 
@@ -41,7 +43,7 @@ const Stack = ({ classes }) => (
     <Tooltip title="Heroku" placement="top">
       <img
         className={classes.img}
-        style={{ width: 60 }}
+        style={{ width: 80 }}
         src={LogoHeroku}
         alt="Heroku"
       />
