@@ -6,25 +6,15 @@ export const pages = {
     text1:
       "Codefully is an agile team of software engineers who love to \
     analyze business stories and know how to deliver optimal \
-    solutions. Since 2010 we design and implement solutions for \
-    companies of all sizes and from different industries. Some of our \
+    solutions. Since 2010 we design and develop software for \
+    companies of all sizes and from different industries. Our \
     key services include web and mobile application development, data \
     analytics and reporting, business process management, cloud \
-    infrastructure implementation, and UI / UX design. Codefully is an \
-    agile team of software engineers who love to analyze business \
-    stories and know how to deliver optimal solutions. Since 2010 we \
-    design and implement solutions for companies of all sizes and from \
-    different industries. Some of our key services include web and \
-    mobile application development, data analytics and reporting, \
-    business process management, cloud infrastructure implementation, \
-    and UI / UX design. Codefully is an agile team of software \
-    engineers who love to analyze business stories and know how to \
-    deliver optimal solutions. Since 2010 we design and implement \
-    solutions for companies of all sizes and from different \
-    industries. Some of our key services include web and mobile \
-    application development, data analytics and reporting, business \
-    process management, cloud infrastructure implementation, and UI / \
-    UX design.",
+    infrastructure implementation, and UI / UX design.<br /><br /> \
+    Whether you need an application that will improve your company's \
+    internal processes or a digital product for your startup, \
+    we are dedicated to guide you and support you at every step, \
+    from conception to the creation of the final product and beyond.",
     text2:
       "- We produced applications that dramatically improved \
     aspects of business processes. \
@@ -38,7 +28,7 @@ export const pages = {
   stack: {
     text:
       "Our software stack is based on the following technologies and \
-    frameworks: Ruby on Rails, React, deepOrangeux, Node.js, PostgreSQL, \
+    frameworks: Ruby on Rails, React, Redux, Node.js, PostgreSQL, \
     Amazon Web Services, Heroku."
   }
 };

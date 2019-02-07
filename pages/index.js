@@ -33,10 +33,11 @@ const styles = theme => ({
     fontSize: "1.6rem"
   },
   text1: {
-    fontSize: "1.1rem",
-    columnCount: 2,
-    columnGap: 80,
-    columnRule: "1px solid rgba(0, 0, 0, 0.12)"
+    fontSize: "1.1rem"
+    // textAlign: "justify"
+    // columnCount: 2,
+    // columnGap: 80,
+    // columnRule: "1px solid rgba(0, 0, 0, 0.12)"
   },
   text2: {
     fontSize: "1.2rem"
@@ -109,10 +110,18 @@ class Index extends React.Component {
         />
         <div className="hero" ref={this.main}>
           <div className="container-md">
-            {pages.index.title2}
-            <Typography className={classes.text1} style={{ marginTop: 50 }}>
-              {pages.index.text1}
-            </Typography>
+            <Grid container spacing={40}>
+              <Grid item xs={12} md={7}>
+                {pages.index.title2}
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography className={classes.text1} style={{ marginTop: 10 }}>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: pages.index.text1 }}
+                  />
+                </Typography>
+              </Grid>
+            </Grid>
             <Grid
               container
               spacing={24}
