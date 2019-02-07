@@ -200,6 +200,7 @@ class Index extends React.Component {
               alt="codefully"
             />
             codefully <br />
+            <br />
             <Link href="/contact">
               <a className={classes.link}>#get in touch</a>
             </Link>
