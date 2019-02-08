@@ -15,7 +15,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import classnames from "classnames";
 import { pages } from "../src/content";
 import Typography from "@material-ui/core/Typography";
-import deepPurple from "@material-ui/core/colors/deepPurple";
+import lightGreen from "@material-ui/core/colors/lightGreen";
 
 const styles = theme => ({
   root: {
@@ -25,6 +25,7 @@ const styles = theme => ({
   img: {
     position: "absolute",
     border: "1px #DDD solid",
+    backgroundColor: "white",
     padding: 10,
     width: 100,
     height: 100
@@ -39,9 +40,9 @@ const styles = theme => ({
         content: '""',
         display: "block",
         position: "absolute",
-        backgroundColor: deepPurple[50],
-        width: 250,
-        height: 350,
+        backgroundColor: lightGreen[50],
+        width: 650,
+        height: 200,
         top: 80,
         left: 100,
         zIndex: -1

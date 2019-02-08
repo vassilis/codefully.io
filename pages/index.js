@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
+import Values from "../components/values";
 import classnames from "classnames";
 import { pages } from "../src/content";
 import Navbar from "../components/navbar";
@@ -119,6 +120,7 @@ class Index extends React.Component {
               <span dangerouslySetInnerHTML={{ __html: pages.index.text1 }} />
             </Typography>
           </div>
+          <Values />
           <Stack />
         </div>
         <Footer />
