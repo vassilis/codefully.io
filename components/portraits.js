@@ -1,4 +1,4 @@
-import img01 from "../images/portraits/736716.jpg";
+import img01 from "../images/portraits/1181496.jpg";
 import img02 from "../images/portraits/485982.jpg";
 import img03 from "../images/portraits/733500.jpg";
 import img04 from "../images/portraits/1181695.jpg";
@@ -8,10 +8,11 @@ import img07 from "../images/portraits/220453.jpg";
 import img08 from "../images/portraits/1455398.jpg";
 import img09 from "../images/portraits/1820257.jpg";
 import img10 from "../images/portraits/936229.jpg";
-import img11 from "../images/portraits/193355.jpg";
+import img11 from "../images/portraits/834509.jpg";
 import img12 from "../images/portraits/1121796.jpg";
 import img13 from "../images/portraits/774909.jpg";
-import img14 from "../images/portraits/769746.jpg";
+import img14 from "../images/portraits/769690.jpg";
+// import img15 from "../images/portraits/193355.jpg";
 
 const portraits = [
   img01,
