@@ -5,7 +5,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
 import classnames from "classnames";
 import Link from "next/link";
-import { Grid } from "@material-ui/core";
 import LogoIcon from "../images/logo-icon-4.svg";
 import { pages } from "../src/content";
 import Navbar from "../components/navbar";
