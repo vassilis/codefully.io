@@ -6,8 +6,7 @@ import Link from "next/link";
 const styles = theme => ({
   root: {
     padding: "100px 0",
-    textAlign: "center",
-    backgroundColor: "#eee"
+    textAlign: "center"
   },
   link: {
     fontSize: "3rem",

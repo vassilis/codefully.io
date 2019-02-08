@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
 import classnames from "classnames";
-import Link from "next/link";
 import { pages } from "../src/content";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
@@ -51,11 +50,6 @@ const styles = theme => ({
     [theme.breakpoints.up("md")]: {
       marginLeft: 450
     }
-  },
-  stackText: {
-    maxWidth: 900,
-    fontSize: "1.2rem",
-    margin: "0 auto"
   }
 });
 
@@ -126,15 +120,6 @@ class Index extends React.Component {
             </Typography>
           </div>
           <Stack />
-          <Typography className={classes.stackText}>
-            {pages.stack.text}
-            <br />
-            Read more about{" "}
-            <Link href="/stack">
-              <a className="hi">our stack</a>
-            </Link>
-            .
-          </Typography>
         </div>
         <Footer />
       </React.Fragment>

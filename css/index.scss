@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 @import url("https://fonts.googleapis.com/css?family=Teko:700");
-@import url("https://fonts.googleapis.com/css?family=Advent+Pro:300");
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro:400");
 
 html,
 body {
@@ -10,6 +10,7 @@ body {
 body {
   background-color: white !important;
   font-family: "Roboto", "Franklin Gothic Medium", Arial, sans-serif;
+  color: #303030;
 }
 
 .logo {
@@ -71,7 +72,7 @@ h5,
 h6,
 .hero {
   font-family: "Advent Pro", sans-serif !important;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hero {
@@ -104,7 +105,7 @@ h6,
 a.hi {
   display: inline-block;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #e8eaf6;
+  background-color: #c5cae9;
   padding: 0 5px;
   border-radius: 4px;
   line-height: 1.5;

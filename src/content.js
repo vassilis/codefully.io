@@ -26,9 +26,11 @@ export const pages = {
     well as risk, and innovation management systems."
   },
   stack: {
+    title: "Leading Stack",
     text:
-      "Our software stack is based on the following technologies and \
-    frameworks: Ruby on Rails, React, Redux, Node.js, PostgreSQL, \
-    Bootstrap, Material UI, Highcharts, Amazon Web Services, Heroku."
+      "In our technological stack, we blend some of the most powerful,\
+      modern and popular development tools available today in our industry.\
+      If we have to name a few, those would be Amazon Web Services, Heroku,\
+      Node.js, React, Redux, PostgreSQL, Ruby on Rails, Bootstrap, Material UI and Highcharts."
   }
 };

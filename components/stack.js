@@ -12,104 +12,140 @@ import LogoHeroku from "../images/stack/logo-heroku.svg";
 import LogoMaterial from "../images/stack/logo-material-ui.svg";
 import LogoBootstrap from "../images/stack/logo-bootstrap.svg";
 import Tooltip from "@material-ui/core/Tooltip";
+import classnames from "classnames";
+import { pages } from "../src/content";
+import Typography from "@material-ui/core/Typography";
+import deepPurple from "@material-ui/core/colors/deepPurple";
 
 const styles = theme => ({
   root: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    padding: "50px 0",
-    maxWidth: 1000,
-    margin: "0 auto"
+    margin: "150px auto",
+    position: "relative"
   },
   img: {
-    margin: 20,
-    border: "1px white solid",
+    position: "absolute",
+    border: "1px #DDD solid",
+    padding: 10,
+    width: 100,
     height: 100
+  },
+  stackTitle: {
+    margin: "-70px 0 0 0",
+    fontSize: "3rem",
+    position: "relative",
+    [theme.breakpoints.up("md")]: {
+      padding: 40,
+      "&:before": {
+        content: '""',
+        display: "block",
+        position: "absolute",
+        backgroundColor: deepPurple[50],
+        width: 250,
+        height: 350,
+        top: 80,
+        left: 100,
+        zIndex: -1
+      }
+    }
+  },
+  stackText: {
+    maxWidth: 600,
+    fontSize: "1.2rem"
   }
 });
 
 const Stack = ({ classes }) => (
   <div className={classes.root}>
+    <h2 className={classnames(classes.stackTitle)}>{pages.stack.title}</h2>
+    <Typography className={classes.stackText}>
+      <span dangerouslySetInnerHTML={{ __html: pages.stack.text }} />
+      <br />
+      <br />
+      Read more about{" "}
+      <Link href="/stack">
+        <a className="hi">our stack</a>
+      </Link>{" "}
+      and how we choose the most relevant technologies for your project, which
+      is a key factor for its success and longevity.
+    </Typography>
     <Tooltip title="AWS / Amazon Web Services" placement="top">
       <img
         className={classes.img}
-        style={{ width: 110 }}
         src={LogoAws}
         alt="AWS / Amazon Web Services"
+        style={{ top: 0, right: 0 }}
       />
     </Tooltip>
     <Tooltip title="Heroku" placement="top">
       <img
         className={classes.img}
-        style={{ width: 80 }}
         src={LogoHeroku}
         alt="Heroku"
+        style={{ top: 0, right: 120 }}
       />
     </Tooltip>
     <Tooltip title="Node.js" placement="top">
       <img
         className={classes.img}
-        style={{ width: 140 }}
         src={LogoNode}
         alt="Node.js"
+        style={{ top: 0, right: 360 }}
       />
     </Tooltip>
     <Tooltip title="React" placement="top">
       <img
         className={classes.img}
-        style={{ width: 90 }}
         src={LogoReact}
         alt="React"
+        style={{ top: 120, right: 360 }}
       />
     </Tooltip>
     <Tooltip title="Redux" placement="top">
       <img
         className={classes.img}
-        style={{ width: 80 }}
         src={LogoRedux}
         alt="Redux"
+        style={{ top: 120, right: 240 }}
       />
     </Tooltip>
     <Tooltip title="Ruby on Rails" placement="top">
       <img
         className={classes.img}
-        style={{ width: 160 }}
         src={LogoRails}
         alt="Ruby on Rails"
+        style={{ top: 120, right: 120 }}
       />
     </Tooltip>
     <Tooltip title="PostgreSQL" placement="top">
       <img
         className={classes.img}
-        style={{ width: 80 }}
         src={LogoPostgres}
         alt="PostgreSQL"
+        style={{ top: 0, right: 240 }}
       />
     </Tooltip>
     <Tooltip title="Material UI" placement="top">
       <img
         className={classes.img}
-        style={{ width: 90 }}
         src={LogoMaterial}
         alt="Material UI"
+        style={{ top: 240, right: 240 }}
       />
     </Tooltip>
     <Tooltip title="Bootstrap" placement="top">
       <img
         className={classes.img}
-        style={{ width: 80 }}
         src={LogoBootstrap}
         alt="Bootstrap"
+        style={{ top: 240, right: 120 }}
       />
     </Tooltip>
     <Tooltip title="Highcharts" placement="top">
       <img
         className={classes.img}
-        style={{ width: 90 }}
         src={LogoHighcharts}
         alt="Highcharts"
+        style={{ top: 240, right: 0 }}
       />
     </Tooltip>
   </div>
