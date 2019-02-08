@@ -68,6 +68,13 @@ class Index extends React.Component {
     };
   }
 
+  componentDidMount() {
+    portraits.forEach(picture => {
+      const img = new Image();
+      img.src = picture;
+    });
+  }
+
   onmousemove = e => {
     const { timeoutIsCleared } = this.state;
     if (typeof end !== "undefined") {
