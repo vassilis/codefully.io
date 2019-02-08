@@ -9,7 +9,7 @@ const styles = {
   root: {
     display: "flex",
     alignItems: "center",
-    marginBottom: 50
+    padding: "20px 0"
   },
   grow: {
     flexGrow: 1
@@ -42,14 +42,7 @@ function ButtonAppBar(props) {
         <Button style={{ marginLeft: 10 }}>About</Button>
       </Link>
       <Link href="/contact">
-        <Fab
-          style={{ marginLeft: 20 }}
-          variant="extended"
-          color="primary"
-          elevation={2}
-        >
-          Contact
-        </Fab>
+        <Button style={{ marginLeft: 10 }}>Contact</Button>
       </Link>
     </div>
   );

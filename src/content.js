@@ -29,6 +29,6 @@ export const pages = {
     text:
       "Our software stack is based on the following technologies and \
     frameworks: Ruby on Rails, React, Redux, Node.js, PostgreSQL, \
-    Amazon Web Services, Heroku."
+    Bootstrap, Material UI, Highcharts, Amazon Web Services, Heroku."
   }
 };

@@ -5,26 +5,41 @@ import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
 import classnames from "classnames";
 import Link from "next/link";
-import landing1 from "../images/code-art-3.jpg";
-import loading from "../images/loading.gif";
-import { Grid, Button } from "@material-ui/core";
-import blue from "@material-ui/core/colors/blue";
-import lime from "@material-ui/core/colors/lime";
-import teal from "@material-ui/core/colors/teal";
-import deepOrange from "@material-ui/core/colors/deepOrange";
+import { Grid } from "@material-ui/core";
 import LogoIcon from "../images/logo-icon-4.svg";
-import BackgroundImage from "react-background-image-loader";
 import { pages } from "../src/content";
-import Divider from "@material-ui/core/Divider";
+import Navbar from "../components/navbar";
 
 const styles = theme => ({
-  landing: {
-    height: "100vh",
-    backgroundSize: "auto 100%",
-    backgroundRepeat: "no-repeat",
-    backgroundColor: "black",
-    backgroundPosition: "50% 0",
-    backgroundAttachment: "fixed"
+  heroSq: {
+    marginTop: 50,
+    position: "relative",
+    padding: 40,
+    [theme.breakpoints.up("md")]: {
+      "&:before": {
+        content: '""',
+        display: "block",
+        position: "absolute",
+        backgroundColor: "#fff176",
+        width: 450,
+        height: 450,
+        top: 0,
+        left: 0,
+        zIndex: -1
+      }
+    }
+  },
+  heroTitle: {
+    maxWidth: 900,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "4rem"
+    }
+  },
+  heroText: {
+    marginTop: 50,
+    [theme.breakpoints.up("md")]: {
+      marginLeft: 450
+    }
   },
   title: {
     color: theme.palette.primary.main
@@ -34,50 +49,9 @@ const styles = theme => ({
   },
   text1: {
     fontSize: "1.1rem"
-    // textAlign: "justify"
-    // columnCount: 2,
-    // columnGap: 80,
-    // columnRule: "1px solid rgba(0, 0, 0, 0.12)"
   },
   text2: {
     fontSize: "1.2rem"
-  },
-  textWhite: {
-    color: "white"
-  },
-  blue: {
-    color: theme.palette.getContrastText(blue[100]),
-    "&:hover": {
-      borderColor: blue[500],
-      backgroundColor: blue[300]
-    }
-  },
-  lime: {
-    color: theme.palette.getContrastText(lime[100]),
-    "&:hover": {
-      borderColor: lime[500],
-      backgroundColor: lime[300]
-    }
-  },
-  teal: {
-    color: theme.palette.getContrastText(teal[100]),
-    "&:hover": {
-      borderColor: teal[500],
-      backgroundColor: teal[300]
-    }
-  },
-  deepOrange: {
-    color: theme.palette.getContrastText(deepOrange[100]),
-    "&:hover": {
-      borderColor: deepOrange[500],
-      backgroundColor: deepOrange[300]
-    }
-  },
-  btn: {
-    borderColor: "rgba(0, 0, 0, 0.12)",
-    fontFamily: "Advent Pro",
-    padding: "3rem",
-    fontSize: "1.5rem"
   },
   link: {
     color: "#333 !important"
@@ -103,92 +77,24 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
-        <BackgroundImage
-          src={landing1}
-          placeholder={loading}
-          className={classes.landing}
-        />
-        <div className="hero" ref={this.main}>
-          <div className="container-md">
-            <Grid container spacing={40}>
-              <Grid item xs={12} md={7}>
-                {pages.index.title2}
-              </Grid>
-              <Grid item xs={12} md={5}>
-                <Typography className={classes.text1} style={{ marginTop: 10 }}>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: pages.index.text1 }}
-                  />
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              spacing={24}
-              style={{ textAlign: "center", marginTop: 100 }}
-            >
-              <Grid item xs={12} md={3}>
-                <Link href="/services">
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    className={classnames(classes.deepOrange, classes.btn)}
-                    fullWidth
-                  >
-                    Services
-                  </Button>
-                </Link>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Link href="/services#methodology">
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    className={classnames(classes.blue, classes.btn)}
-                    fullWidth
-                  >
-                    Methodology
-                  </Button>
-                </Link>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Link href="/work">
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    className={classnames(classes.lime, classes.btn)}
-                    fullWidth
-                  >
-                    Work
-                  </Button>
-                </Link>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Link href="/work#projects">
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    className={classnames(classes.teal, classes.btn)}
-                    fullWidth
-                  >
-                    Projects
-                  </Button>
-                </Link>
-              </Grid>
-            </Grid>
+        <div
+          className="container-md"
+          style={{ padding: "0 20px", margin: "0 auto 50px" }}
+        >
+          <Navbar />
+          <div className={classes.heroSq}>
+            <div className={classnames("hero", classes.heroTitle)}>
+              {pages.index.title2}
+            </div>
+            <div className={classes.heroText}>
+              <Typography className={classes.text1} style={{ marginTop: 10 }}>
+                <div dangerouslySetInnerHTML={{ __html: pages.index.text1 }} />
+              </Typography>
+            </div>
           </div>
-        </div>
-        <Divider />
-        <div className="container-md" style={{ padding: "5rem 0" }}>
           <Stack />
           <Typography className={classes.text2}>
-            {pages.stack.text}
-            <br />
-            <br /> Read more about{" "}
+            {pages.stack.text} Read more about{" "}
             <Link href="/stack">
               <a className="hi">our stack</a>
             </Link>
