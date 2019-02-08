@@ -13,6 +13,7 @@ import portraits from "../components/portraits";
 
 const styles = theme => ({
   heroSq: {
+    cursor: "crosshair",
     marginTop: 50,
     position: "relative",
     [theme.breakpoints.up("md")]: {
@@ -68,14 +69,6 @@ class Index extends React.Component {
     };
   }
 
-  componentDidMount() {
-    document.body.addEventListener("mousemove", this.onmousemove);
-  }
-
-  componentWillUnmount() {
-    document.body.removeEventListener("mousemove", this.onmousemove);
-  }
-
   onmousemove = e => {
     const { timeoutIsCleared } = this.state;
     if (typeof end !== "undefined") {
@@ -105,7 +98,7 @@ class Index extends React.Component {
           style={{ padding: "0 20px", margin: "0 auto 50px" }}
         >
           <Navbar />
-          <div className={classes.heroSq}>
+          <div className={classes.heroSq} onMouseMove={this.onmousemove}>
             <img src={image} alt="" className={classes.img} />
             <div className={classnames("hero", classes.heroTitle)}>
               {pages.index.title2}
