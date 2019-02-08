@@ -62,9 +62,10 @@ const styles = theme => ({
 class Index extends React.Component {
   constructor(props) {
     super(props);
+    this.slider = React.createRef();
     this.state = {
       image: null,
-      timeoutIsCleared: true
+      timeoutIsCleared: false
     };
   }
 
@@ -73,6 +74,17 @@ class Index extends React.Component {
       const img = new Image();
       img.src = picture;
     });
+    for (let i = 0; i < portraits.length; i++) {
+      setTimeout(() => {
+        window.end = setTimeout(() => {
+          this.setState({ image: portraits[i] });
+        }, i * 100);
+      });
+    }
+    setTimeout(() => {
+      this.setState({ image: null, timeoutIsCleared: true });
+      this.slider.current.addEventListener("mousemove", this.onmousemove);
+    }, portraits.length * 100);
   }
 
   onmousemove = e => {
@@ -86,7 +98,7 @@ class Index extends React.Component {
       const t = setTimeout(() => {
         window.end = setTimeout(() => {
           this.setState({ image: null, timeoutIsCleared: true });
-        }, 2000);
+        }, 1000);
         this.setState({ image: portraits[n], timeoutIsCleared: true });
         clearTimeout(t);
       }, 100);
@@ -104,7 +116,7 @@ class Index extends React.Component {
           style={{ padding: "0 20px", margin: "0 auto 50px" }}
         >
           <Navbar />
-          <div className={classes.heroSq} onMouseMove={this.onmousemove}>
+          <div ref={this.slider} className={classes.heroSq}>
             <img src={image} alt="" className={classes.img} />
             <div className={classnames("hero", classes.heroTitle)}>
               {pages.index.title2}
