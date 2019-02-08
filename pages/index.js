@@ -23,7 +23,6 @@ const styles = theme => ({
         display: "block",
         position: "absolute",
         backgroundColor: amber[100],
-        // backgroundImage: `url(${bg})`,
         width: 450,
         height: 450,
         top: 0,
