@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
 import classnames from "classnames";
 import Link from "next/link";
-import LogoIcon from "../images/logo-icon-4.svg";
+import LogoIcon from "../images/logo-icon-3.svg";
 import { pages } from "../src/content";
 import Navbar from "../components/navbar";
 
@@ -19,7 +19,7 @@ const styles = theme => ({
         content: '""',
         display: "block",
         position: "absolute",
-        backgroundColor: "#fff176",
+        backgroundColor: "#c0f5ff",
         width: 450,
         height: 450,
         top: 0,

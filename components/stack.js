@@ -1,16 +1,16 @@
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import LogoRails from "../images/logo-rails.svg";
-import LogoPostgres from "../images/logo-postgresql.svg";
-import LogoHighcharts from "../images/logo-highcharts.svg";
-import LogoNode from "../images/logo-nodejs.svg";
-import LogoReact from "../images/logo-react.svg";
-import LogoRedux from "../images/logo-redux.svg";
-import LogoAws from "../images/logo-aws.svg";
-import LogoHeroku from "../images/logo-heroku.svg";
-import LogoMaterial from "../images/logo-material-ui.svg";
-import LogoBootstrap from "../images/logo-bootstrap.svg";
+import LogoRails from "../images/stack/logo-rails.svg";
+import LogoPostgres from "../images/stack/logo-postgresql.svg";
+import LogoHighcharts from "../images/stack/logo-highcharts.svg";
+import LogoNode from "../images/stack/logo-nodejs.svg";
+import LogoReact from "../images/stack/logo-react.svg";
+import LogoRedux from "../images/stack/logo-redux.svg";
+import LogoAws from "../images/stack/logo-aws.svg";
+import LogoHeroku from "../images/stack/logo-heroku.svg";
+import LogoMaterial from "../images/stack/logo-material-ui.svg";
+import LogoBootstrap from "../images/stack/logo-bootstrap.svg";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const styles = theme => ({
