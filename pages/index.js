@@ -5,21 +5,22 @@ import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
 import classnames from "classnames";
 import Link from "next/link";
-import LogoIcon from "../images/logo-icon-3.svg";
 import { pages } from "../src/content";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import deepPurple from "@material-ui/core/colors/deepPurple";
 
 const styles = theme => ({
   heroSq: {
     marginTop: 50,
     position: "relative",
-    padding: 40,
     [theme.breakpoints.up("md")]: {
+      padding: 40,
       "&:before": {
         content: '""',
         display: "block",
         position: "absolute",
-        backgroundColor: "#c0f5ff",
+        backgroundColor: deepPurple[100],
         width: 450,
         height: 450,
         top: 0,
@@ -31,29 +32,20 @@ const styles = theme => ({
   heroTitle: {
     maxWidth: 900,
     [theme.breakpoints.down("sm")]: {
-      fontSize: "4rem"
+      fontSize: "3rem"
     }
   },
   heroText: {
     marginTop: 50,
+    fontSize: "1.2rem",
     [theme.breakpoints.up("md")]: {
       marginLeft: 450
     }
   },
-  title: {
-    color: theme.palette.primary.main
-  },
-  text0: {
-    fontSize: "1.6rem"
-  },
-  text1: {
-    fontSize: "1.1rem"
-  },
-  text2: {
-    fontSize: "1.2rem"
-  },
-  link: {
-    color: "#333 !important"
+  stackText: {
+    maxWidth: 900,
+    fontSize: "1.2rem",
+    margin: "0 auto"
   }
 });
 
@@ -85,41 +77,22 @@ class Index extends React.Component {
             <div className={classnames("hero", classes.heroTitle)}>
               {pages.index.title2}
             </div>
-            <div className={classes.heroText}>
-              <Typography className={classes.text1} style={{ marginTop: 10 }}>
-                <div dangerouslySetInnerHTML={{ __html: pages.index.text1 }} />
-              </Typography>
-            </div>
+            <Typography className={classes.heroText}>
+              <div dangerouslySetInnerHTML={{ __html: pages.index.text1 }} />
+            </Typography>
           </div>
           <Stack />
-          <Typography className={classes.text2}>
-            {pages.stack.text} Read more about{" "}
+          <Typography className={classes.stackText}>
+            {pages.stack.text}
+            <br />
+            Read more about{" "}
             <Link href="/stack">
               <a className="hi">our stack</a>
             </Link>
             .
           </Typography>
         </div>
-        <div
-          style={{
-            padding: "100px 0",
-            textAlign: "center",
-            backgroundColor: "#eee"
-          }}
-        >
-          <a className="logo">
-            <img
-              src={LogoIcon}
-              style={{ height: 35, marginRight: 10 }}
-              alt="codefully"
-            />
-            codefully <br />
-            <br />
-            <Link href="/contact">
-              <a className={classes.link}>#get in touch</a>
-            </Link>
-          </a>
-        </div>
+        <Footer />
       </React.Fragment>
     );
   }

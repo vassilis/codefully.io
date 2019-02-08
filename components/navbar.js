@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
-import { Button, Fab } from "@material-ui/core";
-import LogoIcon from "../images/logo-icon-4.svg";
+import { Button } from "@material-ui/core";
+import LogoIcon from "../images/logo-icon-3.svg";
 
 const styles = {
   root: {
@@ -33,16 +33,24 @@ function ButtonAppBar(props) {
         </Link>
       </div>
       <Link href="/services">
-        <Button style={{ marginLeft: 10 }}>Services</Button>
+        <Button color="primary" style={{ marginLeft: 10 }}>
+          Services
+        </Button>
       </Link>
       <Link href="/work">
-        <Button style={{ marginLeft: 10 }}>Work</Button>
+        <Button color="primary" style={{ marginLeft: 10 }}>
+          Work
+        </Button>
       </Link>
       <Link href="/about">
-        <Button style={{ marginLeft: 10 }}>About</Button>
+        <Button color="primary" style={{ marginLeft: 10 }}>
+          About
+        </Button>
       </Link>
       <Link href="/contact">
-        <Button style={{ marginLeft: 10 }}>Contact</Button>
+        <Button color="primary" style={{ marginLeft: 10 }}>
+          Contact
+        </Button>
       </Link>
     </div>
   );
