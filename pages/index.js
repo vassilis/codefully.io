@@ -10,10 +10,10 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import amber from "@material-ui/core/colors/amber";
 import portraits from "../components/portraits";
+import deepPurple from "@material-ui/core/colors/deepPurple";
 
 const styles = theme => ({
   heroSq: {
-    cursor: "crosshair",
     marginTop: 50,
     position: "relative",
     [theme.breakpoints.up("md")]: {
@@ -51,6 +51,14 @@ const styles = theme => ({
     [theme.breakpoints.up("md")]: {
       marginLeft: 450
     }
+  },
+  drop: {
+    position: "absolute",
+    borderWidth: 2,
+    borderStyle: "solid",
+    borderColor: deepPurple[50],
+    borderRadius: "50%",
+    zIndex: -1
   }
 });
 
@@ -78,11 +86,31 @@ class Index extends React.Component {
     }
     setTimeout(() => {
       this.setState({ image: null, timeoutIsCleared: true });
-      this.slider.current.addEventListener("mousemove", this.onmousemove);
+      this.slider.current.addEventListener("mousemove", this.play);
     }, portraits.length * 100);
+    document.body.addEventListener("mousemove", this.draw);
   }
 
-  onmousemove = e => {
+  componentWillUnmount() {
+    document.body.removeEventListener("mousemove", this.draw);
+  }
+
+  draw = e => {
+    const { classes } = this.props;
+    const drop = document.createElement("span");
+    let size = Math.floor(Math.random() * 500);
+    const top = e.pageY - size / 2 + "px";
+    const left = e.pageX - size / 2 + "px";
+    size += "px";
+    drop.className = classes.drop;
+    drop.style.cssText = `top: ${top};left: ${left};width: ${size};height: ${size};`;
+    document.body.appendChild(drop);
+    setTimeout(() => {
+      document.body.removeChild(drop);
+    }, 10000);
+  };
+
+  play = e => {
     const { timeoutIsCleared } = this.state;
     if (typeof end !== "undefined") {
       clearTimeout(end);
