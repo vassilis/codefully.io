@@ -19,8 +19,8 @@ const styles = theme => ({
         display: "block",
         position: "absolute",
         backgroundColor: deepPurple[50],
-        width: 600,
-        height: 600,
+        width: 650,
+        height: 650,
         top: -150,
         right: 0,
         zIndex: -1,
@@ -47,6 +47,11 @@ const styles = theme => ({
   },
   text: {
     fontSize: "1.2rem"
+  },
+  reposition: {
+    [theme.breakpoints.up("md")]: {
+      marginTop: -60
+    }
   }
 });
 
@@ -70,7 +75,7 @@ const Values = ({ classes }) => (
           voice our opinion and provide strong guidance.
         </Typography>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} className={classes.reposition}>
         <h3 className={classes.subtitle}>People above projects</h3>
         <Typography className={classes.text}>
           We choose what we work on based on the teams that are involved. We
