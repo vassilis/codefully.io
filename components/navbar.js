@@ -9,7 +9,7 @@ const styles = {
   root: {
     display: "flex",
     alignItems: "center",
-    padding: "20px 0"
+    padding: "40px 0 0"
   },
   grow: {
     flexGrow: 1
