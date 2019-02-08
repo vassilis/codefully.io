@@ -33,24 +33,16 @@ function ButtonAppBar(props) {
         </Link>
       </div>
       <Link href="/services">
-        <Button color="primary" style={{ marginLeft: 10 }}>
-          Services
-        </Button>
+        <Button style={{ marginLeft: 10 }}>Services</Button>
       </Link>
       <Link href="/work">
-        <Button color="primary" style={{ marginLeft: 10 }}>
-          Work
-        </Button>
+        <Button style={{ marginLeft: 10 }}>Work</Button>
       </Link>
       <Link href="/about">
-        <Button color="primary" style={{ marginLeft: 10 }}>
-          About
-        </Button>
+        <Button style={{ marginLeft: 10 }}>About</Button>
       </Link>
       <Link href="/contact">
-        <Button color="primary" style={{ marginLeft: 10 }}>
-          Contact
-        </Button>
+        <Button style={{ marginLeft: 10 }}>Contact</Button>
       </Link>
     </div>
   );
