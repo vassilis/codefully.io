@@ -9,29 +9,7 @@ import { pages } from "../src/content";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import amber from "@material-ui/core/colors/amber";
-import portrait0 from "../images/portraits/6110.jpg";
-import portrait1 from "../images/portraits/41366.jpg";
-import portrait2 from "../images/portraits/733500.jpg";
-import portrait3 from "../images/portraits/1181695.jpg";
-import portrait4 from "../images/portraits/1250426.jpg";
-import portrait5 from "../images/portraits/98045.jpg";
-import portrait6 from "../images/portraits/220453.jpg";
-import portrait7 from "../images/portraits/41366.jpg";
-import portrait8 from "../images/portraits/733500.jpg";
-import portrait9 from "../images/portraits/1181695.jpg";
-
-const portraits = [
-  portrait0,
-  portrait1,
-  portrait2,
-  portrait3,
-  portrait4,
-  portrait5,
-  portrait6,
-  portrait7,
-  portrait8,
-  portrait9
-];
+import portraits from "../components/portraits";
 
 const styles = theme => ({
   heroSq: {
@@ -100,12 +78,18 @@ class Index extends React.Component {
 
   onmousemove = e => {
     const { timeoutIsCleared } = this.state;
-    const n = Math.floor(Math.random() * 10);
+    if (typeof end !== "undefined") {
+      clearTimeout(end);
+    }
     if (timeoutIsCleared) {
+      const n = Math.floor(Math.random() * portraits.length);
       this.setState({ timeoutIsCleared: false });
       const t = setTimeout(() => {
+        window.end = setTimeout(() => {
+          this.setState({ image: null, timeoutIsCleared: true });
+        }, 2000);
         this.setState({ image: portraits[n], timeoutIsCleared: true });
-        clearTimeout(n);
+        clearTimeout(t);
       }, 100);
     }
   };
