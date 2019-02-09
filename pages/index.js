@@ -86,7 +86,9 @@ class Index extends React.Component {
     }
     setTimeout(() => {
       this.setState({ image: null, timeoutIsCleared: true });
-      this.slider.current.addEventListener("mousemove", this.play);
+      if (this.slider.current) {
+        this.slider.current.addEventListener("mousemove", this.play);
+      }
     }, portraits.length * 100);
     document.body.addEventListener("mousemove", this.draw);
   }

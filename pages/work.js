@@ -17,7 +17,10 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <div className="container-md" style={{ marginTop: 50 }}>
+    <div
+      className="container-md"
+      style={{ padding: "0 20px", margin: "0 auto 50px" }}
+    >
       <Navbar />
     </div>
   );

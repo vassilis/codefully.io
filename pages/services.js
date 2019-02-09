@@ -22,9 +22,15 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <div className="container-md" style={{ marginTop: 50 }}>
+    <div
+      className="container-md"
+      style={{ padding: "0 20px", margin: "0 auto 50px" }}
+    >
       <Navbar />
-      <Typography className="hero" style={{ fontSize: "5rem", lineHeight: 1 }}>
+      <Typography
+        className="hero"
+        style={{ fontSize: "5rem", lineHeight: 1, margin: "50px 0" }}
+      >
         Custom software solutions tailored to your unique needs
       </Typography>
       <Typography style={{ fontSize: "1.2rem", marginTop: 40, maxWidth: 1000 }}>

@@ -19,7 +19,7 @@ import lightGreen from "@material-ui/core/colors/lightGreen";
 
 const styles = theme => ({
   root: {
-    margin: "150px auto",
+    margin: "200px auto 0",
     position: "relative"
   },
   img: {

@@ -2,6 +2,13 @@
 @import url("https://fonts.googleapis.com/css?family=Teko:700");
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro:400");
 
+@media screen and (min-width: 960px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
+
 html,
 body {
   min-height: 100%;

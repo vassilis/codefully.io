@@ -18,7 +18,7 @@ class ContactPage extends React.Component {
     return (
       <div
         className="container-md"
-        style={{ marginTop: 50, padding: "0 24px" }}
+        style={{ padding: "0 20px", margin: "0 auto 50px" }}
       >
         <Navbar />
         <div className="container" style={{ padding: "50px 0" }}>
