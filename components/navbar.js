@@ -7,6 +7,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CircleIcon from "@material-ui/icons/RadioButtonUncheckedOutlined";
 import SquareIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import classnames from "classnames";
+import red from "@material-ui/core/colors/red";
+import grey from "@material-ui/core/colors/grey";
 
 const styles = {
   root: {
@@ -22,15 +24,15 @@ const styles = {
   icon: {
     cursor: "pointer",
     fontSize: 24,
-    color: "#aaa",
+    color: grey[500],
     marginRight: 10
   },
   active: {
-    color: "#333"
+    color: red[500]
   },
   menuIcon: {
     fontSize: 48,
-    color: "#333",
+    color: grey[700],
     marginLeft: 20
   },
   grow: {
