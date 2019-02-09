@@ -5,14 +5,15 @@ import Link from "next/link";
 
 const styles = theme => ({
   root: {
-    padding: "100px 0",
+    padding: "200px 0",
     textAlign: "center"
   },
   link: {
     fontSize: "3rem",
     fontFamily: '"Teko", "Roboto", sans-serif',
     fontWeight: 700,
-    color: "#333 !important"
+    color: "#333 !important",
+    margin: "0 15px"
   }
 });
 
@@ -26,7 +27,10 @@ class Footer extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
+      <div id="menu" className={classes.root}>
+        <Link href="/services">
+          <a className={classes.link}>#articles</a>
+        </Link>
         <Link href="/contact">
           <a className={classes.link}>#get in touch</a>
         </Link>

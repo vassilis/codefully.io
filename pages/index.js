@@ -59,6 +59,13 @@ const styles = theme => ({
     borderColor: deepPurple[50],
     borderRadius: "50%",
     zIndex: -1
+  },
+  square: {
+    position: "absolute",
+    borderWidth: 2,
+    borderStyle: "solid",
+    borderColor: deepPurple[50],
+    zIndex: -1
   }
 });
 
@@ -67,6 +74,7 @@ class Index extends React.Component {
     super(props);
     this.slider = React.createRef();
     this.state = {
+      shape: "circle",
       image: null,
       timeoutIsCleared: false
     };
@@ -85,11 +93,11 @@ class Index extends React.Component {
       });
     }
     setTimeout(() => {
-      this.setState({ image: null, timeoutIsCleared: true });
       if (this.slider.current) {
+        this.setState({ image: null, timeoutIsCleared: true });
         this.slider.current.addEventListener("mousemove", this.play);
       }
-    }, portraits.length * 100);
+    }, 100 * (portraits.length + 1));
     document.body.addEventListener("mousemove", this.draw);
   }
 
@@ -99,12 +107,13 @@ class Index extends React.Component {
 
   draw = e => {
     const { classes } = this.props;
-    const drop = document.createElement("span");
+    const { shape } = this.state;
+    const drop = document.createElement("i");
     let size = Math.floor(Math.random() * 500);
     const top = e.pageY - size / 2 + "px";
     const left = e.pageX - size / 2 + "px";
     size += "px";
-    drop.className = classes.drop;
+    drop.className = shape == "circle" ? classes.drop : classes.square;
     drop.style.cssText = `top: ${top};left: ${left};width: ${size};height: ${size};`;
     document.body.appendChild(drop);
     setTimeout(() => {
@@ -130,9 +139,13 @@ class Index extends React.Component {
     }
   };
 
+  selectShape = shape => {
+    this.setState({ shape: shape });
+  };
+
   render() {
     const { classes } = this.props;
-    const { image } = this.state;
+    const { image, shape } = this.state;
 
     return (
       <React.Fragment>
@@ -140,7 +153,10 @@ class Index extends React.Component {
           className="container-md"
           style={{ padding: "0 20px", margin: "0 auto 50px" }}
         >
-          <Navbar />
+          <Navbar
+            onClickShape={shape => this.selectShape(shape)}
+            shape={shape}
+          />
           <div ref={this.slider} className={classes.heroSq}>
             <img src={image} alt="" className={classes.img} />
             <div className={classnames("hero", classes.heroTitle)}>
