@@ -111,17 +111,21 @@ class Index extends React.Component {
   draw = e => {
     const { classes } = this.props;
     const { shape } = this.state;
-    const drop = document.createElement("i");
-    let size = Math.floor(Math.random() * 500);
-    const top = e.pageY - size / 2 + "px";
-    const left = e.pageX - size / 2 + "px";
-    size += "px";
-    drop.className = shape == "circle" ? classes.drop : classes.square;
-    drop.style.cssText = `top: ${top};left: ${left};width: ${size};height: ${size};`;
-    document.body.appendChild(drop);
-    setTimeout(() => {
-      document.body.removeChild(drop);
-    }, 10000);
+    const x = e.pageX;
+    const y = e.pageY;
+    if (x % 3 === 0 && y % 3 === 0) {
+      const drop = document.createElement("i");
+      let size = Math.floor(Math.random() * 500);
+      const top = y - size / 2 + "px";
+      const left = x - size / 2 + "px";
+      size += "px";
+      drop.className = shape == "circle" ? classes.drop : classes.square;
+      drop.style.cssText = `top: ${top};left: ${left};width: ${size};height: ${size};`;
+      document.body.appendChild(drop);
+      setTimeout(() => {
+        document.body.removeChild(drop);
+      }, 10000);
+    }
   };
 
   play = e => {
