@@ -11,6 +11,7 @@ import Footer from "../components/footer";
 import amber from "@material-ui/core/colors/amber";
 import portraits from "../components/portraits";
 import deepPurple from "@material-ui/core/colors/deepPurple";
+import _ from "lodash";
 
 const styles = theme => ({
   heroSq: {
@@ -55,20 +56,22 @@ const styles = theme => ({
       marginLeft: 450
     }
   },
-  drop: {
+  circle: {
     position: "absolute",
     borderWidth: 2,
     borderStyle: "solid",
     borderColor: deepPurple[50],
     borderRadius: "50%",
-    zIndex: -1
+    zIndex: -1,
+    transform: "translate(-50%, -50%)"
   },
   square: {
     position: "absolute",
     borderWidth: 2,
     borderStyle: "solid",
     borderColor: deepPurple[50],
-    zIndex: -1
+    zIndex: -1,
+    transform: "translate(-50%, -50%)"
   }
 });
 
@@ -78,6 +81,7 @@ class Index extends React.Component {
     this.slider = React.createRef();
     this.state = {
       shape: "circle",
+      shapes: [],
       image: null,
       timeoutIsCleared: false
     };
@@ -101,31 +105,41 @@ class Index extends React.Component {
         this.slider.current.addEventListener("mousemove", this.play);
       }
     }, 100 * (portraits.length + 1));
-    document.body.addEventListener("mousemove", this.draw);
+    document.body.addEventListener("mousemove", this.addShape);
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener("mousemove", this.draw);
+    this.slider.current.removeEventListener("mousemove", this.play);
+    document.body.removeEventListener("mousemove", this.addShape);
   }
 
-  draw = e => {
-    const { classes } = this.props;
-    const { shape } = this.state;
+  addShape = e => {
+    const { shapes } = this.state;
     const x = e.pageX;
     const y = e.pageY;
+    const id = "s" + Date.now();
     if (x % 3 === 0 && y % 3 === 0) {
-      const drop = document.createElement("i");
-      let size = Math.floor(Math.random() * 500);
-      const top = y - size / 2 + "px";
-      const left = x - size / 2 + "px";
-      size += "px";
-      drop.className = shape == "circle" ? classes.drop : classes.square;
-      drop.style.cssText = `top: ${top};left: ${left};width: ${size};height: ${size};`;
-      document.body.appendChild(drop);
+      const size = Math.floor(Math.random() * 500);
+      const newShape = {
+        id: id,
+        size: size,
+        top: y,
+        left: x
+      };
+      const uShapes = [...shapes, newShape];
+      this.setState({ shapes: uShapes });
       setTimeout(() => {
-        document.body.removeChild(drop);
+        this.removeShape(id);
       }, 10000);
     }
+  };
+
+  removeShape = id => {
+    const { shapes } = this.state;
+    const oShapes = _.filter(shapes, s => s.id !== id);
+    this.setState({
+      shapes: oShapes
+    });
   };
 
   play = e => {
@@ -152,7 +166,7 @@ class Index extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { image, shape } = this.state;
+    const { image, shape, shapes } = this.state;
 
     return (
       <React.Fragment>
@@ -177,6 +191,13 @@ class Index extends React.Component {
           <Stack />
         </div>
         <Footer />
+        {shapes.map(s => (
+          <i
+            key={s.id}
+            className={classes[shape]}
+            style={{ top: s.top, left: s.left, width: s.size, height: s.size }}
+          />
+        ))}
       </React.Fragment>
     );
   }
