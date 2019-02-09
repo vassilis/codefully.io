@@ -52,6 +52,11 @@ const styles = theme => ({
   stackText: {
     maxWidth: 600,
     fontSize: "1.2rem"
+  },
+  logos: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
   }
 });
 
@@ -69,86 +74,88 @@ const Stack = ({ classes }) => (
       and how we choose the most relevant technologies for your project, which
       is a key factor for its success and longevity.
     </Typography>
-    <Tooltip title="AWS / Amazon Web Services" placement="top">
-      <img
-        className={classes.img}
-        src={LogoAws}
-        alt="AWS / Amazon Web Services"
-        style={{ top: 0, right: 0 }}
-      />
-    </Tooltip>
-    <Tooltip title="Heroku" placement="top">
-      <img
-        className={classes.img}
-        src={LogoHeroku}
-        alt="Heroku"
-        style={{ top: 0, right: 120 }}
-      />
-    </Tooltip>
-    <Tooltip title="Node.js" placement="top">
-      <img
-        className={classes.img}
-        src={LogoNode}
-        alt="Node.js"
-        style={{ top: 0, right: 360 }}
-      />
-    </Tooltip>
-    <Tooltip title="React" placement="top">
-      <img
-        className={classes.img}
-        src={LogoReact}
-        alt="React"
-        style={{ top: 120, right: 360 }}
-      />
-    </Tooltip>
-    <Tooltip title="Redux" placement="top">
-      <img
-        className={classes.img}
-        src={LogoRedux}
-        alt="Redux"
-        style={{ top: 120, right: 240 }}
-      />
-    </Tooltip>
-    <Tooltip title="Ruby on Rails" placement="top">
-      <img
-        className={classes.img}
-        src={LogoRails}
-        alt="Ruby on Rails"
-        style={{ top: 120, right: 120 }}
-      />
-    </Tooltip>
-    <Tooltip title="PostgreSQL" placement="top">
-      <img
-        className={classes.img}
-        src={LogoPostgres}
-        alt="PostgreSQL"
-        style={{ top: 0, right: 240 }}
-      />
-    </Tooltip>
-    <Tooltip title="Material UI" placement="top">
-      <img
-        className={classes.img}
-        src={LogoMaterial}
-        alt="Material UI"
-        style={{ top: 240, right: 240 }}
-      />
-    </Tooltip>
-    <Tooltip title="Bootstrap" placement="top">
-      <img
-        className={classes.img}
-        src={LogoBootstrap}
-        alt="Bootstrap"
-        style={{ top: 240, right: 120 }}
-      />
-    </Tooltip>
-    <Tooltip title="Highcharts" placement="top">
-      <img
-        className={classes.img}
-        src={LogoHighcharts}
-        alt="Highcharts"
-        style={{ top: 240, right: 0 }}
-      />
-    </Tooltip>
+    <div className={classes.logos}>
+      <Tooltip title="AWS / Amazon Web Services" placement="top">
+        <img
+          className={classes.img}
+          src={LogoAws}
+          alt="AWS / Amazon Web Services"
+          style={{ top: 0, right: 0 }}
+        />
+      </Tooltip>
+      <Tooltip title="Heroku" placement="top">
+        <img
+          className={classes.img}
+          src={LogoHeroku}
+          alt="Heroku"
+          style={{ top: 0, right: 120 }}
+        />
+      </Tooltip>
+      <Tooltip title="Node.js" placement="top">
+        <img
+          className={classes.img}
+          src={LogoNode}
+          alt="Node.js"
+          style={{ top: 0, right: 360 }}
+        />
+      </Tooltip>
+      <Tooltip title="React" placement="top">
+        <img
+          className={classes.img}
+          src={LogoReact}
+          alt="React"
+          style={{ top: 120, right: 360 }}
+        />
+      </Tooltip>
+      <Tooltip title="Redux" placement="top">
+        <img
+          className={classes.img}
+          src={LogoRedux}
+          alt="Redux"
+          style={{ top: 120, right: 240 }}
+        />
+      </Tooltip>
+      <Tooltip title="Ruby on Rails" placement="top">
+        <img
+          className={classes.img}
+          src={LogoRails}
+          alt="Ruby on Rails"
+          style={{ top: 120, right: 120 }}
+        />
+      </Tooltip>
+      <Tooltip title="PostgreSQL" placement="top">
+        <img
+          className={classes.img}
+          src={LogoPostgres}
+          alt="PostgreSQL"
+          style={{ top: 0, right: 240 }}
+        />
+      </Tooltip>
+      <Tooltip title="Material UI" placement="top">
+        <img
+          className={classes.img}
+          src={LogoMaterial}
+          alt="Material UI"
+          style={{ top: 240, right: 240 }}
+        />
+      </Tooltip>
+      <Tooltip title="Bootstrap" placement="top">
+        <img
+          className={classes.img}
+          src={LogoBootstrap}
+          alt="Bootstrap"
+          style={{ top: 240, right: 120 }}
+        />
+      </Tooltip>
+      <Tooltip title="Highcharts" placement="top">
+        <img
+          className={classes.img}
+          src={LogoHighcharts}
+          alt="Highcharts"
+          style={{ top: 240, right: 0 }}
+        />
+      </Tooltip>
+    </div>
   </div>
 );
 

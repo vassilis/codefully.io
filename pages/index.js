@@ -31,11 +31,14 @@ const styles = theme => ({
       }
     }
   },
-  img: {
+  slider: {
     position: "absolute",
     top: 0,
     left: 0,
-    zIndex: 1
+    zIndex: 1,
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
   },
   heroTitle: {
     position: "relative",
@@ -158,7 +161,7 @@ class Index extends React.Component {
             shape={shape}
           />
           <div ref={this.slider} className={classes.heroSq}>
-            <img src={image} alt="" className={classes.img} />
+            <img src={image} alt="" className={classes.slider} />
             <div className={classnames("hero", classes.heroTitle)}>
               {pages.index.title2}
             </div>

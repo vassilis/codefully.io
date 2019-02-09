@@ -13,7 +13,10 @@ const styles = theme => ({
     fontFamily: '"Teko", "Roboto", sans-serif',
     fontWeight: 700,
     color: "#333 !important",
-    margin: "0 15px"
+    margin: "0 15px",
+    [theme.breakpoints.down("sm")]: {
+      display: "block"
+    }
   }
 });
 
