@@ -5,6 +5,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import JssProvider from "react-jss/lib/JssProvider";
 import getPageContext from "../src/getPageContext";
+import { initGA, logPageView } from "../src/analytics";
 import "../css/index.scss";
 
 class MyApp extends App {
@@ -19,6 +20,12 @@ class MyApp extends App {
     if (jssStyles && jssStyles.parentNode) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
+    // Initialize GA
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
   }
 
   render() {
