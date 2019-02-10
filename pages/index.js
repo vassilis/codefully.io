@@ -5,11 +5,11 @@ import { withStyles } from "@material-ui/core/styles";
 import Stack from "../components/stack";
 import Values from "../components/values";
 import classnames from "classnames";
-import { pages } from "../src/content";
+import { pages } from "../data/content";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import amber from "@material-ui/core/colors/amber";
-import portraits from "../components/portraits";
+import portraits from "../data/portraits";
 import deepPurple from "@material-ui/core/colors/deepPurple";
 import _ from "lodash";
 

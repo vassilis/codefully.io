@@ -12,6 +12,7 @@ import img11 from "../images/portraits/834509.jpg";
 import img12 from "../images/portraits/1121796.jpg";
 import img13 from "../images/portraits/774909.jpg";
 import img14 from "../images/portraits/769690.jpg";
+import getShuffledArr from "../helpers/shuffleArray";
 
 const portraits = [
   img01,
@@ -30,4 +31,6 @@ const portraits = [
   img14
 ];
 
-export default portraits;
+const suffledPortraits = getShuffledArr(portraits);
+
+export default suffledPortraits;

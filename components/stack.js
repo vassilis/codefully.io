@@ -13,7 +13,7 @@ import LogoMaterial from "../images/stack/logo-material-ui.svg";
 import LogoBootstrap from "../images/stack/logo-bootstrap.svg";
 import Tooltip from "@material-ui/core/Tooltip";
 import classnames from "classnames";
-import { pages } from "../src/content";
+import { pages } from "../data/content";
 import Typography from "@material-ui/core/Typography";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 
