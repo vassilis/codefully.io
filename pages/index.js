@@ -155,7 +155,6 @@ class Index extends React.Component {
           this.setState({ image: null, timeoutIsCleared: true });
         }, 1000);
         this.setState({ image: portraits[n], timeoutIsCleared: true });
-        clearTimeout(t);
       }, 100);
     }
   };
