@@ -11,6 +11,7 @@ import amber from "@material-ui/core/colors/amber";
 import portraits from "../data/portraits";
 import deepPurple from "@material-ui/core/colors/deepPurple";
 import _ from "lodash";
+import Footer from "../components/footer";
 
 const styles = theme => ({
   heroSq: {
@@ -188,6 +189,7 @@ class Index extends React.Component {
           <Values />
           <Stack />
         </div>
+        <Footer />
         {shapes.map(s => (
           <i
             key={s.id}
