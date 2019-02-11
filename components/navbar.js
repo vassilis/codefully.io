@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
-import LogoIcon from "../images/logo-icon-3.svg";
+import LogoIcon from "../images/logo-icon.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 import CircleIcon from "@material-ui/icons/RadioButtonUncheckedOutlined";
 import SquareIcon from "@material-ui/icons/CheckBoxOutlineBlank";

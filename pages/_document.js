@@ -21,30 +21,37 @@ class MyDocument extends Document {
               pageContext ? pageContext.theme.palette.primary.main : null
             }
           />
+          <meta name="apple-mobile-web-app-title" content="Codefully" />
+          <meta name="msapplication-TileColor" content="#673ab7" />
+          <meta name="application-name" content="Codefully" />
+          <meta
+            name="msapplication-config"
+            content="/static/browserconfig.xml"
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/apple-touch-icon.png"
+            href="/static/apple-touch-icon.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/favicon-32x32.png"
+            href="/static/favicon-32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/favicon-16x16.png"
+            href="/static/favicon-16x16.png"
           />
-          <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#673ab7" />
-          <meta name="msapplication-TileColor" content="#673ab7" />
-          <meta
-            name="msapplication-config"
-            content="/static/browserconfig.xml"
+          <link rel="manifest" href="/static/site.webmanifest" />
+          <link
+            rel="mask-icon"
+            href="/static/safari-pinned-tab.svg"
+            color="#673ab7"
           />
+          <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
         <body>
           <Main />
