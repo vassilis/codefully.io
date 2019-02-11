@@ -96,9 +96,12 @@ class NavBar extends React.Component {
           )}
           <MenuIcon
             className={classes.menuIcon}
-            // onClick={() => this.showMenu()}
+            onClick={() => this.showMenu()}
           />
-          <Menu isMenuVisible={isMenuVisible} />
+          <Menu
+            isMenuVisible={isMenuVisible}
+            onClickClearIcon={() => this.hideMenu()}
+          />
         </div>
       </div>
     );

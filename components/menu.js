@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
+import ClearIcon from "@material-ui/icons/Clear";
+import classnames from "classnames";
 
 const styles = theme => ({
-  menuVisible: {
-    padding: "200px 0",
+  menu: {
     textAlign: "center",
     position: "fixed",
     top: 0,
@@ -15,30 +16,31 @@ const styles = theme => ({
     background: "rgba(255, 255, 255, .95)",
     zIndex: 1000,
     "&>div": {
+      position: "relative",
       display: "flex",
       flexDirection: "column",
       alignItems: "flex-start",
-      width: 600,
-      margin: "0 auto",
+      justifyContent: "center",
+      height: "100%",
+      padding: "20px",
       lineHeight: 1.5
     }
   },
-  menuHidden: {
-    display: "none",
-    "&>div": {
-      transition: "width 1s",
-      width: 100
-    }
-  },
   link: {
-    fontSize: "3rem",
-    fontFamily: '"Teko", "Roboto", sans-serif',
-    fontWeight: 700,
+    fontSize: "4rem",
+    fontWeight: 900,
+    letterSpacing: 1,
     color: "#333 !important",
-    margin: "0 15px",
     [theme.breakpoints.down("sm")]: {
       display: "block"
     }
+  },
+  clear: {
+    position: "absolute",
+    top: 30,
+    right: 30,
+    fontSize: 64,
+    cursor: "pointer"
   }
 });
 
@@ -49,29 +51,38 @@ class Menu extends React.Component {
   }
 
   render() {
-    const { classes, isMenuVisible } = this.props;
+    const { classes, isMenuVisible, onClickClearIcon } = this.props;
 
     return (
-      <div
-        id="menu"
-        className={isMenuVisible ? classes.menuVisible : classes.menuHidden}
-      >
-        <div>
-          <Link href="/services">
-            <a className={classes.link}>#articles</a>
-          </Link>
-          <Link href="/contact">
-            <a className={classes.link}>#get in touch</a>
-          </Link>
-        </div>
-      </div>
+      <React.Fragment>
+        {isMenuVisible && (
+          <div id="menu" className={classnames(classes.menu)}>
+            <div className="container-md">
+              <Link href="/">
+                <a className={classes.link}>#home</a>
+              </Link>
+              <Link href="/services">
+                <a className={classes.link}>#articles</a>
+              </Link>
+              <Link href="/contact">
+                <a className={classes.link}>#get in touch</a>
+              </Link>
+              <ClearIcon
+                className={classes.clear}
+                onClick={() => onClickClearIcon()}
+              />
+            </div>
+          </div>
+        )}
+      </React.Fragment>
     );
   }
 }
 
 Menu.propTypes = {
   classes: PropTypes.object.isRequired,
-  isMenuVisible: PropTypes.bool.isRequired
+  isMenuVisible: PropTypes.bool.isRequired,
+  onClickClearIcon: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Menu);
