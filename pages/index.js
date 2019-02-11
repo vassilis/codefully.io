@@ -85,27 +85,31 @@ class Index extends React.Component {
       image: null,
       timeoutIsCleared: false
     };
+    this.timeouts = [];
   }
 
   componentDidMount() {
+    const { images } = this.state;
     document.body.style.cursor = "crosshair";
     portraits.forEach(picture => {
       const img = new Image();
       img.src = picture;
     });
     for (let i = 0; i < portraits.length; i++) {
-      setTimeout(() => {
-        window.end = setTimeout(() => {
+      this.timeouts.push(
+        setTimeout(() => {
           this.setState({ image: portraits[i] });
-        }, i * 100);
-      });
+        }, i * 100)
+      );
     }
-    setTimeout(() => {
-      if (this.slider.current) {
-        this.setState({ image: null, timeoutIsCleared: true });
-        this.slider.current.addEventListener("mousemove", this.play);
-      }
-    }, 100 * (portraits.length + 1));
+    this.timeouts.push(
+      setTimeout(() => {
+        if (this.slider.current) {
+          this.setState({ image: null, timeoutIsCleared: true });
+          this.slider.current.addEventListener("mousemove", this.play);
+        }
+      }, 100 * (portraits.length + 1))
+    );
     document.body.addEventListener("mousemove", this.addShape);
   }
 
@@ -113,7 +117,36 @@ class Index extends React.Component {
     document.body.style.cursor = "inherit";
     this.slider.current.removeEventListener("mousemove", this.play);
     document.body.removeEventListener("mousemove", this.addShape);
+    this.clearAllTimeouts();
   }
+
+  clearAllTimeouts = () => {
+    if (typeof end !== "undefined") {
+      clearTimeout(end);
+    }
+    for (let i = 0; i < this.timeouts.length; i++) {
+      clearTimeout(this.timeouts[i]);
+    }
+  };
+
+  play = e => {
+    const { timeoutIsCleared } = this.state;
+    if (typeof end !== "undefined") {
+      clearTimeout(end);
+    }
+    if (timeoutIsCleared) {
+      const n = Math.floor(Math.random() * portraits.length);
+      this.setState({ timeoutIsCleared: false });
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({ image: portraits[n], timeoutIsCleared: true });
+          window.end = setTimeout(() => {
+            this.setState({ image: null, timeoutIsCleared: true });
+          }, 1000);
+        }, 100)
+      );
+    }
+  };
 
   addShape = e => {
     const { shapes } = this.state;
@@ -142,23 +175,6 @@ class Index extends React.Component {
     this.setState({
       shapes: oShapes
     });
-  };
-
-  play = e => {
-    const { timeoutIsCleared } = this.state;
-    if (typeof end !== "undefined") {
-      clearTimeout(end);
-    }
-    if (timeoutIsCleared) {
-      const n = Math.floor(Math.random() * portraits.length);
-      this.setState({ timeoutIsCleared: false });
-      const t = setTimeout(() => {
-        window.end = setTimeout(() => {
-          this.setState({ image: null, timeoutIsCleared: true });
-        }, 1000);
-        this.setState({ image: portraits[n], timeoutIsCleared: true });
-      }, 100);
-    }
   };
 
   selectShape = shape => {
