@@ -57,20 +57,24 @@ function ButtonAppBar(props) {
         </Link>
       </div>
       <div className={classes.icons}>
-        <CircleIcon
-          className={classnames(
-            classes.icon,
-            shape === "circle" && classes.active
-          )}
-          onClick={() => onClickShape("circle")}
-        />
-        <SquareIcon
-          className={classnames(
-            classes.icon,
-            shape === "square" && classes.active
-          )}
-          onClick={() => onClickShape("square")}
-        />
+        {shape && (
+          <div>
+            <CircleIcon
+              className={classnames(
+                classes.icon,
+                shape === "circle" && classes.active
+              )}
+              onClick={() => onClickShape("circle")}
+            />
+            <SquareIcon
+              className={classnames(
+                classes.icon,
+                shape === "square" && classes.active
+              )}
+              onClick={() => onClickShape("square")}
+            />
+          </div>
+        )}
         <a href="#menu">
           <MenuIcon className={classes.menuIcon} />
         </a>
