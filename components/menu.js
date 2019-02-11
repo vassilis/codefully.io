@@ -105,6 +105,7 @@ class Menu extends React.Component {
             transitionAppear={true}
             transitionAppearTimeout={500}
             transitionEnter={false}
+            transitionLeave={false}
           >
             {items}
             <ClearIcon
