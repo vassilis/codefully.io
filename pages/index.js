@@ -89,7 +89,6 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    const { images } = this.state;
     document.body.style.cursor = "crosshair";
     portraits.forEach(picture => {
       const img = new Image();
