@@ -160,3 +160,14 @@ footer {
   position: relative;
   overflow: hidden;
 }
+
+.nav-appear {
+  opacity: 0.01;
+  margin-left: 50px;
+}
+
+.nav-appear.nav-appear-active {
+  opacity: 1;
+  margin-left: 0;
+  transition: all 0.3s ease-out;
+}

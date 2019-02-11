@@ -16,7 +16,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     padding: "40px 0 0",
-    lineHeight: 1
+    lineHeight: 1,
+    cursor: "default"
   },
   icons: {
     display: "flex",

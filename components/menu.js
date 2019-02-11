@@ -1,4 +1,5 @@
 import React from "react";
+import { CSSTransitionGroup } from "react-transition-group";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
@@ -30,15 +31,20 @@ const styles = theme => ({
     fontSize: "4rem",
     fontWeight: 900,
     letterSpacing: 1,
+    transition: "all .2s",
     color: "#333 !important",
+    "&:hover": {
+      marginLeft: 20
+    },
     [theme.breakpoints.down("sm")]: {
-      display: "block"
+      display: "block",
+      fontSize: "2rem"
     }
   },
   clear: {
     position: "absolute",
     top: 30,
-    right: 30,
+    right: 20,
     fontSize: 64,
     cursor: "pointer"
   }
@@ -47,31 +53,42 @@ const styles = theme => ({
 class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      menuItems: [
+        { title: "home", path: "/" },
+        { title: "articles", path: "/services" },
+        { title: "get in touch", path: "/contact" }
+      ]
+    };
   }
 
   render() {
     const { classes, isMenuVisible, onClickClearIcon } = this.props;
-
+    const { menuItems } = this.state;
+    const items = menuItems.map((item, i) => (
+      <Link key={item.title} href={item.path}>
+        <a className={classes.link}>#{item.title}</a>
+      </Link>
+    ));
     return (
       <React.Fragment>
         {isMenuVisible && (
           <div id="menu" className={classnames(classes.menu)}>
-            <div className="container-md">
-              <Link href="/">
-                <a className={classes.link}>#home</a>
-              </Link>
-              <Link href="/services">
-                <a className={classes.link}>#articles</a>
-              </Link>
-              <Link href="/contact">
-                <a className={classes.link}>#get in touch</a>
-              </Link>
+            <CSSTransitionGroup
+              component="div"
+              className="container-md"
+              transitionName="nav"
+              transitionAppear={true}
+              transitionAppearTimeout={500}
+              transitionEnter={false}
+              transitionLeave={false}
+            >
+              {items}
               <ClearIcon
                 className={classes.clear}
                 onClick={() => onClickClearIcon()}
               />
-            </div>
+            </CSSTransitionGroup>
           </div>
         )}
       </React.Fragment>

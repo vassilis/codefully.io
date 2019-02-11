@@ -16,7 +16,8 @@
     "react-background-image-loader": "0.0.5",
     "react-dom": "latest",
     "react-ga": "^2.5.7",
-    "react-jss": "^8.1.0"
+    "react-jss": "^8.1.0",
+    "react-transition-group": "^1.2.1"
   },
   "scripts": {
     "dev": "next",
