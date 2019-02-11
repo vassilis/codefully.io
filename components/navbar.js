@@ -34,7 +34,7 @@ const styles = {
   },
   menuIcon: {
     fontSize: 48,
-    color: grey[700],
+    color: grey[800],
     marginLeft: 20,
     cursor: "pointer"
   },
@@ -99,10 +99,7 @@ class NavBar extends React.Component {
             className={classes.menuIcon}
             onClick={() => this.showMenu()}
           />
-          <Menu
-            isMenuVisible={isMenuVisible}
-            onClickClearIcon={() => this.hideMenu()}
-          />
+          {isMenuVisible && <Menu onClickClearIcon={() => this.hideMenu()} />}
         </div>
       </div>
     );

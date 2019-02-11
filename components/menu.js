@@ -5,6 +5,13 @@ import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
 import ClearIcon from "@material-ui/icons/Clear";
 import classnames from "classnames";
+import grey from "@material-ui/core/colors/grey";
+
+const menuData = [
+  { title: "home", path: "/" },
+  { title: "articles", path: "/services" },
+  { title: "get in touch", path: "/contact" }
+];
 
 const styles = theme => ({
   menu: {
@@ -23,7 +30,7 @@ const styles = theme => ({
       alignItems: "flex-start",
       justifyContent: "center",
       height: "100%",
-      padding: "20px",
+      padding: 20,
       lineHeight: 1.5
     }
   },
@@ -31,10 +38,9 @@ const styles = theme => ({
     fontSize: "4rem",
     fontWeight: 900,
     letterSpacing: 1,
-    transition: "all .2s",
-    color: "#333 !important",
+    color: grey[700],
     "&:hover": {
-      marginLeft: 20
+      color: grey[900]
     },
     [theme.breakpoints.down("sm")]: {
       display: "block",
@@ -44,9 +50,14 @@ const styles = theme => ({
   clear: {
     position: "absolute",
     top: 30,
-    right: 20,
+    right: 0,
     fontSize: 64,
-    cursor: "pointer"
+    cursor: "pointer",
+    color: grey[700],
+    transition: "color 0.1s linear",
+    "&:hover": {
+      color: grey[900]
+    }
   }
 });
 
@@ -54,43 +65,54 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuItems: [
-        { title: "home", path: "/" },
-        { title: "articles", path: "/services" },
-        { title: "get in touch", path: "/contact" }
-      ]
+      menuItems: menuData
     };
   }
 
+  // componentDidMount() {
+  //   let uMenuItems = [];
+  //   menuData.map((item, i) => {
+  //     setTimeout(() => {
+  //       uMenuItems.push(item);
+  //       this.setState({ menuItems: uMenuItems });
+  //     }, 100 + 100 * i);
+  //   });
+  // }
+
   render() {
-    const { classes, isMenuVisible, onClickClearIcon } = this.props;
+    const { classes, onClickClearIcon } = this.props;
     const { menuItems } = this.state;
     const items = menuItems.map((item, i) => (
       <Link key={item.title} href={item.path}>
-        <a className={classes.link}>#{item.title}</a>
+        <a
+          className={classes.link}
+          style={{
+            transition: `margin 0.5s ease ${i * 0.1}s, opacity 0.5s ease ${i *
+              0.1}s, color 0.1s linear`
+          }}
+        >
+          {item.title}
+        </a>
       </Link>
     ));
     return (
       <React.Fragment>
-        {isMenuVisible && (
-          <div id="menu" className={classnames(classes.menu)}>
-            <CSSTransitionGroup
-              component="div"
-              className="container-md"
-              transitionName="nav"
-              transitionAppear={true}
-              transitionAppearTimeout={500}
-              transitionEnter={false}
-              transitionLeave={false}
-            >
-              {items}
-              <ClearIcon
-                className={classes.clear}
-                onClick={() => onClickClearIcon()}
-              />
-            </CSSTransitionGroup>
-          </div>
-        )}
+        <div id="menu" className={classnames(classes.menu)}>
+          <CSSTransitionGroup
+            component="div"
+            className="container-md"
+            transitionName="nav"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={false}
+          >
+            {items}
+            <ClearIcon
+              className={classes.clear}
+              onClick={() => onClickClearIcon()}
+            />
+          </CSSTransitionGroup>
+        </div>
       </React.Fragment>
     );
   }
@@ -98,7 +120,6 @@ class Menu extends React.Component {
 
 Menu.propTypes = {
   classes: PropTypes.object.isRequired,
-  isMenuVisible: PropTypes.bool.isRequired,
   onClickClearIcon: PropTypes.func.isRequired
 };
 

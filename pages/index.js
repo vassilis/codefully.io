@@ -88,6 +88,7 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
+    document.body.style.cursor = "crosshair";
     portraits.forEach(picture => {
       const img = new Image();
       img.src = picture;
@@ -109,6 +110,7 @@ class Index extends React.Component {
   }
 
   componentWillUnmount() {
+    document.body.style.cursor = "inherit";
     this.slider.current.removeEventListener("mousemove", this.play);
     document.body.removeEventListener("mousemove", this.addShape);
   }
