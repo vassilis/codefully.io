@@ -9,6 +9,7 @@ import SquareIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import classnames from "classnames";
 import red from "@material-ui/core/colors/red";
 import grey from "@material-ui/core/colors/grey";
+import Menu from "./menu";
 
 const styles = {
   root: {
@@ -33,60 +34,82 @@ const styles = {
   menuIcon: {
     fontSize: 48,
     color: grey[700],
-    marginLeft: 20
+    marginLeft: 20,
+    cursor: "pointer"
   },
   grow: {
     flexGrow: 1
   }
 };
 
-function ButtonAppBar(props) {
-  const { classes, onClickShape, shape } = props;
-  return (
-    <div className={classes.root}>
-      <div className={classes.grow}>
-        <Link href="/">
-          <a className="logo" style={{ margin: 0 }}>
-            <img
-              src={LogoIcon}
-              style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
-              alt="codefully"
-            />
-            codefully
-          </a>
-        </Link>
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMenuVisible: false
+    };
+  }
+
+  showMenu = () => {
+    this.setState({ isMenuVisible: true });
+  };
+
+  hideMenu = () => {
+    this.setState({ isMenuVisible: false });
+  };
+
+  render() {
+    const { classes, onClickShape, shape } = this.props;
+    const { isMenuVisible } = this.state;
+    return (
+      <div className={classes.root}>
+        <div className={classes.grow}>
+          <Link href="/">
+            <a className="logo" style={{ margin: 0 }}>
+              <img
+                src={LogoIcon}
+                style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
+                alt="codefully"
+              />
+              codefully
+            </a>
+          </Link>
+        </div>
+        <div className={classes.icons}>
+          {shape && (
+            <div>
+              <CircleIcon
+                className={classnames(
+                  classes.icon,
+                  shape === "circle" && classes.active
+                )}
+                onClick={() => onClickShape("circle")}
+              />
+              <SquareIcon
+                className={classnames(
+                  classes.icon,
+                  shape === "square" && classes.active
+                )}
+                onClick={() => onClickShape("square")}
+              />
+            </div>
+          )}
+          <MenuIcon
+            className={classes.menuIcon}
+            // onClick={() => this.showMenu()}
+          />
+          <Menu isMenuVisible={isMenuVisible} />
+        </div>
       </div>
-      <div className={classes.icons}>
-        {shape && (
-          <div>
-            <CircleIcon
-              className={classnames(
-                classes.icon,
-                shape === "circle" && classes.active
-              )}
-              onClick={() => onClickShape("circle")}
-            />
-            <SquareIcon
-              className={classnames(
-                classes.icon,
-                shape === "square" && classes.active
-              )}
-              onClick={() => onClickShape("square")}
-            />
-          </div>
-        )}
-        <a href="#menu">
-          <MenuIcon className={classes.menuIcon} />
-        </a>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
-ButtonAppBar.propTypes = {
+NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
   onClickShape: PropTypes.func,
+  onClickMenuIcon: PropTypes.func,
   shape: PropTypes.string
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(NavBar);

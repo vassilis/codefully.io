@@ -7,7 +7,6 @@ import Values from "../components/values";
 import classnames from "classnames";
 import { pages } from "../data/content";
 import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 import amber from "@material-ui/core/colors/amber";
 import portraits from "../data/portraits";
 import deepPurple from "@material-ui/core/colors/deepPurple";
@@ -165,7 +164,7 @@ class Index extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { image, shape, shapes } = this.state;
+    const { image, shape, shapes, isMenuVisible } = this.state;
 
     return (
       <React.Fragment>
@@ -189,7 +188,6 @@ class Index extends React.Component {
           <Values />
           <Stack />
         </div>
-        <Footer />
         {shapes.map(s => (
           <i
             key={s.id}
