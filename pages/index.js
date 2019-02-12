@@ -126,9 +126,7 @@ class Index extends React.Component {
 
   play = () => {
     const { timeoutIsCleared } = this.state;
-    if (typeof end !== 'undefined') {
-      clearTimeout(endTimeout);
-    }
+    clearTimeout(endTimeout);
     if (timeoutIsCleared) {
       const n = Math.floor(Math.random() * portraits.length);
       this.setState({ timeoutIsCleared: false });
