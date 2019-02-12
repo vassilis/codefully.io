@@ -8,7 +8,7 @@
     "@zeit/next-sass": "^1.0.1",
     "jss": "latest",
     "lodash": "^4.17.11",
-    "next": "latest",
+    "next": "^8.0.0",
     "next-images": "^1.0.4",
     "node-sass": "^4.11.0",
     "prop-types": "latest",
