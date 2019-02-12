@@ -63,33 +63,6 @@ body {
   }
 }
 
-.landing1 {
-  max-width: 1600px;
-  width: 100%;
-}
-
-.landing1-bg {
-  display: flex;
-  background-color: $black;
-  justify-content: center;
-  transition: height 1.3s ease-out;
-  height: 0;
-  overflow: hidden;
-
-  img {
-    object-fit: cover;
-    display: none;
-  }
-
-  &.loaded {
-    height: 100vh;
-
-    img {
-      display: block;
-    }
-  }
-}
-
 h1,
 h2,
 h3,
@@ -148,16 +121,6 @@ strong {
   font-weight: 500;
 }
 
-footer {
-  display: none;
-}
-
-.banner-text {
-  padding: 1.2rem 24px 4rem;
-  position: relative;
-  z-index: 1;
-}
-
 .hpot {
   display: none;
 }
@@ -166,19 +129,6 @@ footer {
   display: block;
   max-width: 100%;
   margin: 0 auto;
-}
-
-.banner1 {
-  // background-image: url('../images/office.jpg');
-  background-attachment: fixed;
-  background-position: 50% 0;
-  background-repeat: repeat-x;
-  background-color: #241d2b;
-
-  /* background-size: auto 100%; */
-  color: $white;
-  position: relative;
-  overflow: hidden;
 }
 
 .nav-appear {
