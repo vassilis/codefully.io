@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,900");
 @import url("https://fonts.googleapis.com/css?family=Teko:700");
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro:400");
+@import "~rfs/scss";
 
 @media screen and (min-width: 960px) {
   html {
@@ -48,9 +49,15 @@ body {
   }
 }
 
+#menu {
+  a {
+    @include rfs(64);
+  }
+}
+
 .landing1 {
-  width: 100%;
   max-width: 1600px;
+  width: 100%;
 }
 
 .landing1-bg {

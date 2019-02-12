@@ -9,8 +9,10 @@ import grey from "@material-ui/core/colors/grey";
 
 const menuData = [
   { title: "home", path: "/" },
+  { title: "work", path: "/work" },
   { title: "articles", path: "/services" },
-  { title: "get in touch", path: "/contact" }
+  { title: "about", path: "/about" },
+  { title: "contact", path: "/contact" }
 ];
 
 const styles = theme => ({
@@ -31,11 +33,11 @@ const styles = theme => ({
       justifyContent: "center",
       height: "100%",
       padding: 20,
-      lineHeight: 1.5
+      lineHeight: 1.3
     }
   },
   link: {
-    fontSize: "4rem",
+    // fontSize: "4rem",
     fontWeight: 900,
     letterSpacing: 1,
     color: grey[700],
@@ -43,8 +45,8 @@ const styles = theme => ({
       color: grey[900]
     },
     [theme.breakpoints.down("sm")]: {
-      display: "block",
-      fontSize: "2rem"
+      display: "block"
+      // fontSize: "2rem"
     }
   },
   clear: {

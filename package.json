@@ -17,7 +17,8 @@
     "react-dom": "latest",
     "react-ga": "^2.5.7",
     "react-jss": "^8.1.0",
-    "react-transition-group": "^1.2.1"
+    "react-transition-group": "^1.2.1",
+    "rfs": "^8.0.0"
   },
   "scripts": {
     "dev": "next",
