@@ -1,78 +1,85 @@
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import Link from "next/link";
-import LogoRails from "../images/stack/logo-rails.svg";
-import LogoPostgres from "../images/stack/logo-postgresql.svg";
-import LogoHighcharts from "../images/stack/logo-highcharts.svg";
-import LogoNode from "../images/stack/logo-nodejs.svg";
-import LogoReact from "../images/stack/logo-react.svg";
-import LogoRedux from "../images/stack/logo-redux.svg";
-import LogoAws from "../images/stack/logo-aws.svg";
-import LogoHeroku from "../images/stack/logo-heroku.svg";
-import LogoMaterial from "../images/stack/logo-material-ui.svg";
-import LogoBootstrap from "../images/stack/logo-bootstrap.svg";
-import Tooltip from "@material-ui/core/Tooltip";
-import classnames from "classnames";
-import { pages } from "../data/content";
-import Typography from "@material-ui/core/Typography";
-import lightGreen from "@material-ui/core/colors/lightGreen";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import Tooltip from '@material-ui/core/Tooltip';
+import classnames from 'classnames';
+import Typography from '@material-ui/core/Typography';
+import lightGreen from '@material-ui/core/colors/lightGreen';
+import LogoRails from '../images/stack/logo-rails.svg';
+import LogoPostgres from '../images/stack/logo-postgresql.svg';
+import LogoHighcharts from '../images/stack/logo-highcharts.svg';
+import LogoNode from '../images/stack/logo-nodejs.svg';
+import LogoReact from '../images/stack/logo-react.svg';
+import LogoRedux from '../images/stack/logo-redux.svg';
+import LogoAws from '../images/stack/logo-aws.svg';
+import LogoHeroku from '../images/stack/logo-heroku.svg';
+import LogoMaterial from '../images/stack/logo-material-ui.svg';
+import LogoBootstrap from '../images/stack/logo-bootstrap.svg';
 
 const styles = theme => ({
   root: {
-    margin: "200px auto 0",
-    position: "relative"
+    margin: '200px auto 0',
+    position: 'relative',
   },
   img: {
-    position: "absolute",
-    border: "1px #DDD solid",
-    backgroundColor: "white",
+    position: 'absolute',
+    border: '1px #DDD solid',
+    backgroundColor: 'white',
     padding: 10,
     width: 100,
-    height: 100
+    height: 100,
   },
   stackTitle: {
-    margin: "-70px 0 0 0",
-    fontSize: "3rem",
-    position: "relative",
-    [theme.breakpoints.up("md")]: {
+    margin: '-70px 0 0 0',
+    fontSize: '3rem',
+    position: 'relative',
+    [theme.breakpoints.up('md')]: {
       padding: 40,
-      "&:before": {
+      '&:before': {
         content: '""',
-        display: "block",
-        position: "absolute",
+        display: 'block',
+        position: 'absolute',
         backgroundColor: lightGreen[50],
         width: 650,
         height: 200,
         top: 80,
         left: 100,
-        zIndex: -1
-      }
-    }
+        zIndex: -1,
+      },
+    },
   },
   stackText: {
     maxWidth: 600,
-    fontSize: "1.2rem"
+    fontSize: '1.2rem',
   },
   logos: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
-  }
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
 });
 
 const Stack = ({ classes }) => (
   <div className={classes.root}>
-    <h2 className={classnames(classes.stackTitle)}>{pages.stack.title}</h2>
+    <h2 className={classnames(classes.stackTitle)}>Leading Stack</h2>
     <Typography className={classes.stackText}>
-      <span dangerouslySetInnerHTML={{ __html: pages.stack.text }} />
+      In our technological stack, we blend some of the most powerful, modern and popular development
+      tools available today in our industry. If we have to name a few, those would be Amazon Web
+      Services, Heroku, Node.js, React, Redux, PostgreSQL, Ruby on Rails, Bootstrap, Material UI and
+      Highcharts.
       <br />
       <br />
-      Read more about{" "}
+      Read more about
+      {' '}
       <Link href="/stack">
-        <a className="hi">our stack</a>
-      </Link>{" "}
-      and how we choose the most relevant technologies for your project, which
-      is a key factor for its success and longevity.
+        <a href="0" className="hi">
+          our stack
+        </a>
+      </Link>
+      {' '}
+      and how we choose the most relevant technologies for your project, which is a key factor for
+      its success and longevity.
     </Typography>
     <div className={classes.logos}>
       <Tooltip title="AWS / Amazon Web Services" placement="top">
@@ -84,36 +91,16 @@ const Stack = ({ classes }) => (
         />
       </Tooltip>
       <Tooltip title="Heroku" placement="top">
-        <img
-          className={classes.img}
-          src={LogoHeroku}
-          alt="Heroku"
-          style={{ top: 0, right: 120 }}
-        />
+        <img className={classes.img} src={LogoHeroku} alt="Heroku" style={{ top: 0, right: 120 }} />
       </Tooltip>
       <Tooltip title="Node.js" placement="top">
-        <img
-          className={classes.img}
-          src={LogoNode}
-          alt="Node.js"
-          style={{ top: 0, right: 360 }}
-        />
+        <img className={classes.img} src={LogoNode} alt="Node.js" style={{ top: 0, right: 360 }} />
       </Tooltip>
       <Tooltip title="React" placement="top">
-        <img
-          className={classes.img}
-          src={LogoReact}
-          alt="React"
-          style={{ top: 120, right: 360 }}
-        />
+        <img className={classes.img} src={LogoReact} alt="React" style={{ top: 120, right: 360 }} />
       </Tooltip>
       <Tooltip title="Redux" placement="top">
-        <img
-          className={classes.img}
-          src={LogoRedux}
-          alt="Redux"
-          style={{ top: 120, right: 240 }}
-        />
+        <img className={classes.img} src={LogoRedux} alt="Redux" style={{ top: 120, right: 240 }} />
       </Tooltip>
       <Tooltip title="Ruby on Rails" placement="top">
         <img
@@ -160,7 +147,7 @@ const Stack = ({ classes }) => (
 );
 
 Stack.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default withStyles(styles)(Stack);

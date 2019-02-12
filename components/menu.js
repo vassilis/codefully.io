@@ -122,9 +122,9 @@ class Menu extends React.Component {
 }
 
 Menu.propTypes = {
-  classes: PropTypes.objectOf.isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
   onClickClearIcon: PropTypes.func.isRequired,
-  router: PropTypes.objectOf.isRequired,
+  router: PropTypes.object.isRequired, //  eslint-disable-line
 };
 
 export default withStyles(styles)(withRouter(Menu));

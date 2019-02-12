@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Document, { Head, Main, NextScript } from "next/document";
-import flush from "styled-jsx/server";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Document, { Head, Main, NextScript } from 'next/document';
+import flush from 'styled-jsx/server';
 
 class MyDocument extends Document {
   render() {
@@ -17,40 +17,17 @@ class MyDocument extends Document {
           />
           <meta
             name="theme-color"
-            content={
-              pageContext ? pageContext.theme.palette.primary.main : null
-            }
+            content={pageContext ? pageContext.theme.palette.primary.main : null}
           />
           <meta name="apple-mobile-web-app-title" content="Codefully" />
           <meta name="msapplication-TileColor" content="#673ab7" />
           <meta name="application-name" content="Codefully" />
-          <meta
-            name="msapplication-config"
-            content="/static/browserconfig.xml"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/static/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/static/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/static/favicon-16x16.png"
-          />
+          <meta name="msapplication-config" content="/static/browserconfig.xml" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
           <link rel="manifest" href="/static/site.webmanifest" />
-          <link
-            rel="mask-icon"
-            href="/static/safari-pinned-tab.svg"
-            color="#673ab7"
-          />
+          <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#673ab7" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
         <body>
@@ -62,7 +39,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = ctx => {
+MyDocument.getInitialProps = (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -87,14 +64,11 @@ MyDocument.getInitialProps = ctx => {
 
   // Render app and page and get the context of the page with collected side effects.
   let pageContext;
-  const page = ctx.renderPage(Component => {
-    const WrappedComponent = props => {
-      pageContext = props.pageContext;
-      return <Component {...props} />;
-    };
-
+  const page = ctx.renderPage((Component) => {
+    // const { pageContext } = props;
+    const WrappedComponent = props => <Component {...props} />;
     WrappedComponent.propTypes = {
-      pageContext: PropTypes.object.isRequired
+      pageContext: PropTypes.object.isRequired, // eslint-disable-line
     };
 
     return WrappedComponent;
@@ -119,7 +93,7 @@ MyDocument.getInitialProps = ctx => {
         />
         {flush() || null}
       </React.Fragment>
-    )
+    ),
   };
 };
 

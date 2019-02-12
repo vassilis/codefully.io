@@ -8,10 +8,11 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import _ from 'lodash';
 import Stack from '../components/stack';
 import Values from '../components/values';
-import { pages } from '../data/content';
 import Navbar from '../components/navbar';
 import portraits from '../data/portraits';
 import Footer from '../components/footer';
+
+let endTimeout;
 
 const styles = theme => ({
   heroSq: {
@@ -45,9 +46,6 @@ const styles = theme => ({
     position: 'relative',
     zIndex: 2,
     maxWidth: 900,
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '3rem',
-    },
   },
   heroText: {
     marginTop: 50,
@@ -120,18 +118,16 @@ class Index extends React.Component {
   }
 
   clearAllTimeouts = () => {
-    if (typeof end !== 'undefined') {
-      clearTimeout(end);
-    }
-    for (let i = 0; i < this.timeouts.length; i++) {
+    clearTimeout(endTimeout);
+    for (let i = 0; i < this.timeouts.length; i += 1) {
       clearTimeout(this.timeouts[i]);
     }
   };
 
-  play = (e) => {
+  play = () => {
     const { timeoutIsCleared } = this.state;
     if (typeof end !== 'undefined') {
-      clearTimeout(end);
+      clearTimeout(endTimeout);
     }
     if (timeoutIsCleared) {
       const n = Math.floor(Math.random() * portraits.length);
@@ -139,7 +135,7 @@ class Index extends React.Component {
       this.timeouts.push(
         setTimeout(() => {
           this.setState({ image: portraits[n], timeoutIsCleared: true });
-          window.end = setTimeout(() => {
+          endTimeout = setTimeout(() => {
             this.setState({ image: null, timeoutIsCleared: true });
           }, 1000);
         }, 100),
@@ -190,9 +186,21 @@ class Index extends React.Component {
         <div className="container-md" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
           <div ref={this.slider} className={classes.heroSq}>
             <img src={image} alt="" className={classes.slider} />
-            <div className={classnames('hero', classes.heroTitle)}>{pages.index.title2}</div>
+            <div className={classnames('hero', classes.heroTitle)}>
+              Let us turn your ideas into inspiring software
+            </div>
             <Typography className={classes.heroText}>
-              <span dangerouslySetInnerHTML={{ __html: pages.index.text1 }} />
+              Codefully is an agile team of software engineers who love to analyze business stories
+              and know how to deliver optimal solutions. Since 2010 we design and develop software
+              for companies of all sizes and from different industries. Our key services include web
+              and mobile application development, data analytics and reporting, business process
+              management, cloud infrastructure implementation, and UI / UX design.
+              <br />
+              <br />
+              Whether you need an application that will improve your company&apos;s internal
+              processes or a digital product for your startup, we are dedicated to guide you and
+              support you at every step, from conception to the creation of the final product and
+              beyond.
             </Typography>
           </div>
           <Values />
@@ -217,7 +225,7 @@ class Index extends React.Component {
 }
 
 Index.propTypes = {
-  classes: PropTypes.objectOf.isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default withStyles(styles)(Index);

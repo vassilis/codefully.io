@@ -1,13 +1,8 @@
 module.exports = {
-  extends: 'stylelint-config-recommended',
+  extends: 'stylelint-config-standard',
   rules: {
-    'at-rule-no-unknown': [
-      true,
-      {
-        ignoreAtRules: ['extends'],
-      },
-    ],
+    'at-rule-no-unknown': null,
     'block-no-empty': null,
-    'unit-whitelist': ['em', 'rem', 's', '%', 'px'],
+    'unit-whitelist': ['em', 'rem', 's', '%', 'px', 'vw', 'vh', 'ms'],
   },
 };

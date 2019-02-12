@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
+const styles = () => ({
   footer: {
-    height: "50vh"
-  }
+    height: '50vh',
+  },
 });
 
 class Footer extends React.Component {
@@ -22,7 +22,7 @@ class Footer extends React.Component {
 }
 
 Footer.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default withStyles(styles)(Footer);

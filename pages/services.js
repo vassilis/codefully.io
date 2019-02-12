@@ -26,10 +26,10 @@ function About(props) {
         <h1 className="hero" style={{ margin: '50px 0' }}>
           Custom software solutions tailored to your unique needs
         </h1>
-        <Typography style={{ marginTop: 40, maxWidth: 1000 }}>
+        <p style={{ marginTop: 40, maxWidth: 1000 }}>
           Expertise... experience / since 2010, rapid prototyping, MVPs, SAAS, proof of concepts,
           customer engagement, sales analytics
-        </Typography>
+        </p>
         <Typography variant="h4" className={classes.title}>
           Methodology
         </Typography>
@@ -71,7 +71,7 @@ function About(props) {
 }
 
 About.propTypes = {
-  classes: PropTypes.objectOf.isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default withStyles(styles)(About);

@@ -88,7 +88,7 @@ class NavBar extends React.Component {
         <div className={classnames('container-md', classes.container)}>
           <div className={classes.grow}>
             <Link href="/">
-              <a className="logo" style={{ margin: 0 }}>
+              <a href="0" className="logo" style={{ margin: 0 }}>
                 <img
                   src={LogoIcon}
                   style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
@@ -120,10 +120,14 @@ class NavBar extends React.Component {
   }
 }
 
+NavBar.defaultProps = {
+  onClickShape: null,
+  shape: '',
+};
+
 NavBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
   onClickShape: PropTypes.func,
-  onClickMenuIcon: PropTypes.func,
   shape: PropTypes.string,
 };
 

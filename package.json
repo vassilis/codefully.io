@@ -19,7 +19,8 @@
     "react-ga": "^2.5.7",
     "react-jss": "^8.1.0",
     "react-transition-group": "^1.2.1",
-    "rfs": "^8.0.0"
+    "rfs": "^8.0.0",
+    "styled-jsx": "^3.2.1"
   },
   "scripts": {
     "dev": "next",
@@ -40,6 +41,7 @@
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
     "prettier-stylelint": "^0.4.2",
-    "stylelint-config-recommended": "^2.1.0"
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-standard": "^18.2.0"
   }
 }

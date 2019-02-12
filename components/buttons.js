@@ -1,49 +1,49 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import classnames from "classnames";
-import Link from "next/link";
-import { Grid, Button } from "@material-ui/core";
-import blue from "@material-ui/core/colors/blue";
-import lime from "@material-ui/core/colors/lime";
-import teal from "@material-ui/core/colors/teal";
-import deepOrange from "@material-ui/core/colors/deepOrange";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
+import Link from 'next/link';
+import { Grid, Button } from '@material-ui/core';
+import blue from '@material-ui/core/colors/blue';
+import lime from '@material-ui/core/colors/lime';
+import teal from '@material-ui/core/colors/teal';
+import deepOrange from '@material-ui/core/colors/deepOrange';
 
 const styles = theme => ({
   blue: {
     color: theme.palette.getContrastText(blue[100]),
-    "&:hover": {
+    '&:hover': {
       borderColor: blue[500],
-      backgroundColor: blue[300]
-    }
+      backgroundColor: blue[300],
+    },
   },
   lime: {
     color: theme.palette.getContrastText(lime[100]),
-    "&:hover": {
+    '&:hover': {
       borderColor: lime[500],
-      backgroundColor: lime[300]
-    }
+      backgroundColor: lime[300],
+    },
   },
   teal: {
     color: theme.palette.getContrastText(teal[100]),
-    "&:hover": {
+    '&:hover': {
       borderColor: teal[500],
-      backgroundColor: teal[300]
-    }
+      backgroundColor: teal[300],
+    },
   },
   deepOrange: {
     color: theme.palette.getContrastText(deepOrange[100]),
-    "&:hover": {
+    '&:hover': {
       borderColor: deepOrange[500],
-      backgroundColor: deepOrange[300]
-    }
+      backgroundColor: deepOrange[300],
+    },
   },
   btn: {
-    borderColor: "rgba(0, 0, 0, 0.12)",
-    fontFamily: "Advent Pro",
-    padding: "3rem",
-    fontSize: "1.5rem"
-  }
+    borderColor: 'rgba(0, 0, 0, 0.12)',
+    fontFamily: 'Advent Pro',
+    padding: '3rem',
+    fontSize: '1.5rem',
+  },
 });
 
 class Buttons extends React.Component {
@@ -56,11 +56,7 @@ class Buttons extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Grid
-        container
-        spacing={24}
-        style={{ textAlign: "center", marginTop: 100 }}
-      >
+      <Grid container spacing={24} style={{ textAlign: 'center', marginTop: 100 }}>
         <Grid item xs={12} md={3}>
           <Link href="/services">
             <Button
@@ -119,7 +115,7 @@ class Buttons extends React.Component {
 }
 
 Buttons.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default withStyles(styles)(Buttons);
