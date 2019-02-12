@@ -1,78 +1,78 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
-import Stack from "../components/stack";
-import Values from "../components/values";
-import classnames from "classnames";
-import { pages } from "../data/content";
-import Navbar from "../components/navbar";
-import amber from "@material-ui/core/colors/amber";
-import portraits from "../data/portraits";
-import deepPurple from "@material-ui/core/colors/deepPurple";
-import _ from "lodash";
-import Footer from "../components/footer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
+import amber from '@material-ui/core/colors/amber';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import _ from 'lodash';
+import Stack from '../components/stack';
+import Values from '../components/values';
+import { pages } from '../data/content';
+import Navbar from '../components/navbar';
+import portraits from '../data/portraits';
+import Footer from '../components/footer';
 
 const styles = theme => ({
   heroSq: {
     marginTop: 50,
-    position: "relative",
-    [theme.breakpoints.up("md")]: {
+    position: 'relative',
+    [theme.breakpoints.up('md')]: {
       padding: 40,
-      "&:before": {
+      '&:before': {
         content: '""',
-        display: "block",
-        position: "absolute",
+        display: 'block',
+        position: 'absolute',
         backgroundColor: amber[100],
         width: 450,
         height: 450,
         top: 0,
         left: 0,
-        zIndex: -1
-      }
-    }
+        zIndex: -1,
+      },
+    },
   },
   slider: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     zIndex: 1,
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   heroTitle: {
-    position: "relative",
+    position: 'relative',
     zIndex: 2,
     maxWidth: 900,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "3rem"
-    }
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '3rem',
+    },
   },
   heroText: {
     marginTop: 50,
-    fontSize: "1.2rem",
-    [theme.breakpoints.up("md")]: {
-      marginLeft: 450
-    }
+    fontSize: '1.2rem',
+    [theme.breakpoints.up('md')]: {
+      marginLeft: 450,
+    },
   },
   circle: {
-    position: "absolute",
+    position: 'absolute',
     borderWidth: 2,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderColor: deepPurple[50],
-    borderRadius: "50%",
+    borderRadius: '50%',
     zIndex: -1,
-    transform: "translate(-50%, -50%)"
+    transform: 'translate(-50%, -50%)',
   },
   square: {
-    position: "absolute",
+    position: 'absolute',
     borderWidth: 2,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderColor: deepPurple[50],
     zIndex: -1,
-    transform: "translate(-50%, -50%)"
-  }
+    transform: 'translate(-50%, -50%)',
+  },
 });
 
 class Index extends React.Component {
@@ -80,47 +80,47 @@ class Index extends React.Component {
     super(props);
     this.slider = React.createRef();
     this.state = {
-      shape: "circle",
+      shape: 'circle',
       shapes: [],
       image: null,
-      timeoutIsCleared: false
+      timeoutIsCleared: false,
     };
     this.timeouts = [];
   }
 
   componentDidMount() {
-    document.body.style.cursor = "crosshair";
-    portraits.forEach(picture => {
+    document.body.style.cursor = 'crosshair';
+    portraits.forEach((picture) => {
       const img = new Image();
       img.src = picture;
     });
-    for (let i = 0; i < portraits.length; i++) {
+    for (let i = 0; i < portraits.length; i += 1) {
       this.timeouts.push(
         setTimeout(() => {
           this.setState({ image: portraits[i] });
-        }, i * 100)
+        }, i * 100),
       );
     }
     this.timeouts.push(
       setTimeout(() => {
         if (this.slider.current) {
           this.setState({ image: null, timeoutIsCleared: true });
-          this.slider.current.addEventListener("mousemove", this.play);
+          this.slider.current.addEventListener('mousemove', this.play);
         }
-      }, 100 * (portraits.length + 1))
+      }, 100 * (portraits.length + 1)),
     );
-    document.body.addEventListener("mousemove", this.addShape);
+    document.body.addEventListener('mousemove', this.addShape);
   }
 
   componentWillUnmount() {
-    document.body.style.cursor = "inherit";
-    this.slider.current.removeEventListener("mousemove", this.play);
-    document.body.removeEventListener("mousemove", this.addShape);
+    document.body.style.cursor = 'inherit';
+    this.slider.current.removeEventListener('mousemove', this.play);
+    document.body.removeEventListener('mousemove', this.addShape);
     this.clearAllTimeouts();
   }
 
   clearAllTimeouts = () => {
-    if (typeof end !== "undefined") {
+    if (typeof end !== 'undefined') {
       clearTimeout(end);
     }
     for (let i = 0; i < this.timeouts.length; i++) {
@@ -128,9 +128,9 @@ class Index extends React.Component {
     }
   };
 
-  play = e => {
+  play = (e) => {
     const { timeoutIsCleared } = this.state;
-    if (typeof end !== "undefined") {
+    if (typeof end !== 'undefined') {
       clearTimeout(end);
     }
     if (timeoutIsCleared) {
@@ -142,23 +142,23 @@ class Index extends React.Component {
           window.end = setTimeout(() => {
             this.setState({ image: null, timeoutIsCleared: true });
           }, 1000);
-        }, 100)
+        }, 100),
       );
     }
   };
 
-  addShape = e => {
+  addShape = (e) => {
     const { shapes } = this.state;
     const x = e.pageX;
     const y = e.pageY;
-    const id = "s" + Date.now();
+    const id = `s${Date.now()}`;
     if (x % 3 === 0 && y % 3 === 0) {
       const size = Math.floor(Math.random() * 500);
       const newShape = {
-        id: id,
-        size: size,
+        id,
+        size,
         top: y,
-        left: x
+        left: x,
       };
       const uShapes = [...shapes, newShape];
       this.setState({ shapes: uShapes });
@@ -168,34 +168,29 @@ class Index extends React.Component {
     }
   };
 
-  removeShape = id => {
+  removeShape = (id) => {
     const { shapes } = this.state;
     const oShapes = _.filter(shapes, s => s.id !== id);
     this.setState({
-      shapes: oShapes
+      shapes: oShapes,
     });
   };
 
-  selectShape = shape => {
-    this.setState({ shape: shape });
+  selectShape = (shape) => {
+    this.setState({ shape });
   };
 
   render() {
     const { classes } = this.props;
-    const { image, shape, shapes, isMenuVisible } = this.state;
+    const { image, shape, shapes } = this.state;
 
     return (
       <React.Fragment>
-        <Navbar onClickShape={shape => this.selectShape(shape)} shape={shape} />
-        <div
-          className="container-md"
-          style={{ padding: "0 20px", margin: "0 auto 50px" }}
-        >
+        <Navbar onClickShape={s => this.selectShape(s)} shape={shape} />
+        <div className="container-md" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
           <div ref={this.slider} className={classes.heroSq}>
             <img src={image} alt="" className={classes.slider} />
-            <div className={classnames("hero", classes.heroTitle)}>
-              {pages.index.title2}
-            </div>
+            <div className={classnames('hero', classes.heroTitle)}>{pages.index.title2}</div>
             <Typography className={classes.heroText}>
               <span dangerouslySetInnerHTML={{ __html: pages.index.text1 }} />
             </Typography>
@@ -208,7 +203,12 @@ class Index extends React.Component {
           <i
             key={s.id}
             className={classes[shape]}
-            style={{ top: s.top, left: s.left, width: s.size, height: s.size }}
+            style={{
+              top: s.top,
+              left: s.left,
+              width: s.size,
+              height: s.size,
+            }}
           />
         ))}
       </React.Fragment>
@@ -217,7 +217,7 @@ class Index extends React.Component {
 }
 
 Index.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.objectOf.isRequired,
 };
 
 export default withStyles(styles)(Index);

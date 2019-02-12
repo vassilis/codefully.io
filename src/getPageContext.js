@@ -1,10 +1,7 @@
-import { SheetsRegistry } from "jss";
-import {
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
-import deepPurple from "@material-ui/core/colors/deepPurple";
-import red from "@material-ui/core/colors/red";
+import { SheetsRegistry } from 'jss';
+import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import red from '@material-ui/core/colors/red';
 
 // A theme with custom primary and secondary color.
 // It's optional.
@@ -13,17 +10,17 @@ const theme = createMuiTheme({
     primary: {
       light: deepPurple[300],
       main: deepPurple[500],
-      dark: deepPurple[700]
+      dark: deepPurple[700],
     },
     secondary: {
       light: red[300],
       main: red[500],
-      dark: red[700]
-    }
+      dark: red[700],
+    },
   },
   typography: {
-    useNextVariants: true
-  }
+    useNextVariants: true,
+  },
 });
 
 function createPageContext() {
@@ -34,7 +31,7 @@ function createPageContext() {
     // This is needed in order to inject the critical CSS.
     sheetsRegistry: new SheetsRegistry(),
     // The standard class name generator.
-    generateClassName: createGenerateClassName()
+    generateClassName: createGenerateClassName(),
   };
 }
 

@@ -3,6 +3,9 @@
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro:400");
 @import "~rfs/scss";
 
+$white: "#fff";
+$black: "#000";
+
 @media screen and (min-width: 960px) {
   html {
     margin-left: calc(100vw - 100%);
@@ -16,7 +19,7 @@ body {
 }
 
 body {
-  background-color: white !important;
+  background-color: $white !important;
   font-family: "Roboto", "Franklin Gothic Medium", Arial, sans-serif;
   color: #303030;
   overflow-x: hidden;
@@ -51,7 +54,7 @@ body {
 
 #menu {
   a {
-    @include rfs(64);
+    @include rfs(80);
   }
 }
 
@@ -62,7 +65,7 @@ body {
 
 .landing1-bg {
   display: flex;
-  background-color: #000;
+  background-color: $black;
   justify-content: center;
   transition: height 1.3s ease-out;
   height: 0;
@@ -91,7 +94,7 @@ h6,
 }
 
 .hero {
-  font-size: 6rem;
+  font-size: rfs(60);
   line-height: 1;
 }
 
@@ -156,13 +159,13 @@ footer {
 }
 
 .banner1 {
-  // background-image: url("../images/office.jpg");
+  // background-image: url('../images/office.jpg');
   background-attachment: fixed;
   background-position: 50% 0;
   background-repeat: repeat-x;
   background-color: #241d2b;
   /* background-size: auto 100%; */
-  color: #fff;
+  color: $white;
   position: relative;
   overflow: hidden;
 }
