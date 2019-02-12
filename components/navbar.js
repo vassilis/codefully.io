@@ -18,7 +18,6 @@ const styles = theme => ({
     paddingTop: 20,
     backgroundColor: 'rgba(255,255,255,0.6)',
     zIndex: 1000,
-    borderRadius: 5,
     maxWidth: 1200,
     margin: '0 auto',
   },
