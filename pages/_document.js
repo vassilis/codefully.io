@@ -65,8 +65,12 @@ MyDocument.getInitialProps = (ctx) => {
   // Render app and page and get the context of the page with collected side effects.
   let pageContext;
   const page = ctx.renderPage((Component) => {
-    // const { pageContext } = props;
-    const WrappedComponent = props => <Component {...props} />;
+    const WrappedComponent = (props) => {
+      const { pageContext: context } = props;
+      pageContext = context;
+      return <Component {...props} />;
+    };
+
     WrappedComponent.propTypes = {
       pageContext: PropTypes.object.isRequired, // eslint-disable-line
     };
