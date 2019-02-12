@@ -17,12 +17,13 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <div
-      className="container-md"
-      style={{ padding: "0 20px", margin: "0 auto 50px" }}
-    >
+    <React.Fragment>
       <Navbar />
-    </div>
+      <div
+        className="container-md"
+        style={{ padding: "0 20px", margin: "0 auto 50px" }}
+      />
+    </React.Fragment>
   );
 }
 

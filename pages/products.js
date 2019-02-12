@@ -17,9 +17,10 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <div className="container-md" style={{ marginTop: 50 }}>
+    <React.Fragment>
       <Navbar />
-    </div>
+      <div className="container-md" style={{ marginTop: 50 }} />
+    </React.Fragment>
   );
 }
 

@@ -23,7 +23,7 @@ const styles = theme => ({
     left: 0,
     right: 0,
     bottom: 0,
-    background: "rgba(255, 255, 255, .95)",
+    background: "white",
     zIndex: 1000,
     "&>div": {
       position: "relative",
@@ -37,7 +37,6 @@ const styles = theme => ({
     }
   },
   link: {
-    // fontSize: "4rem",
     fontWeight: 900,
     letterSpacing: 1,
     color: grey[700],
@@ -46,13 +45,12 @@ const styles = theme => ({
     },
     [theme.breakpoints.down("sm")]: {
       display: "block"
-      // fontSize: "2rem"
     }
   },
   clear: {
     position: "absolute",
     top: 30,
-    right: 0,
+    right: 15,
     fontSize: 64,
     cursor: "pointer",
     color: grey[700],

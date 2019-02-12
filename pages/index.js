@@ -186,14 +186,11 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
+        <Navbar onClickShape={shape => this.selectShape(shape)} shape={shape} />
         <div
           className="container-md"
           style={{ padding: "0 20px", margin: "0 auto 50px" }}
         >
-          <Navbar
-            onClickShape={shape => this.selectShape(shape)}
-            shape={shape}
-          />
           <div ref={this.slider} className={classes.heroSq}>
             <img src={image} alt="" className={classes.slider} />
             <div className={classnames("hero", classes.heroTitle)}>

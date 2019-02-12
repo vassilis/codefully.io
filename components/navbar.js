@@ -11,17 +11,32 @@ import red from "@material-ui/core/colors/red";
 import grey from "@material-ui/core/colors/grey";
 import Menu from "./menu";
 
-const styles = {
-  root: {
+const styles = theme => ({
+  navbar: {
+    position: "sticky",
+    top: 0,
+    paddingTop: 20,
+    backgroundColor: "rgba(255,255,255,0.6)",
+    zIndex: 1000,
+    borderRadius: 5,
+    maxWidth: 1200,
+    margin: "0 auto"
+  },
+  container: {
     display: "flex",
     alignItems: "center",
-    padding: "40px 0 0",
+    padding: "20px",
     lineHeight: 1,
     cursor: "default"
   },
   icons: {
     display: "flex",
     alignItems: "flex-end"
+  },
+  shapeIcons: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
   },
   icon: {
     cursor: "pointer",
@@ -41,7 +56,7 @@ const styles = {
   grow: {
     flexGrow: 1
   }
-};
+});
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -51,55 +66,63 @@ class NavBar extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.body.style.overflowY = "inherit";
+  }
+
   showMenu = () => {
     this.setState({ isMenuVisible: true });
+    document.body.style.overflowY = "hidden";
   };
 
   hideMenu = () => {
     this.setState({ isMenuVisible: false });
+    document.body.style.overflowY = "inherit";
   };
 
   render() {
     const { classes, onClickShape, shape } = this.props;
     const { isMenuVisible } = this.state;
     return (
-      <div className={classes.root}>
-        <div className={classes.grow}>
-          <Link href="/">
-            <a className="logo" style={{ margin: 0 }}>
-              <img
-                src={LogoIcon}
-                style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
-                alt="codefully"
-              />
-              codefully
-            </a>
-          </Link>
-        </div>
-        <div className={classes.icons}>
-          {shape && (
-            <div>
-              <CircleIcon
-                className={classnames(
-                  classes.icon,
-                  shape === "circle" && classes.active
-                )}
-                onClick={() => onClickShape("circle")}
-              />
-              <SquareIcon
-                className={classnames(
-                  classes.icon,
-                  shape === "square" && classes.active
-                )}
-                onClick={() => onClickShape("square")}
-              />
-            </div>
-          )}
-          <MenuIcon
-            className={classes.menuIcon}
-            onClick={() => this.showMenu()}
-          />
-          {isMenuVisible && <Menu onClickClearIcon={() => this.hideMenu()} />}
+      <div className={classes.navbar}>
+        <div className={classnames("container-md", classes.container)}>
+          <div className={classes.grow}>
+            <Link href="/">
+              <a className="logo" style={{ margin: 0 }}>
+                <img
+                  src={LogoIcon}
+                  style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
+                  alt="codefully"
+                />
+                codefully
+              </a>
+            </Link>
+          </div>
+          <div className={classes.icons}>
+            {shape && (
+              <div className={classes.shapeIcons}>
+                <CircleIcon
+                  className={classnames(
+                    classes.icon,
+                    shape === "circle" && classes.active
+                  )}
+                  onClick={() => onClickShape("circle")}
+                />
+                <SquareIcon
+                  className={classnames(
+                    classes.icon,
+                    shape === "square" && classes.active
+                  )}
+                  onClick={() => onClickShape("square")}
+                />
+              </div>
+            )}
+            <MenuIcon
+              className={classes.menuIcon}
+              onClick={() => this.showMenu()}
+            />
+            {isMenuVisible && <Menu onClickClearIcon={() => this.hideMenu()} />}
+          </div>
         </div>
       </div>
     );

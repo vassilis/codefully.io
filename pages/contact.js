@@ -18,11 +18,11 @@ class ContactPage extends React.Component {
     const { firstName, lastName, email, phone, message } = this.state;
     return (
       <React.Fragment>
+        <Navbar />
         <div
           className="container-md"
           style={{ padding: "0 20px", margin: "0 auto 50px" }}
         >
-          <Navbar />
           <div className="container" style={{ padding: "50px 0" }}>
             <Typography variant="h3" className="hero" gutterBottom>
               <strong>
