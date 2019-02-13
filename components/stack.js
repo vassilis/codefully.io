@@ -31,11 +31,9 @@ const styles = theme => ({
     height: 100,
   },
   stackTitle: {
-    margin: '-70px 0 0 0',
     fontSize: '3rem',
     position: 'relative',
     [theme.breakpoints.up('md')]: {
-      padding: 40,
       '&:before': {
         content: '""',
         display: 'block',

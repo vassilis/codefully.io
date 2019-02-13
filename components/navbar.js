@@ -3,22 +3,18 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Link from 'next/link';
 import MenuIcon from '@material-ui/icons/Menu';
-import CircleIcon from '@material-ui/icons/RadioButtonUncheckedOutlined';
-import SquareIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import classnames from 'classnames';
-import red from '@material-ui/core/colors/red';
 import grey from '@material-ui/core/colors/grey';
 import LogoIcon from '../images/logo-icon.svg';
 import Menu from './menu';
 
-const styles = theme => ({
+const styles = () => ({
   navbar: {
     position: 'sticky',
     top: 0,
     paddingTop: 20,
     backgroundColor: 'rgba(255,255,255,0.6)',
     zIndex: 1000,
-    maxWidth: 1200,
     margin: '0 auto',
   },
   container: {
@@ -35,6 +31,8 @@ const styles = theme => ({
     fontSize: '36px',
     color: '#303030',
     whiteSpace: 'nowrap',
+    marginLeft: 30,
+    cursor: 'pointer',
     '&img': {
       verticalAlign: 'middle',
     },
@@ -42,20 +40,6 @@ const styles = theme => ({
   icons: {
     display: 'flex',
     alignItems: 'flex-end',
-  },
-  shapeIcons: {
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
-  icon: {
-    cursor: 'pointer',
-    fontSize: 24,
-    color: grey[500],
-    marginRight: 10,
-  },
-  active: {
-    color: red[500],
   },
   menuIcon: {
     fontSize: 48,
@@ -91,36 +75,24 @@ class NavBar extends React.Component {
   };
 
   render() {
-    const { classes, onClickShape, shape } = this.props;
+    const { classes } = this.props;
     const { isMenuVisible } = this.state;
     return (
       <div className={classes.navbar}>
-        <div className={classnames('container-md', classes.container)}>
+        <div className={classnames('container-lg', classes.container)}>
           <div className={classes.grow}>
             <Link href="/">
-              <a href="0" className={classes.logo}>
+              <span className={classes.logo}>
                 <img
                   src={LogoIcon}
                   style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
                   alt="codefully"
                 />
                 codefully
-              </a>
+              </span>
             </Link>
           </div>
           <div className={classes.icons}>
-            {shape && (
-              <div className={classes.shapeIcons}>
-                <CircleIcon
-                  className={classnames(classes.icon, shape === 'circle' && classes.active)}
-                  onClick={() => onClickShape('circle')}
-                />
-                <SquareIcon
-                  className={classnames(classes.icon, shape === 'square' && classes.active)}
-                  onClick={() => onClickShape('square')}
-                />
-              </div>
-            )}
             <MenuIcon className={classes.menuIcon} onClick={() => this.showMenu()} />
             {isMenuVisible && <Menu onClickClearIcon={() => this.hideMenu()} />}
           </div>
@@ -130,15 +102,8 @@ class NavBar extends React.Component {
   }
 }
 
-NavBar.defaultProps = {
-  onClickShape: null,
-  shape: '',
-};
-
 NavBar.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
-  onClickShape: PropTypes.func,
-  shape: PropTypes.string,
 };
 
 export default withStyles(styles)(NavBar);

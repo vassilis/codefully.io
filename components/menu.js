@@ -38,7 +38,8 @@ const styles = theme => ({
     },
   },
   link: {
-    fontWeight: 900,
+    cursor: 'pointer',
+    fontWeight: 'normal',
     letterSpacing: 1,
     color: grey[700],
     '&:hover': {
@@ -87,8 +88,7 @@ class Menu extends React.Component {
     const items = menuItems.map(
       (item, i) => currentPath !== item.path && (
       <Link key={item.title} href={item.path}>
-        <a
-          href="0"
+        <span
           className={classes.link}
           style={{
             transition: `margin 0.5s ease ${i * 0.1}s, opacity 0.5s ease ${i
@@ -96,7 +96,7 @@ class Menu extends React.Component {
           }}
         >
           {item.title}
-        </a>
+        </span>
       </Link>
       ),
     );

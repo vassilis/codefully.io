@@ -32,7 +32,7 @@ class ContactPage extends React.Component {
             <Typography variant="h3" className="hero" gutterBottom>
               <strong>
                 We love to discuss and analyse business stories! Let&apos;s talk and find out if we
-                are a good fit for your project. Fill out the form and let&apos;s get started!
+                are a good fit for your project.
               </strong>
             </Typography>
             <br />

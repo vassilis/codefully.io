@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,900");
 @import url("https://fonts.googleapis.com/css?family=Teko:700");
-@import url("https://fonts.googleapis.com/css?family=Advent+Pro:400");
+// @import url("https://fonts.googleapis.com/css?family=Advent+Pro:400");
 @import "~rfs/scss";
 
 $white: #fff;
@@ -68,8 +68,10 @@ body {
 }
 
 #menu {
-  a {
+  span {
     @include rfs(80);
+
+    font-family: "Mont-HeavyDEMO", sans-serif !important;
   }
 }
 
@@ -81,7 +83,7 @@ h5,
 h6 {
   font-family: "Mont-HeavyDEMO", sans-serif !important;
   // font-family: "Advent Pro", sans-serif;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 h6 {
@@ -111,9 +113,10 @@ h1 {
 .hero {
   @include rfs(90);
 
-  font-family: "Advent Pro", sans-serif;
+  font-family: "Mont-HeavyDEMO", sans-serif !important;
   font-weight: normal;
   line-height: 1;
+  word-spacing: 7px;
 }
 
 .title {
@@ -175,4 +178,24 @@ strong {
 .nav-appear.nav-appear-active {
   opacity: 1;
   margin-left: 0;
+}
+
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+
+ol li {
+  counter-increment: my-awesome-counter;
+  position: relative;
+  margin-top: 20px;
+}
+
+ol li::before {
+  content: counter(my-awesome-counter) ". ";
+  position: absolute;
+  top: 0;
+  left: -35px;
+  font-family: "Mont-HeavyDEMO", sans-serif !important;
+  font-size: 30px;
 }

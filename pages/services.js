@@ -12,7 +12,7 @@ const styles = theme => ({
   },
   title: {
     color: theme.palette.primary.main,
-    marginTop: 40,
+    marginTop: 100,
   },
 });
 
@@ -22,18 +22,18 @@ function About(props) {
   return (
     <React.Fragment>
       <Navbar />
-      <div className="container-md" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
-        <h1 className="hero" style={{ margin: '50px 0' }}>
+      <div className="container-lg" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
+        <h1 className="hero" style={{ margin: '50px 0', maxWidth: 1200 }}>
           Custom software solutions tailored to your unique needs
         </h1>
-        <p style={{ marginTop: 40, maxWidth: 1000 }}>
+        <p style={{ marginTop: 40, maxWidth: 900, display: 'none' }}>
           Expertise... experience / since 2010, rapid prototyping, MVPs, SAAS, proof of concepts,
           customer engagement, sales analytics
         </p>
         <Typography variant="h4" className={classes.title}>
           Methodology
         </Typography>
-        <div style={{ marginTop: 5, maxWidth: 1000 }}>
+        <div style={{ marginTop: 5, maxWidth: 900 }}>
           {/* Agile, Scrum, TDD, Git */}
           <p>
             Developing software requires a combination of problem-solving as well as technical
