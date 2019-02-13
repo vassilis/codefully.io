@@ -45,7 +45,7 @@ function About(props) {
         <img src={goma} alt="Goma" className={classes.imgHero} />
         <div className={classes.sectionHero}>
           <h1 className="hero">Cyber Governance Tool</h1>
-          <h2>Ruby on Rails, Postgress, React, Redux, Highcharts</h2>
+          <h2>Ruby on Rails, Postgres, React, Redux, Highcharts</h2>
         </div>
         <Grid container spacing={40}>
           <Grid item xs={12} md={6}>
