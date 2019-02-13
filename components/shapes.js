@@ -13,7 +13,7 @@ let timeout;
 
 const styles = () => ({
   icons: {
-    display: 'flex',
+    // display: 'flex',
     alignItems: 'flex-end',
     display: 'none',
   },
