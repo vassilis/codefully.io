@@ -9,8 +9,6 @@ import CircleIcon from '@material-ui/icons/RadioButtonUncheckedOutlined';
 import SquareIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import classnames from 'classnames';
 
-let timeout;
-
 const styles = () => ({
   icons: {
     // display: 'flex',
@@ -48,7 +46,7 @@ const styles = () => ({
 class Shapes extends React.Component {
   constructor(props) {
     super(props);
-    this.slider = React.createRef();
+    this.timeouts = [];
     this.state = {
       shape: 'circle',
       shapes: [],
@@ -63,7 +61,7 @@ class Shapes extends React.Component {
   componentWillUnmount() {
     document.body.style.cursor = 'inherit';
     document.body.removeEventListener('mousemove', this.addShape);
-    clearTimeout(timeout);
+    this.clearAllTimeouts();
   }
 
   addShape = (e) => {
@@ -81,9 +79,11 @@ class Shapes extends React.Component {
       };
       const uShapes = [...shapes, newShape];
       this.setState({ shapes: uShapes });
-      timeout = setTimeout(() => {
-        this.removeShape(id);
-      }, 10000);
+      this.timeouts.push(
+        setTimeout(() => {
+          this.removeShape(id);
+        }, 10000),
+      );
     }
   };
 
@@ -97,6 +97,12 @@ class Shapes extends React.Component {
 
   selectShape = (shape) => {
     this.setState({ shape });
+  };
+
+  clearAllTimeouts = () => {
+    for (let i = 0; i < this.timeouts.length; i += 1) {
+      clearTimeout(this.timeouts[i]);
+    }
   };
 
   render() {
