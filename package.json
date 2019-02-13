@@ -10,6 +10,7 @@
     "jss": "latest",
     "lodash": "^4.17.11",
     "next": "^8.0.0",
+    "next-fonts": "^0.17.0",
     "next-images": "^1.0.4",
     "node-sass": "^4.11.0",
     "prop-types": "latest",

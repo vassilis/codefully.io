@@ -5,6 +5,16 @@
 
 $white: #fff;
 $black: #000;
+$dark: #303030;
+
+@font-face {
+  font-family: "Mont-HeavyDEMO";
+  src: url("../webfonts/38C11A_0_0.eot");
+  src: url("../webfonts/38C11A_0_0.eot?#iefix") format("embedded-opentype"),
+    url("../webfonts/38C11A_0_0.woff2") format("woff2"),
+    url("../webfonts/38C11A_0_0.woff") format("woff"),
+    url("../webfonts/38C11A_0_0.ttf") format("truetype");
+}
 
 @media screen and (min-width: 960px) {
   html {
@@ -21,7 +31,7 @@ body {
 body {
   background-color: $white !important;
   font-family: "Roboto", "Franklin Gothic Medium", Arial, sans-serif;
-  color: #303030;
+  color: $dark;
   overflow-x: hidden;
   line-height: 1.5;
 
@@ -33,7 +43,7 @@ body {
   font-weight: 700;
   text-decoration: none;
   font-size: 36px;
-  color: #303030;
+  color: $dark;
   white-space: nowrap;
 
   img {
@@ -46,7 +56,7 @@ body {
   font-weight: 700;
   text-decoration: none;
   font-size: 36px;
-  color: #303030;
+  color: $dark;
   white-space: nowrap;
   display: flex;
   justify-content: center;
@@ -68,15 +78,41 @@ h2,
 h3,
 h4,
 h5,
-h6,
-.hero {
-  font-family: "Advent Pro", sans-serif !important;
+h6 {
+  font-family: "Mont-HeavyDEMO", sans-serif !important;
+  // font-family: "Advent Pro", sans-serif;
   font-weight: 400;
+}
+
+h6 {
+  @include rfs(16);
+}
+
+h5 {
+  @include rfs(20);
+}
+
+h4 {
+  @include rfs(24);
+}
+
+h3 {
+  @include rfs(28);
+}
+
+h2 {
+  @include rfs(32);
+}
+
+h1 {
+  @include rfs(36);
 }
 
 .hero {
   @include rfs(90);
 
+  font-family: "Advent Pro", sans-serif;
+  font-weight: normal;
   line-height: 1;
 }
 

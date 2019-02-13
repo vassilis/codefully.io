@@ -28,6 +28,17 @@ const styles = theme => ({
     lineHeight: 1,
     cursor: 'default',
   },
+  logo: {
+    fontFamily: '"Teko", "Roboto", sans-serif',
+    fontWeight: '700',
+    textDecoration: 'none',
+    fontSize: '36px',
+    color: '#303030',
+    whiteSpace: 'nowrap',
+    '&img': {
+      verticalAlign: 'middle',
+    },
+  },
   icons: {
     display: 'flex',
     alignItems: 'flex-end',
@@ -87,7 +98,7 @@ class NavBar extends React.Component {
         <div className={classnames('container-md', classes.container)}>
           <div className={classes.grow}>
             <Link href="/">
-              <a href="0" className="logo" style={{ margin: 0 }}>
+              <a href="0" className={classes.logo}>
                 <img
                   src={LogoIcon}
                   style={{ height: 36, marginRight: 10, verticalAlign: -8 }}
