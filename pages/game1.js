@@ -9,10 +9,16 @@ const styles = () => ({
   root: {},
   heroTitle: {
     textAlign: 'center',
+    marginBottom: 20,
+  },
+  timer: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 30,
   },
   deck: {
     maxWidth: 750,
-    margin: '50px auto',
+    margin: '30px auto',
     display: 'flex',
     flexFlow: 'wrap',
   },
@@ -47,20 +53,26 @@ const styles = () => ({
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.cardsNumber = 10;
+    this.cardsNumber = 20;
+    this.timeout = null;
+    this.score = 0;
     this.state = {
       cards: [],
+      cleared: [],
       sid: '',
       suid: '',
       canPlay: true,
+      timer: 0,
     };
   }
 
   componentDidMount() {
     const cards = [];
+    const cleared = [];
     const images = portraits;
-    for (let x = 0; x < this.cardsNumber; x += 1) {
+    for (let x = 0; x < this.cardsNumber / 2; x += 1) {
       const id = `card-${x}`;
+      cleared.push(id);
       cards.push({
         id,
         uid: `${id}-1`,
@@ -75,13 +87,38 @@ class Index extends React.Component {
       });
     }
     this.setState({
+      cleared,
       cards: getShuffledArr(cards),
     });
+    this.startTimer();
   }
+
+  startTimer = () => {
+    let t = 0;
+    this.timeout = setInterval(() => {
+      t += 1;
+      this.setState({
+        timer: t,
+      });
+    }, 1);
+  };
+
+  stopTimer = () => {
+    clearInterval(this.timeout);
+  };
+
+  updateScore = () => {
+    const { timer } = this.state;
+    this.stopTimer();
+    const bestScore = localStorage.getItem('score');
+    if (typeof bestScore === 'undefined' || timer < bestScore) {
+      localStorage.setItem('score', timer);
+    }
+  };
 
   handleClick = (id, uid) => {
     const {
-      cards, sid, suid, canPlay,
+      cards, sid, suid, canPlay, cleared,
     } = this.state;
     if (!canPlay) return;
     const uCards = [...cards];
@@ -94,10 +131,16 @@ class Index extends React.Component {
       cards: uCards,
     });
     if (id === sid) {
+      const uCleared = cleared.filter(el => el !== id);
       this.setState({
         sid: '',
         suid: '',
+        cleared: uCleared,
       });
+      if (uCleared.length === 0) {
+        this.updateScore();
+        return;
+      }
     }
     if (sid !== '' && id !== sid) {
       this.setState({
@@ -119,7 +162,7 @@ class Index extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { cards } = this.state;
+    const { cards, timer } = this.state;
 
     const renderCards = cards.map((card, index) => (
       <div
@@ -137,6 +180,7 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         <h1 className={classnames('hero', classes.heroTitle)}>Game</h1>
+        <div className={classes.timer}>{timer}</div>
         <div className={classes.deck}>{renderCards}</div>
       </React.Fragment>
     );
