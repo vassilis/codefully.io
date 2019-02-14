@@ -16,6 +16,11 @@ const styles = () => ({
     fontWeight: 'bold',
     fontSize: 30,
   },
+  score: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
   deck: {
     maxWidth: 750,
     margin: '30px auto',
@@ -54,14 +59,15 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.cardsNumber = 20;
+    this.interval = null;
     this.timeout = null;
-    this.score = 0;
     this.state = {
       cards: [],
       cleared: [],
       sid: '',
       suid: '',
       canPlay: true,
+      score: 0,
       timer: 0,
     };
   }
@@ -90,12 +96,18 @@ class Index extends React.Component {
       cleared,
       cards: getShuffledArr(cards),
     });
+    this.showBestScore();
     this.startTimer();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
+    clearInterval(this.interval);
   }
 
   startTimer = () => {
     let t = 0;
-    this.timeout = setInterval(() => {
+    this.interval = setInterval(() => {
       t += 1;
       this.setState({
         timer: t,
@@ -104,16 +116,29 @@ class Index extends React.Component {
   };
 
   stopTimer = () => {
-    clearInterval(this.timeout);
+    clearInterval(this.interval);
+  };
+
+  showBestScore = () => {
+    let bestScore = localStorage.getItem('score');
+    if (!bestScore) {
+      bestScore = 0;
+    }
+    this.setState({
+      score: bestScore,
+    });
   };
 
   updateScore = () => {
     const { timer } = this.state;
-    this.stopTimer();
-    const bestScore = localStorage.getItem('score');
-    if (typeof bestScore === 'undefined' || timer < bestScore) {
-      localStorage.setItem('score', timer);
+    let bestScore = localStorage.getItem('score');
+    if (!bestScore || timer < bestScore) {
+      bestScore = timer;
+      localStorage.setItem('score', bestScore);
     }
+    this.setState({
+      score: bestScore,
+    });
   };
 
   handleClick = (id, uid) => {
@@ -138,6 +163,7 @@ class Index extends React.Component {
         cleared: uCleared,
       });
       if (uCleared.length === 0) {
+        this.stopTimer();
         this.updateScore();
         return;
       }
@@ -146,7 +172,7 @@ class Index extends React.Component {
       this.setState({
         canPlay: false,
       });
-      setTimeout(() => {
+      this.timeout = setTimeout(() => {
         card.isHidden = true;
         const prevCard = uCards.find(c => c.uid === suid);
         prevCard.isHidden = true;
@@ -162,7 +188,7 @@ class Index extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { cards, timer } = this.state;
+    const { cards, timer, score } = this.state;
 
     const renderCards = cards.map((card, index) => (
       <div
@@ -180,6 +206,7 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         <h1 className={classnames('hero', classes.heroTitle)}>Game</h1>
+        <div className={classes.score}>{score}</div>
         <div className={classes.timer}>{timer}</div>
         <div className={classes.deck}>{renderCards}</div>
       </React.Fragment>
