@@ -25,9 +25,7 @@ const styles = () => ({
   stackTitle: {
     fontSize: '3rem',
   },
-  stackText: {
-    fontSize: '1.2rem',
-  },
+  stackText: {},
   logos: {
     marginTop: 100,
   },
@@ -42,9 +40,9 @@ const styles = () => ({
 });
 
 const Stack = ({ classes }) => (
-  <div className={classes.root}>
+  <div className="container-lg" style={{ marginTop: 200 }}>
     <h2 className={classnames(classes.stackTitle)}>Leading Stack</h2>
-    <Typography className={classes.stackText}>
+    <div className={classes.stackText}>
       In our technological stack, we blend some of the most powerful, modern and popular development
       tools available today in our industry. If we have to name a few, those would be Amazon Web
       Services, Heroku, Node.js, React, Redux, PostgreSQL, Ruby on Rails, Bootstrap, Material UI and
@@ -61,7 +59,7 @@ const Stack = ({ classes }) => (
       {' '}
       and how we choose the most relevant technologies for your project, which is a key factor for
       its success and longevity.
-    </Typography>
+    </div>
     <div className={classes.logos}>
       <Tooltip title="AWS / Amazon Web Services" placement="top">
         <img
