@@ -10,7 +10,7 @@ const styles = () => ({
     maxWidth: 1000,
   },
   outer: {
-    padding: '200px 0',
+    padding: '200px 20px',
     border: `1px solid ${Grey[300]}`,
     position: 'relative',
     '&:before': {
