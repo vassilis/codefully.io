@@ -18,14 +18,12 @@ function Stack(props) {
   return (
     <React.Fragment>
       <Navbar />
-      <div className="container-md" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
-        <Typography className="hero" style={{ fontSize: '5rem', lineHeight: 1, margin: '50px 0' }}>
+      <div className="container-lg">
+        <h1 className="hero" style={{ maxWidth: 1200 }}>
           The right tools can save you a lot of time and money
-        </Typography>
-        <Typography variant="h4" className={classes.title}>
-          Choosing the right technologies
-        </Typography>
-        <Typography style={{ fontSize: '1.2rem', marginTop: 5, maxWidth: 1000 }}>
+        </h1>
+        <h2 className={classes.title}>Choosing the right technologies</h2>
+        <div style={{ maxWidth: 800 }}>
           <p>
             It used to be that a web developer had to use just an editor and a compiler. The only
             choice available was the programming language. Even then, most of the decisions were
@@ -81,7 +79,7 @@ function Stack(props) {
             There is a subjective factor based on past experience and intuition. We don’t ignore our
             gut feeling!
           </p>
-        </Typography>
+        </div>
       </div>
       <Footer />
     </React.Fragment>

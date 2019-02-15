@@ -16,12 +16,12 @@ $dark: #303030;
     url("../webfonts/38C11A_0_0.ttf") format("truetype");
 }
 
-@media screen and (min-width: 960px) {
-  html {
-    margin-left: calc(100vw - 100%);
-    margin-right: 0;
-  }
-}
+// @media screen and (min-width: 960px) {
+//   html {
+//     margin-left: calc(100vw - 100%);
+//     margin-right: 0;
+//   }
+// }
 
 html,
 body {
@@ -129,16 +129,19 @@ h1 {
 .container-lg {
   max-width: 1600px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .container-md {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 a.hi {

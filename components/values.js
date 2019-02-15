@@ -10,37 +10,11 @@ const styles = theme => ({
   title: {
     margin: 0,
     fontSize: '3rem',
-    position: 'relative',
-    [theme.breakpoints.up('md')]: {
-      '&:before': {
-        content: '""',
-        display: 'block',
-        position: 'absolute',
-        backgroundColor: deepPurple[50],
-        width: 650,
-        height: 650,
-        top: -150,
-        right: 0,
-        zIndex: -1,
-        borderRadius: '50%',
-      },
-      '&:after': {
-        content: '""',
-        display: 'block',
-        position: 'absolute',
-        backgroundColor: 'white',
-        width: 500,
-        height: 500,
-        top: -100,
-        right: 50,
-        zIndex: -1,
-        borderRadius: '50%',
-      },
-    },
   },
   subtitle: {
     fontSize: '2rem',
     lineHeight: 1,
+    marginTop: 150,
     marginBottom: 10,
   },
   text: {
@@ -50,7 +24,7 @@ const styles = theme => ({
 
 const Values = ({ classes }) => (
   <div className={classes.root}>
-    <h2 className={classes.title}>Core Values</h2>
+    {/* <h2 className={classes.title}>Core Values</h2> */}
     <h3 className={classes.subtitle}>Solutions above technology</h3>
     <p className={classes.text}>
       We use technology for creating solutions. Technology is not a self-serving cause. Remember

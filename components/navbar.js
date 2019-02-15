@@ -13,7 +13,6 @@ const styles = () => ({
     position: 'sticky',
     top: 0,
     paddingTop: 20,
-    backgroundColor: 'rgba(255,255,255,0.6)',
     zIndex: 1000,
     margin: '0 auto',
   },
@@ -22,7 +21,6 @@ const styles = () => ({
     alignItems: 'center',
     padding: '20px',
     lineHeight: 1,
-    cursor: 'default',
   },
   logo: {
     fontFamily: '"Teko", "Roboto", sans-serif',
@@ -31,7 +29,6 @@ const styles = () => ({
     fontSize: '36px',
     color: '#303030',
     whiteSpace: 'nowrap',
-    marginLeft: 30,
     cursor: 'pointer',
     '&img': {
       verticalAlign: 'middle',

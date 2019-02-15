@@ -10,32 +10,11 @@ import Footer from '../components/footer';
 import Shapes from '../components/shapes';
 
 const styles = theme => ({
-  heroSq: {
-    marginTop: 50,
-    position: 'relative',
-    [theme.breakpoints.up('md')]: {
-      padding: 40,
-      '&:before': {
-        content: '""',
-        display: 'block',
-        position: 'absolute',
-        backgroundColor: amber[100],
-        width: 450,
-        height: 450,
-        top: 0,
-        left: 0,
-        zIndex: -1,
-      },
-    },
-  },
   heroTitle: {
-    position: 'relative',
-    zIndex: 2,
-    maxWidth: 1100,
+    margin: '200px auto',
   },
   heroText: {
-    marginTop: 50,
-    maxWidth: 700,
+    maxWidth: 600,
   },
 });
 
@@ -51,7 +30,7 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         <Navbar />
-        <div className="container-lg" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
+        <div className="container-lg">
           <h1 className={classnames('hero', classes.heroTitle)}>
             Let us turn your ideas into inspiring software
           </h1>
