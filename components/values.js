@@ -18,7 +18,6 @@ const styles = () => ({
     fontSize: '3rem',
   },
   subtitle: {
-    fontSize: '2rem',
     lineHeight: 1,
     marginBottom: 10,
   },
@@ -44,7 +43,7 @@ const Values = ({ classes }) => (
         <div className={classes.box}>
           <img src={img1} alt="" className={classes.img} />
           <div className={classes.text}>
-            <h3 className={classes.subtitle}>Solutions above technology</h3>
+            <h2 className={classes.subtitle}>Solutions above technology</h2>
             We use technology for creating solutions. Technology is not a self-serving cause.
             Remember that the technology may fizzle out but the problem you are trying to solve will
             most likely still be there.
@@ -55,7 +54,7 @@ const Values = ({ classes }) => (
         <div className={classes.box}>
           <img src={img2} alt="" className={classes.img} />
           <div className={classes.text}>
-            <h3 className={classes.subtitle}>Opinionated development above blind implementation</h3>
+            <h2 className={classes.subtitle}>Opinionated development above blind implementation</h2>
             We don’t just execute. We consider our clients equal partners and we view ourselves as
             responsible for the overall success of a project. We voice our opinion and provide
             strong guidance.
@@ -66,7 +65,7 @@ const Values = ({ classes }) => (
         <div className={classes.box}>
           <img src={img3} alt="" className={classes.img} />
           <div className={classes.text}>
-            <h3 className={classes.subtitle}>People above projects</h3>
+            <h2 className={classes.subtitle}>People above projects</h2>
             We choose what we work on based on the teams that are involved. We believe that success
             requires good chemistry and we consciously spend effort building great working
             relationships.
@@ -77,7 +76,7 @@ const Values = ({ classes }) => (
         <div className={classes.box}>
           <img src={img4} alt="" className={classes.img} />
           <div className={classes.text}>
-            <h3 className={classes.subtitle}>Accessibility over rigid relationships</h3>
+            <h2 className={classes.subtitle}>Accessibility over rigid relationships</h2>
             We are easy to talk to and always make sure that our customers can easily reach us.
             Building software is a collaborative process and communication is key. We believe that
             developers and product owners should be in tune.
