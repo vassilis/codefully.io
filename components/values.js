@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import deepPurple from '@material-ui/core/colors/deepPurple';
 
 const styles = theme => ({
   root: {

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Tooltip from '@material-ui/core/Tooltip';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-import lightGreen from '@material-ui/core/colors/lightGreen';
 import LogoRails from '../images/stack/logo-rails.svg';
 import LogoPostgres from '../images/stack/logo-postgresql.svg';
 import LogoHighcharts from '../images/stack/logo-highcharts.svg';
@@ -17,7 +16,7 @@ import LogoHeroku from '../images/stack/logo-heroku.svg';
 import LogoMaterial from '../images/stack/logo-material-ui.svg';
 import LogoBootstrap from '../images/stack/logo-bootstrap.svg';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     margin: '400px auto 0',
     position: 'relative',

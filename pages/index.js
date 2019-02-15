@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
-import amber from '@material-ui/core/colors/amber';
 import Stack from '../components/stack';
 import Values from '../components/values';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import Shapes from '../components/shapes';
 
-const styles = theme => ({
+const styles = () => ({
   heroTitle: {
     margin: '200px auto',
   },
