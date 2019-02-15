@@ -2,18 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
+import Grey from '@material-ui/core/colors/grey';
 
 const styles = () => ({
   heroTitle: {
     margin: '200px auto',
+    maxWidth: 1000,
   },
   outer: {
     padding: '200px 0',
-    border: '1px solid #303030',
+    border: `1px solid ${Grey[300]}`,
+    position: 'relative',
+    '&:before': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      mixBlendMode: 'difference',
+      backgroundColor: 'rgba(255,255,255,0.2)',
+    },
   },
   heroText: {
     maxWidth: 1000,
     margin: '0 auto',
+    position: 'relative',
+    zIndex: 2,
   },
 });
 
