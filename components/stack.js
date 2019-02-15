@@ -20,18 +20,17 @@ const styles = () => ({
     marginTop: 400,
     position: 'relative',
   },
-  stackTitle: {
+  title: {
     maxWidth: 1000,
     margin: '0 auto 20px',
   },
-  stackText: {
+  text: {
     maxWidth: 1000,
     margin: '0 auto',
   },
   logos: {
-    margin: '0 auto',
+    margin: '50px auto',
     maxWidth: 1000,
-    marginTop: 100,
   },
   img: {
     border: '1px #DDD solid',
@@ -45,24 +44,12 @@ const styles = () => ({
 
 const Stack = ({ classes }) => (
   <div className="container-lg" style={{ marginTop: 400 }}>
-    <h1 className={classnames(classes.stackTitle)}>Leading Stack</h1>
-    <div className={classes.stackText}>
+    <h1 className={classnames(classes.title)}>Leading Stack</h1>
+    <div className={classes.text}>
       In our technological stack, we blend some of the most powerful, modern and popular development
       tools available today in our industry. If we have to name a few, those would be Amazon Web
       Services, Heroku, Node.js, React, Redux, PostgreSQL, Ruby on Rails, Bootstrap, Material UI and
       Highcharts.
-      <br />
-      <br />
-      Read more about
-      {' '}
-      <Link href="/stack">
-        <a href="0" className="hi">
-          our stack
-        </a>
-      </Link>
-      {' '}
-      and how we choose the most relevant technologies for your project, which is a key factor for
-      its success and longevity.
     </div>
     <div className={classes.logos}>
       <div>
@@ -109,6 +96,18 @@ const Stack = ({ classes }) => (
           />
         </Tooltip>
       </div>
+    </div>
+    <div className={classes.text}>
+      Read more about
+      {' '}
+      <Link href="/stack">
+        <a href="0" className="hi">
+          our stack
+        </a>
+      </Link>
+      {' '}
+      and how we choose the most relevant technologies for your project, which is a key factor for
+      its success and longevity.
     </div>
   </div>
 );
