@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Tooltip from '@material-ui/core/Tooltip';
 import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
 import LogoRails from '../images/stack/logo-rails.svg';
 import LogoPostgres from '../images/stack/logo-postgresql.svg';
 import LogoHighcharts from '../images/stack/logo-highcharts.svg';
@@ -23,7 +22,7 @@ const styles = () => ({
   },
   stackTitle: {
     maxWidth: 1000,
-    margin: '0 auto',
+    margin: '0 auto 20px',
   },
   stackText: {
     maxWidth: 1000,

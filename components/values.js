@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 import Grey from '@material-ui/core/colors/grey';
 import img1 from '../images/values/28x.jpg';
-import img2 from '../images/values/604126.jpg';
-import img3 from '../images/values/398931.jpg';
-import img4 from '../images/values/651370.jpg';
+import img2 from '../images/values/18x.jpg';
+import img3 from '../images/values/25x.jpg';
+import img4 from '../images/values/604126.jpg';
 
 const styles = () => ({
   root: {
@@ -19,7 +19,7 @@ const styles = () => ({
   },
   subtitle: {
     lineHeight: 1,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   text: {
     padding: 40,
