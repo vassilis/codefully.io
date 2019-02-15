@@ -18,18 +18,17 @@ import LogoBootstrap from '../images/stack/logo-bootstrap.svg';
 
 const styles = () => ({
   root: {
-    margin: '400px auto 0',
+    marginTop: 400,
     position: 'relative',
+    maxWidth: 600,
   },
   stackTitle: {
     fontSize: '3rem',
   },
   stackText: {
-    maxWidth: 1000,
     fontSize: '1.2rem',
   },
   logos: {
-    maxWidth: 800,
     marginTop: 100,
   },
   img: {

@@ -2,8 +2,9 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
+    maxWidth: 600,
     marginTop: 250,
   },
   title: {
@@ -16,9 +17,7 @@ const styles = theme => ({
     marginTop: 150,
     marginBottom: 10,
   },
-  text: {
-    maxWidth: 900,
-  },
+  text: {},
 });
 
 const Values = ({ classes }) => (
