@@ -20,13 +20,18 @@ const styles = () => ({
   root: {
     marginTop: 400,
     position: 'relative',
-    maxWidth: 600,
   },
   stackTitle: {
-    fontSize: '3rem',
+    maxWidth: 1000,
+    margin: '0 auto',
   },
-  stackText: {},
+  stackText: {
+    maxWidth: 1000,
+    margin: '0 auto',
+  },
   logos: {
+    margin: '0 auto',
+    maxWidth: 1000,
     marginTop: 100,
   },
   img: {
@@ -40,7 +45,7 @@ const styles = () => ({
 });
 
 const Stack = ({ classes }) => (
-  <div className="container-lg" style={{ marginTop: 200 }}>
+  <div className="container-lg" style={{ marginTop: 400 }}>
     <h2 className={classnames(classes.stackTitle)}>Leading Stack</h2>
     <div className={classes.stackText}>
       In our technological stack, we blend some of the most powerful, modern and popular development
