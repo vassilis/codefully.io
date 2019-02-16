@@ -11,7 +11,7 @@ import { withRouter } from 'next/router';
 const menuData = [
   { title: 'home', path: '/' },
   { title: 'work', path: '/work' },
-  { title: 'articles', path: '/services' },
+  { title: 'services', path: '/services' },
   { title: 'about', path: '/about' },
   { title: 'contact', path: '/contact' },
 ];
