@@ -12,7 +12,7 @@ const menuData = [
   { title: 'home', path: '/' },
   { title: 'work', path: '/work' },
   { title: 'services', path: '/services' },
-  { title: 'about', path: '/about' },
+  // { title: 'about', path: '/about' },
   { title: 'contact', path: '/contact' },
 ];
 
