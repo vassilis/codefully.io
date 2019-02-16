@@ -22,7 +22,7 @@ function Stack(props) {
           The right tools can save you a lot of time and money
         </h1>
         <h2 className={classes.title}>Choosing the right technologies</h2>
-        <div style={{ maxWidth: 800 }}>
+        <div style={{ maxWidth: 900 }}>
           <p>
             It used to be that a web developer had to use just an editor and a compiler. The only
             choice available was the programming language. Even then, most of the decisions were
