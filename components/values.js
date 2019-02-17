@@ -63,7 +63,7 @@ const Values = ({ classes }) => (
       </Grid>
       <Grid item xs={12} lg={6}>
         <div className={classes.box}>
-          <img src={img3} alt="" className={classes.img} />
+          {/* <img src={img3} alt="" className={classes.img} /> */}
           <div className={classes.text}>
             <h2 className={classes.subtitle}>People above projects</h2>
             We choose what we work on based on the teams that are involved. We believe that success
@@ -74,7 +74,7 @@ const Values = ({ classes }) => (
       </Grid>
       <Grid item xs={12} lg={6}>
         <div className={classes.box}>
-          <img src={img4} alt="" className={classes.img} />
+          {/* <img src={img4} alt="" className={classes.img} /> */}
           <div className={classes.text}>
             <h2 className={classes.subtitle}>Accessibility over rigid relationships</h2>
             We are easy to talk to and always make sure that our customers can easily reach us.
