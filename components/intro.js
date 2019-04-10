@@ -11,19 +11,9 @@ const styles = () => ({
   },
   outer: {
     padding: '200px 20px',
-    border: `1px solid ${Grey[300]}`,
     position: 'relative',
-    '&:before': {
-      content: '""',
-      display: 'block',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      mixBlendMode: 'difference',
-      backgroundColor: 'rgba(255,255,255,0.2)',
-    },
+    backgroundColor: Grey[200],
+    mixBlendMode: 'multiply',
   },
   heroText: {
     maxWidth: 1000,

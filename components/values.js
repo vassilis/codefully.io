@@ -5,8 +5,8 @@ import { Grid } from '@material-ui/core';
 import Grey from '@material-ui/core/colors/grey';
 import img1 from '../images/values/28x.jpg';
 import img2 from '../images/values/18x.jpg';
-import img3 from '../images/values/team.jpg';
-import img4 from '../images/values/working.jpg';
+// import img3 from '../images/values/team.jpg';
+// import img4 from '../images/values/working.jpg';
 
 const styles = () => ({
   root: {
