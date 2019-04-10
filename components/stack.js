@@ -15,7 +15,7 @@ import LogoHeroku from '../images/stack/logo-heroku.svg';
 import LogoMaterial from '../images/stack/logo-material-ui.svg';
 import LogoBootstrap from '../images/stack/logo-bootstrap.svg';
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     marginTop: 400,
     position: 'relative',
@@ -40,6 +40,11 @@ const styles = () => ({
     height: 100,
     margin: '10px 20px 0 0',
   },
+  row: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'inline',
+    },
+  },
 });
 
 const Stack = ({ classes }) => (
@@ -52,7 +57,7 @@ const Stack = ({ classes }) => (
       Highcharts.
     </div>
     <div className={classes.logos}>
-      <div>
+      <div className={classes.row}>
         <Tooltip title="AWS / Amazon Web Services" placement="top">
           <img
             className={classes.img}
@@ -74,7 +79,7 @@ const Stack = ({ classes }) => (
           <img className={classes.img} src={LogoRedux} alt="Redux" />
         </Tooltip>
       </div>
-      <div style={{ textAlign: 'right' }}>
+      <div className={classes.row} style={{ textAlign: 'right' }}>
         <Tooltip title="Ruby on Rails" placement="top">
           <img className={classes.img} src={LogoRails} alt="Ruby on Rails" />
         </Tooltip>

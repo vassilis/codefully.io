@@ -4,16 +4,19 @@ import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import Grey from '@material-ui/core/colors/grey';
 
-const styles = () => ({
+const styles = theme => ({
   heroTitle: {
     margin: '200px auto',
     maxWidth: 1000,
   },
   outer: {
-    padding: '200px 20px',
     position: 'relative',
     backgroundColor: Grey[200],
     mixBlendMode: 'multiply',
+    padding: '200px 20px',
+    [theme.breakpoints.down('sm')]: {
+      padding: 20,
+    },
   },
   heroText: {
     maxWidth: 1000,
