@@ -4,19 +4,15 @@ import { Grid, Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import { Formik } from 'formik';
+import PropTypes from 'prop-types';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
-const contactFormEndpoint = process.env.REACT_APP_CONTACT_ENDPOINT;
+// const contactFormEndpoint = process.env.REACT_APP_CONTACT_ENDPOINT;
+const contactFormEndpoint = 'https://9m9cg4x625.execute-api.us-east-1.amazonaws.com/default/contact-form';
 
-function ContactPage(props) {
+function ContactPage() {
   const [isSubmitionCompleted, setSubmitionCompleted] = useState(false);
-
-  // handleChange = name => (event) => {
-  //   this.setState({
-  //     [name]: event.target.value,
-  //   });
-  // };
 
   return (
     <React.Fragment>
@@ -35,7 +31,20 @@ function ContactPage(props) {
               email: '',
               name: '',
               phone: '',
-              message: '',
+              comment: '',
+            }}
+            validate={(values) => {
+              const errors = {};
+              if (!values.message) {
+                errors.comment = 'Required';
+              } else if (!values.name) {
+                errors.name = 'Required';
+              } else if (!values.email) {
+                errors.email = 'Required';
+              } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+                errors.email = 'Invalid email address';
+              }
+              return errors;
             }}
             onSubmit={(values, { setSubmitting }) => {
               setSubmitting(true);
@@ -44,7 +53,7 @@ function ContactPage(props) {
                   headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json',
-                    'x-api-key': `${process.env.REACT_APP_CONTACT_ENDPOINT_API_KEY}`,
+                    'x-api-key': 'QclM5NNsl49M7lUPxGEXk7jW8IazjJgLaIHuRpug',
                   },
                 })
                 .then((resp) => {
@@ -52,75 +61,85 @@ function ContactPage(props) {
                 });
             }}
           >
-            <form
-              name="contact"
-              method="post"
-              data-netlify-honeypot="bot-field"
-              data-netlify="true"
-            >
-              <input type="hidden" name="bot-field" />
-              <Grid container spacing={24}>
-                <Grid item sm={7}>
+            {(props) => {
+              const {
+                values,
+                touched,
+                errors,
+                dirty,
+                isSubmitting,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                handleReset,
+              } = props;
+              return (
+                <form onSubmit={handleSubmit}>
+                  <input type="hidden" name="app" value="codefully.io" />
+                  <Grid container spacing={24}>
+                    <Grid item sm={7}>
+                      <TextField
+                        required
+                        id="name"
+                        name="name"
+                        label="Name"
+                        value={values.name}
+                        onChange={handleChange}
+                        margin="normal"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item sm={7}>
+                      <TextField
+                        required
+                        id="email"
+                        name="email"
+                        type="email"
+                        label="Email Address"
+                        value={values.email}
+                        onChange={handleChange}
+                        margin="normal"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item sm={7}>
+                      <TextField
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        label="Phone Number"
+                        value={values.phone}
+                        onChange={handleChange}
+                        margin="normal"
+                        fullWidth
+                      />
+                    </Grid>
+                  </Grid>
+                  <br />
                   <TextField
                     required
-                    id="name"
-                    name="name"
-                    label="Name"
-                    value={name}
-                    onChange={this.handleChange('name')}
-                    margin="normal"
+                    id="comment"
+                    name="comment"
+                    label="What can we do for you?"
+                    multiline
                     fullWidth
-                  />
-                </Grid>
-                <Grid item sm={7}>
-                  <TextField
-                    required
-                    id="email"
-                    name="email"
-                    type="email"
-                    label="Email Address"
-                    value={email}
-                    onChange={this.handleChange('email')}
+                    rowsMax="10"
+                    value={values.comment}
+                    onChange={handleChange}
                     margin="normal"
-                    fullWidth
                   />
-                </Grid>
-                <Grid item sm={7}>
-                  <TextField
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    label="Phone Number"
-                    value={phone}
-                    onChange={this.handleChange('phone')}
-                    margin="normal"
-                    fullWidth
-                  />
-                </Grid>
-              </Grid>
-              <br />
-              <TextField
-                required
-                id="message"
-                name="message"
-                label="What can we do for you?"
-                multiline
-                fullWidth
-                rowsMax="10"
-                value={message}
-                onChange={this.handleChange('message')}
-                margin="normal"
-              />
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                color="primary"
-                style={{ marginTop: 40 }}
-              >
-                Submit
-              </Button>
-            </form>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    style={{ marginTop: 40 }}
+                  >
+                    Submit
+                  </Button>
+                </form>
+              );
+            }}
           </Formik>
         </div>
       </div>
@@ -128,5 +147,17 @@ function ContactPage(props) {
     </React.Fragment>
   );
 }
+
+ContactPage.propTypes = {
+  values: PropTypes.objectOf(PropTypes.string).isRequired,
+  touched: PropTypes.bool.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  dirty: PropTypes.bool.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired,
+};
 
 export default ContactPage;
