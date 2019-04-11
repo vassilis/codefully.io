@@ -1,41 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Grid, Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import axios from 'axios';
+import { Formik } from 'formik';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
-class ContactPage extends React.Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    message: '',
-    email: '',
-    phone: '',
-  };
+const contactFormEndpoint = process.env.REACT_APP_CONTACT_ENDPOINT;
 
-  handleChange = name => (event) => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
+function ContactPage(props) {
+  const [isSubmitionCompleted, setSubmitionCompleted] = useState(false);
 
-  render() {
-    const {
-      firstName, lastName, email, phone, message,
-    } = this.state;
-    return (
-      <React.Fragment>
-        <Navbar />
-        <div className="container-md" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
-          <div className="container" style={{ padding: '50px 0' }}>
-            <Typography variant="h3" className="hero" gutterBottom>
-              <strong>
-                We love to discuss and analyse business stories! Let&apos;s talk and find out if we
-                are a good fit for your project.
-              </strong>
-            </Typography>
-            <br />
+  // handleChange = name => (event) => {
+  //   this.setState({
+  //     [name]: event.target.value,
+  //   });
+  // };
+
+  return (
+    <React.Fragment>
+      <Navbar />
+      <div className="container-md" style={{ padding: '0 20px', margin: '0 auto 50px' }}>
+        <div className="container" style={{ padding: '50px 0' }}>
+          <Typography variant="h3" className="hero" gutterBottom>
+            <strong>
+              We love to discuss and analyse business stories! Let&apos;s talk and find out if we
+              are a good fit for your project.
+            </strong>
+          </Typography>
+          <br />
+          <Formik
+            initialValues={{
+              email: '',
+              name: '',
+              phone: '',
+              message: '',
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              setSubmitting(true);
+              axios
+                .post(contactFormEndpoint, values, {
+                  headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                    'x-api-key': `${process.env.REACT_APP_CONTACT_ENDPOINT_API_KEY}`,
+                  },
+                })
+                .then((resp) => {
+                  setSubmitionCompleted(true);
+                });
+            }}
+          >
             <form
               name="contact"
               method="post"
@@ -44,33 +60,19 @@ class ContactPage extends React.Component {
             >
               <input type="hidden" name="bot-field" />
               <Grid container spacing={24}>
-                <Grid item sm={6}>
+                <Grid item sm={7}>
                   <TextField
                     required
-                    id="firstName"
-                    name="firstName"
-                    label="First Name"
-                    value={firstName}
-                    onChange={this.handleChange('firstName')}
+                    id="name"
+                    name="name"
+                    label="Name"
+                    value={name}
+                    onChange={this.handleChange('name')}
                     margin="normal"
                     fullWidth
                   />
                 </Grid>
-                <Grid item sm={6}>
-                  <TextField
-                    required
-                    id="lastName"
-                    name="lastName"
-                    label="Last Name"
-                    value={lastName}
-                    onChange={this.handleChange('lastName')}
-                    margin="normal"
-                    fullWidth
-                  />
-                </Grid>
-              </Grid>
-              <Grid container spacing={24}>
-                <Grid item sm={6}>
+                <Grid item sm={7}>
                   <TextField
                     required
                     id="email"
@@ -83,9 +85,8 @@ class ContactPage extends React.Component {
                     fullWidth
                   />
                 </Grid>
-                <Grid item sm={6}>
+                <Grid item sm={7}>
                   <TextField
-                    required
                     id="phone"
                     name="phone"
                     type="tel"
@@ -110,16 +111,22 @@ class ContactPage extends React.Component {
                 onChange={this.handleChange('message')}
                 margin="normal"
               />
-              <Button type="submit" variant="contained" color="primary" style={{ marginTop: 20 }}>
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                color="primary"
+                style={{ marginTop: 40 }}
+              >
                 Submit
               </Button>
             </form>
-          </div>
+          </Formik>
         </div>
-        <Footer />
-      </React.Fragment>
-    );
-  }
+      </div>
+      <Footer />
+    </React.Fragment>
+  );
 }
 
 export default ContactPage;
