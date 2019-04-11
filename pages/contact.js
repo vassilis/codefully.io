@@ -35,7 +35,7 @@ function ContactPage() {
             }}
             validate={(values) => {
               const errors = {};
-              if (!values.message) {
+              if (!values.comment) {
                 errors.comment = 'Required';
               } else if (!values.name) {
                 errors.name = 'Required';
