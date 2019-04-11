@@ -21,7 +21,7 @@
     "react-dom": "^16.8.6",
     "react-ga": "^2.5.7",
     "react-jss": "^8.1.0",
-    "react-transition-group": "^2.9.0",
+    "react-transition-group": "^1.2.1",
     "regenerator-runtime": "^0.13.2",
     "rfs": "^8.0.4",
     "styled-jsx": "^3.2.1"
