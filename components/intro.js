@@ -15,7 +15,7 @@ const styles = theme => ({
     mixBlendMode: 'multiply',
     padding: '200px 20px',
     [theme.breakpoints.down('sm')]: {
-      padding: 20,
+      padding: 40,
     },
   },
   heroText: {

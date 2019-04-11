@@ -19,6 +19,7 @@ const styles = () => ({
   },
   subtitle: {
     lineHeight: 1,
+    marginTop: 0,
     marginBottom: 20,
   },
   text: {
@@ -30,8 +31,9 @@ const styles = () => ({
     height: '100%',
   },
   img: {
-    width: '100%',
     borderBottom: '10px white solid',
+    display: 'flex',
+    width: '100%',
   },
 });
 
