@@ -46,7 +46,7 @@ function ContactPage() {
               }
               return errors;
             }}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values, { setSubmitting, resetForm }) => {
               setSubmitting(true);
               axios
                 .post(contactFormEndpoint, values, {
@@ -58,6 +58,7 @@ function ContactPage() {
                 })
                 .then((resp) => {
                   setSubmitionCompleted(true);
+                  resetForm();
                 });
             }}
           >
@@ -128,15 +129,25 @@ function ContactPage() {
                     onChange={handleChange}
                     margin="normal"
                   />
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    style={{ marginTop: 40 }}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginTop: 40,
+                    }}
                   >
-                    Submit
-                  </Button>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                      disabled={isSubmitting}
+                    >
+                      Submit
+                    </Button>
+                    {isSubmitionCompleted && "Thank you! We'll get in touch as soon as possible!"}
+                  </div>
                 </form>
               );
             }}
