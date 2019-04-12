@@ -59,6 +59,9 @@ function ContactPage() {
                 .then((resp) => {
                   setSubmitionCompleted(true);
                   resetForm();
+                  setTimeout(() => {
+                    setSubmitionCompleted(false);
+                  }, 10000);
                 });
             }}
           >
