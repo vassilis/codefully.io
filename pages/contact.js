@@ -21,8 +21,8 @@ function ContactPage() {
         <div className="container" style={{ padding: '50px 0' }}>
           <Typography variant="h3" className="hero" gutterBottom>
             <strong>
-              We love to discuss and analyse business stories! Let&apos;s talk and find out if we
-              are a good fit for your project.
+              We love to discuss and analyse business stories! Let&apos;s talk to find out if we are
+              a good fit for your project.
             </strong>
           </Typography>
           <br />
