@@ -32,6 +32,7 @@ function ContactPage() {
               name: '',
               phone: '',
               comment: '',
+              app: 'codefully.io',
             }}
             validate={(values) => {
               const errors = {};
@@ -79,7 +80,7 @@ function ContactPage() {
               } = props;
               return (
                 <form onSubmit={handleSubmit}>
-                  <input type="hidden" name="app" value="codefully.io" />
+                  <input type="hidden" name="app" value={values.app} />
                   <Grid container spacing={24}>
                     <Grid item sm={7}>
                       <TextField
