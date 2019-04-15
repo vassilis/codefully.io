@@ -156,9 +156,16 @@ function ContactPage() {
               );
             }}
           </Formik>
+          <div style={{ marginTop: 200 }}>
+            <h3>Office address</h3>
+            3 Farmakidou St.
+            <br />
+            Chalkida
+            <br />
+            34100 Greece
+          </div>
         </div>
       </div>
-      <Footer />
     </React.Fragment>
   );
 }

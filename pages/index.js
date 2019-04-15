@@ -5,7 +5,6 @@ import Intro from '../components/intro';
 import Stack from '../components/stack';
 import Values from '../components/values';
 import Navbar from '../components/navbar';
-import Footer from '../components/footer';
 import Shapes from '../components/shapes';
 
 const styles = () => ({
@@ -32,7 +31,6 @@ class Index extends React.Component {
         <Intro />
         <Values />
         <Stack />
-        <Footer />
         <Shapes />
       </React.Fragment>
     );

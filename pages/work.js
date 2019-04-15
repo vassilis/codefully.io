@@ -9,7 +9,6 @@ import goma1 from '../images/work/goma1.png';
 import goma2 from '../images/work/goma2.png';
 import goma3 from '../images/work/goma3.png';
 import goma4 from '../images/work/goma4.png';
-import Footer from '../components/footer';
 
 const styles = theme => ({
   root: {
@@ -60,7 +59,6 @@ function About(props) {
           </Grid>
         </Grid>
       </div>
-      <Footer />
     </React.Fragment>
   );
 }
