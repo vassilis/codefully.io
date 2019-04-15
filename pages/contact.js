@@ -82,7 +82,7 @@ function ContactPage() {
                 <form onSubmit={handleSubmit}>
                   <input type="hidden" name="app" value={values.app} />
                   <Grid container spacing={24}>
-                    <Grid item sm={7}>
+                    <Grid item xs={12} md={7}>
                       <TextField
                         required
                         id="name"
@@ -94,7 +94,7 @@ function ContactPage() {
                         fullWidth
                       />
                     </Grid>
-                    <Grid item sm={7}>
+                    <Grid item xs={12} md={7}>
                       <TextField
                         required
                         id="email"
@@ -107,7 +107,7 @@ function ContactPage() {
                         fullWidth
                       />
                     </Grid>
-                    <Grid item sm={7}>
+                    <Grid item xs={12} md={7}>
                       <TextField
                         id="phone"
                         name="phone"
