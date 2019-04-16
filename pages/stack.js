@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 const styles = theme => ({
   title: {
@@ -78,6 +79,7 @@ function Stack(props) {
             gut feeling!
           </p>
         </div>
+        <Footer />
       </div>
     </React.Fragment>
   );

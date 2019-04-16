@@ -166,6 +166,12 @@ function ContactPage() {
           </div>
         </div>
       </div>
+      <iframe
+        title="map"
+        src="https://snazzymaps.com/embed/148724"
+        style={{ width: '100%', height: 600, border: 'none' }}
+      />
+      <Footer />
     </React.Fragment>
   );
 }

@@ -6,6 +6,7 @@ import Stack from '../components/stack';
 import Values from '../components/values';
 import Navbar from '../components/navbar';
 import Shapes from '../components/shapes';
+import Footer from '../components/footer';
 
 const styles = () => ({
   heroTitle: {
@@ -32,6 +33,7 @@ class Index extends React.Component {
         <Values />
         <Stack />
         <Shapes />
+        <Footer />
       </React.Fragment>
     );
   }

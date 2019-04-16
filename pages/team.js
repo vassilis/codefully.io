@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 const styles = theme => ({
   root: {
@@ -62,6 +63,7 @@ function About(props) {
             corporations (Siemens, Eaton, Orsam, Rittal, Wesco, among others).
           </p>
         </div>
+        <Footer />
       </div>
     </React.Fragment>
   );

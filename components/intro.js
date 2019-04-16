@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
-import Grey from '@material-ui/core/colors/grey';
+import grey from '@material-ui/core/colors/grey';
 
 const styles = theme => ({
   heroTitle: {
@@ -10,8 +10,7 @@ const styles = theme => ({
     maxWidth: 1000,
   },
   outer: {
-    position: 'relative',
-    backgroundColor: Grey[200],
+    backgroundColor: grey[200],
     mixBlendMode: 'multiply',
     padding: '200px 20px',
     [theme.breakpoints.down('sm')]: {
