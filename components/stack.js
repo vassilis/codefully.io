@@ -39,6 +39,7 @@ const styles = theme => ({
     width: 100,
     height: 100,
     margin: '10px 20px 0 0',
+    mixBlendMode: 'multiply',
   },
   row: {
     [theme.breakpoints.down('sm')]: {

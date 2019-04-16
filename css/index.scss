@@ -154,6 +154,7 @@ a.hi {
   line-height: 1.5;
   text-decoration: none;
   transition: 200ms background-color;
+  mix-blend-mode: multiply;
 
   &:hover {
     background-color: #c5cae9;
