@@ -16,7 +16,7 @@ const styles = theme => ({
   },
 });
 
-function About(props) {
+function Team(props) {
   const { classes } = props;
 
   return (
@@ -69,8 +69,8 @@ function About(props) {
   );
 }
 
-About.propTypes = {
+Team.propTypes = {
   classes: PropTypes.objectOf.isRequired,
 };
 
-export default withStyles(styles)(About);
+export default withStyles(styles)(Team);
