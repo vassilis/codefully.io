@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
+import Grid from '@material-ui/core/Grid';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import GomaCard from '../components/gomaCard';
@@ -35,8 +36,14 @@ function Work() {
     <React.Fragment>
       <Navbar />
       <div className="container-lg" style={{ padding: '0 20px', margin: '100px auto 50px' }}>
-        <GomaCard />
-        <VetrianCard />
+        <Grid container spacing={24}>
+          <Grid item xs={12} md={6}>
+            <GomaCard />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <VetrianCard />
+          </Grid>
+        </Grid>
       </div>
       <Footer />
     </React.Fragment>

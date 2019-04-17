@@ -7,13 +7,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import grey from '@material-ui/core/colors/grey';
+import Router from 'next/router';
 import vetrian from '../images/work/vetrian.png';
 
 const styles = theme => ({
   card: {
     border: '1px solid',
     borderColor: grey[200],
-    marginTop: 50,
+    marginBottom: 50,
   },
   cardactionarea: {
     display: 'flex',
@@ -43,7 +44,10 @@ function VetrianCard(props) {
 
   return (
     <Card className={classes.card} elevation={0}>
-      <CardActionArea className={classes.cardactionarea}>
+      <CardActionArea
+        className={classes.cardactionarea}
+        onClick={() => Router.push('/work/vetrian')}
+      >
         <CardMedia className={classes.cover} image={vetrian} title="Vetrian" />
         <div className={classes.details}>
           <CardContent className={classes.content}>

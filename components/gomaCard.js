@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import Router from 'next/router';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -11,9 +12,9 @@ import goma from '../images/work/goma.jpg';
 
 const styles = theme => ({
   card: {
-    display: 'flex',
     border: '1px solid',
     borderColor: grey[200],
+    marginBottom: 50,
   },
   cardactionarea: {
     display: 'flex',
@@ -43,7 +44,7 @@ function GomaCard(props) {
 
   return (
     <Card className={classes.card} elevation={0}>
-      <CardActionArea className={classes.cardactionarea}>
+      <CardActionArea className={classes.cardactionarea} onClick={() => Router.push('/work/goma')}>
         <CardMedia className={classes.cover} image={goma} title="Goma" />
         <div className={classes.details}>
           <CardContent className={classes.content}>
