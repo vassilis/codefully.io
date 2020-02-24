@@ -11,7 +11,7 @@ import Menu from './menu';
 const styles = () => ({
   navbar: {
     position: 'sticky',
-    top: 0,
+    top: 20,
     paddingTop: 20,
     zIndex: 1000,
     margin: '0 auto',
